@@ -57,12 +57,11 @@ for a in aoi_list:
     cb = plt.colorbar(pcm, ax=ax, orientation="horizontal", pad=0.05, shrink=0.8)
     cb.set_label("Elevation (m)")
     
-    # Set output folder where plot will be saved
-    ROOT_DIR = Path(__file__).resolve().parent
-    outdir = ROOT_DIR / "wkb-evaluation" / "images"
+    # Set output folder where plot will be saved & file name
+    SCRIPT_DIR = Path(__file__).resolve().parent
+    ROOT_DIR = SCRIPT_DIR.parent
+    outdir = ROOT_DIR / "data" / "models"
     outdir.mkdir(parents=True, exist_ok=True)
-
-    # Get filename from AOI class and append _crm.png before saving
     fname_stem = Path(a.filename).stem
     outpath = outdir / f"{fname_stem}_crm.png"
 

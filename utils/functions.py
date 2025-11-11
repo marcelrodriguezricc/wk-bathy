@@ -54,3 +54,10 @@ def download_crm(dods_url: str, out_dir: str = "data") -> Path:
     print("\nDownload complete.")
 
     return local
+
+# Based on input, iterate sequentially by n-amount in positive then negative directions
+def iterate_offset(n):
+    yield 0
+    for k in range(1, n + 1):
+        yield k
+        yield -k
