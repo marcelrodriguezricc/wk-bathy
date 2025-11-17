@@ -23,6 +23,15 @@ aoi_list = [AOI(**a) for a in aoi_data]
 # User Parameters
 num_days = params.num_days
 
+# Set directory for loading dataset
+SCRIPT_DIR = Path(__file__).resolve().parent
+ROOT_DIR = SCRIPT_DIR.parent
+dir = ROOT_DIR / "data" / "models"
+
+# Set output folder where plot will be saved as well as filename
+outdir_img = ROOT_DIR / "images" / "swh_plots"
+outdir_img.mkdir(parents=True, exist_ok=True)
+
 # Initialize ict to store date and SWH mean arrays
 results = {} 
 
@@ -31,11 +40,8 @@ for a in aoi_list:
     # Fetch center date
     center_date = datetime.fromisoformat(str(a.crm_date))
 
-    # Get directory where wave data subset is saved
+    # Get filename for loading dataset
     header = Path(a.filename).stem
-    SCRIPT_DIR = Path(__file__).resolve().parent
-    ROOT_DIR = SCRIPT_DIR.parent
-    dir = ROOT_DIR / "data" / "models"
 
     # Initialize arrays to store dates and SWH means greater than 1m
     dates = []
@@ -79,13 +85,11 @@ for a in aoi_list:
         label="> 1m"
     )
 
-    # Set output folder where plot will be saved as well as filename
-    outdir_img = ROOT_DIR / "images"
-    outdir_img.mkdir(parents=True, exist_ok=True)
+    # Set filename from AOI object for saving plot and append to path string
     fname_stem = Path(a.filename).stem
     outpath = outdir_img / f"{fname_stem}_swh.png"
 
-    # Initialize plot, show, and save
+    # Initialize plot and format
     plt.xlabel("Date")
     plt.ylabel("Mean SWH")
     plt.title(f"Daily Mean SWH – {a.name}")
@@ -93,5 +97,12 @@ for a in aoi_list:
     plt.gcf().autofmt_xdate(rotation=45)
     plt.xticks(fontsize=8)
     plt.tight_layout()
-    fig.savefig(outpath, dpi=300, bbox_inches='tight')
+
+    # Save the figure, unless already in folder
+    if outpath.exists():
+            print(f"Image already exists, skipping save: {outpath}")  
+    else:  
+        fig.savefig(outpath, dpi=300, bbox_inches='tight')
+
+    # Show plot
     plt.show()

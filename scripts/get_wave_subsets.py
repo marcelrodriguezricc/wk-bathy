@@ -24,6 +24,12 @@ aoi_list = [AOI(**a) for a in aoi_data]
 # User Parameters
 num_days = params.num_days
 
+# Set directory and prefix for saving dataset
+SCRIPT_DIR = Path(__file__).resolve().parent
+ROOT_DIR = SCRIPT_DIR.parent
+outdir = ROOT_DIR / "data" / "models"
+outdir.mkdir(parents=True, exist_ok=True)
+
 # For each AOI...
 for a in aoi_list:
     
@@ -36,11 +42,7 @@ for a in aoi_list:
     else:
         ds_name = "cmems_mod_glo_wav_my_0.2deg_PT3H-i"
 
-    # Set output folder where subset will be saved & filename
-    SCRIPT_DIR = Path(__file__).resolve().parent
-    ROOT_DIR = SCRIPT_DIR.parent
-    outdir = ROOT_DIR / "data" / "models"
-    outdir.mkdir(parents=True, exist_ok=True)
+    # Filename from AOI object for saving
     fname_stem = Path(a.filename).stem
 
     # For each day "num_days" before and after the center date...
@@ -52,6 +54,7 @@ for a in aoi_list:
         # Set filename for saving dataset locally
         outpath = outdir / f"{fname_stem}_wave_{d}.nc"
 
+        # If file already exists, skip
         if outpath.exists():
             print(f"Skipping {outpath} (already exists)")
             continue

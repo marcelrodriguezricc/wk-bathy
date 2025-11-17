@@ -26,6 +26,12 @@ aoi_list = [AOI(**a) for a in aoi_data]
 proj = ccrs.PlateCarree()
 norm = TwoSlopeNorm(vmin=-100, vcenter=0, vmax=500)
 
+# Set directory for saving plot
+SCRIPT_DIR = Path(__file__).resolve().parent
+ROOT_DIR = SCRIPT_DIR.parent
+outdir = ROOT_DIR / "images" / "crm_plots"
+outdir.mkdir(parents=True, exist_ok=True)
+    
 # For each AOI...
 for a in aoi_list:
 
@@ -57,16 +63,15 @@ for a in aoi_list:
     cb = plt.colorbar(pcm, ax=ax, orientation="horizontal", pad=0.05, shrink=0.8)
     cb.set_label("Elevation (m)")
     
-    # Set output folder where plot will be saved & file name
-    SCRIPT_DIR = Path(__file__).resolve().parent
-    ROOT_DIR = SCRIPT_DIR.parent
-    outdir = ROOT_DIR / "data" / "models"
-    outdir.mkdir(parents=True, exist_ok=True)
+    # Set filename from AOI object for saving plot and append to path string
     fname_stem = Path(a.filename).stem
     outpath = outdir / f"{fname_stem}_crm.png"
 
-    # Save the figure
-    fig.savefig(outpath, dpi=300, bbox_inches='tight')
+    # Save the figure, unless already in folder
+    if outpath.exists():
+            print(f"Image already exists, skipping save: {outpath}")
+    else:
+        fig.savefig(outpath, dpi=300, bbox_inches='tight')
 
     # Show the figure
     plt.show()

@@ -23,21 +23,23 @@ aoi_list = [AOI(**a) for a in aoi_data]
 # User Parameters
 num_days = params.num_days
 
+# Set directory for loading datasets
+SCRIPT_DIR = Path(__file__).resolve().parent
+ROOT_DIR = SCRIPT_DIR.parent
+dir = ROOT_DIR / "data" / "models"
+
 # For each AOI...
 for a in aoi_list:
 
     # Establish center date based on CRM creation date
     center_date = datetime.fromisoformat(str(a.crm_date))
 
-    # Establish prefix of wave model file name
-    header = Path(a.filename).stem
-    SCRIPT_DIR = Path(__file__).resolve().parent
-    ROOT_DIR = SCRIPT_DIR.parent
-    dir = ROOT_DIR / "data" / "models"
-
     # Initialize arrays for storing dates and significant wave heights greater than 1
     dates_gt1 = []
     swh_gt1 = []
+
+    # Set prefix for saving dataset
+    header = Path(a.filename).stem
 
     # For each day "num_days" before and after the center date...
     for offset in iterate_offset(num_days):
@@ -63,6 +65,7 @@ for a in aoi_list:
            dates_gt1.append(date_str)
            swh_gt1.append(swh_avg)
     
+    # Store arrays in AOI object
     a.swh_array = swh_gt1
     a.swh_dates = dates_gt1
 
