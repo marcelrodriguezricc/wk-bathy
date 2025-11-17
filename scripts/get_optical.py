@@ -5,7 +5,7 @@ sys.path.insert(0, str(pathlib.Path(__file__).resolve().parents[1]))
 # Libraries
 import json
 import requests
-from utils.data_classes import AOI, params
+from utils.data_classes import AOI
 from pystac_client import Client
 from datetime import datetime, timedelta
 from pathlib import Path
@@ -27,6 +27,7 @@ SCRIPT_DIR = Path(__file__).resolve().parent
 ROOT_DIR = SCRIPT_DIR.parent
 data_dir = ROOT_DIR / "data" / "st2"
 data_dir.mkdir(parents=True, exist_ok=True)
+
 # For each AOI...
 for a in aoi_list:
 
@@ -102,7 +103,7 @@ for a in aoi_list:
         # Prepare dataset for saving
         href = asset.href
         ext = Path(href).suffix
-        outpath = data_dir / f"{a.filename}_{date}_optical{ext}"
+        outpath = data_dir / f"{a.filename}_optical_{date}{ext}"
 
         # Save file, skip if it already exists
         if outpath.exists():

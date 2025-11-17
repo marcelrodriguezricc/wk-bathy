@@ -28,7 +28,7 @@ SCRIPT_DIR = Path(__file__).resolve().parent
 ROOT_DIR = SCRIPT_DIR.parent
 dir = ROOT_DIR / "data" / "models"
 
-# Set output folder where plot will be saved as well as filename
+# Set output folder for plots
 outdir_img = ROOT_DIR / "images" / "swh_plots"
 outdir_img.mkdir(parents=True, exist_ok=True)
 
