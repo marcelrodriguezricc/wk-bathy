@@ -31,9 +31,8 @@ data_dir.mkdir(parents=True, exist_ok=True)
 # For each AOI...
 for a in aoi_list:
 
-    # Pair SWH mean values and dates, sort by largest to smallest, then split back into two lists
-    paired = sorted(zip(a.swh_array, a.swh_dates), reverse=True)
-    swh_mean, swh_dates = map(list, zip(*paired))
+    # Get dates from data for which SWH was > 1m
+    swh_dates = list(a.data.keys())
 
     # Get bounding box min & max latitude & longitude for dataset query
     min_lon = float(a.lon) - float(a.bbox_lon)
@@ -44,9 +43,6 @@ for a in aoi_list:
 
     # Initialize array to store dates with imagery and date/item storage
     found_dates = []
-    clouds = []
-    sun_azimuth = []
-    sun_elevation = []
     items_list = []
 
     # For each date with a mean significant wave height > 1m...
@@ -57,10 +53,7 @@ for a in aoi_list:
 
         # Set start and end of day as a strings
         start_of_day = d.strftime("%Y-%m-%d")
-        end_of_day = (d + timedelta(days=1)).strftime("%Y-%m-%d")
-
-        # Concatenate strings for dataset query
-        datetime_range = f"{start_of_day}/{end_of_day}"
+        datetime_range = f"{start_of_day}/{start_of_day}"
 
         # Query earth-search catalog based on criteria
         items = list(catalog.search(
@@ -125,20 +118,15 @@ for a in aoi_list:
 
         # Add saved dates to list to save to AOI object
         found_dates.append(date)
-        cloud_coverage = best_item.properties.get("eo:cloud_cover", 100)
-        clouds.append(cloud_coverage)
-        sun_az = best_item.properties.get("view:sun_azimuth")
-        sun_azimuth.append(sun_az)
-        sun_el = best_item.properties.get("view:sun_elevation")
-        sun_elevation.append(sun_el)
-        
+        a.data[date]["optical"] = {
+            "item_id": best_item.id,
+            "cloud_cover": best_item.properties.get("eo:cloud_cover", 100),
+            "sun_azimuth": best_item.properties.get("view:sun_azimuth"),
+            "sun_elevation": best_item.properties.get("view:sun_elevation"),
+        }
 
     # Print date of found datasets and save to AOI object
     print(f"\n{a.name} scenes downloaded for the following dates: {found_dates}")
-    a.optical_dates = found_dates
-    a.clouds = clouds
-    a.sun_azimuth = sun_azimuth
-    a.sun_elevation = sun_elevation
 
 # Prepare for JSON
 payload = [asdict(a) for a in aoi_list]

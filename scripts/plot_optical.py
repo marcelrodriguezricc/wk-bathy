@@ -29,8 +29,8 @@ outdir_img.mkdir(parents=True, exist_ok=True)
 # For each AOI...
 for a in aoi_list:
 
-    # Get dates list from AOI object
-    dates = a.optical_dates
+    # Get dates with optical data from AOI object
+    dates = [d for d in a.data if "optical" in a.data[d]]
     
     # Get bounding box min & max latitude & longitude for dataset query
     min_lon = float(a.lon) - float(a.bbox_lon)
@@ -45,14 +45,13 @@ for a in aoi_list:
         # Establish path and append with filename
         path = data_dir / f"{a.filename}_optical_{d}.tif"
 
-        # Get index of date in dates array, use to get SWH and Clouds for day
-        idx = dates.index(d)
-        swh_value = a.swh_array[idx]
-        cloud_value = a.clouds[idx]
-
-        # Get relative sun azimuth and elevation assuming nadir view from satellite
-        rel_azimuth = 90 - a.sun_azimuth[idx]
-        rel_elevation = 90 - a.sun_elevation[idx]
+        # Get data points for date essential to selection process
+        swh_val = a.data[d]["swh"]
+        period_val = a.data[d]["period"]
+        direction_val = a.data[d]["direction"]
+        cloud_val = a.data[d]["optical"]["cloud_cover"]
+        sun_az_val = a.data[d]["optical"]["sun_azimuth"]
+        sun_el_val = a.data[d]["optical"]["sun_elevation"]
 
         # Load dataset
         vis = rxr.open_rasterio(path)
@@ -67,13 +66,17 @@ for a in aoi_list:
         plt.imshow(np.clip(arr, 0, 1))
         plt.axis("off")
 
-        # Title and subtitle
+        # Title, comment box, layout
         plt.title(f"{a.name}, {d}", pad=16)
-        subtitle = (
-            f"Mean SWH: {swh_value:.2f} m, Cloud: {cloud_value:.2f}%\n"
-            f"Relative Solar Azimuth: {rel_azimuth:.2f}°, Relative Solar Elevation: {rel_elevation:.2f}°"
+        fig.text(
+            0.85, 0.5,                   
+            f"Mean SWH: {swh_val:.2f} m\nPeriod: {period_val:.2f} seconds\nDirection: {direction_val:.2f}°\nCloud Coverage: {cloud_val:.2f}\nSolar Azimuth: {sun_az_val:.2f}°\nSolar Elevation: {sun_el_val:.2f}°",
+            va="center", ha="left",
+            fontsize=10,
+            linespacing=2.0,
+            bbox=dict(facecolor="white", edgecolor="white")
         )
-        plt.suptitle(subtitle, fontsize=7, y=0.92)
+        plt.tight_layout()
 
         # Set filename from AOI object for saving plot and append to path string
         fname_stem = Path(a.filename).stem

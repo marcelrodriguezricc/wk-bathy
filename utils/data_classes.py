@@ -1,5 +1,5 @@
-from dataclasses import dataclass
-from typing import Optional
+from dataclasses import dataclass, field
+from typing import Dict, Any, Optional
 import numpy as np
 
 @dataclass
@@ -15,12 +15,7 @@ class AOI:
     bbox_lon: float = 0.25
     date_offset: int = 0
 
-    swh_array: Optional[np.ndarray] = None
-    swh_dates: Optional[list] = None
-    optical_dates: Optional[list] = None
-    clouds: Optional[list] = None
-    sun_azimuth: Optional[list] = None
-    sun_elevation: Optional[list] = None
+    data: Dict[str, Dict[str, Any]] = field(default_factory=dict)
 
 @dataclass
 class params:
