@@ -78,7 +78,7 @@ for a in aoi_list:
             end_datetime = end_datetime,
             output_filename = outpath,
         )
-
+    
 # Prepare for JSON
 payload = [asdict(a) for a in aoi_list]
 

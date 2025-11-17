@@ -18,6 +18,9 @@ class AOI:
     swh_array: Optional[np.ndarray] = None
     swh_dates: Optional[list] = None
     optical_dates: Optional[list] = None
+    clouds: Optional[list] = None
+    sun_azimuth: Optional[list] = None
+    sun_elevation: Optional[list] = None
 
 @dataclass
 class params:

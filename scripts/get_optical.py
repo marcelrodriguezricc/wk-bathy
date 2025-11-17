@@ -44,6 +44,9 @@ for a in aoi_list:
 
     # Initialize array to store dates with imagery and date/item storage
     found_dates = []
+    clouds = []
+    sun_azimuth = []
+    sun_elevation = []
     items_list = []
 
     # For each date with a mean significant wave height > 1m...
@@ -90,7 +93,7 @@ for a in aoi_list:
             items,
             key=lambda it: it.properties.get("eo:cloud_cover", 100)
         )
-        
+
         # Check for imagery of the full visible spectrum, else fall back to red band only, else neither skip
         if "visual" in best_item.assets:
             asset = best_item.assets["visual"]
@@ -122,10 +125,20 @@ for a in aoi_list:
 
         # Add saved dates to list to save to AOI object
         found_dates.append(date)
+        cloud_coverage = best_item.properties.get("eo:cloud_cover", 100)
+        clouds.append(cloud_coverage)
+        sun_az = best_item.properties.get("view:sun_azimuth")
+        sun_azimuth.append(sun_az)
+        sun_el = best_item.properties.get("view:sun_elevation")
+        sun_elevation.append(sun_el)
+        
 
     # Print date of found datasets and save to AOI object
     print(f"\n{a.name} scenes downloaded for the following dates: {found_dates}")
     a.optical_dates = found_dates
+    a.clouds = clouds
+    a.sun_azimuth = sun_azimuth
+    a.sun_elevation = sun_elevation
 
 # Prepare for JSON
 payload = [asdict(a) for a in aoi_list]

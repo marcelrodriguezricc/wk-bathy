@@ -68,7 +68,8 @@ for a in aoi_list:
     # Store arrays in AOI object
     a.swh_array = swh_gt1
     a.swh_dates = dates_gt1
-
+    print(f"\n{a.name} has {len(dates_gt1)} days with mean SWH > 1m")
+    
 # Prepare for JSON
 payload = [asdict(a) for a in aoi_list]
 

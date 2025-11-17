@@ -11,10 +11,10 @@ from dataclasses import asdict
 from utils.data_classes import AOI
 from utils.functions import dms_to_decimal
 
-# Ehukai Beach, Hawaii
+# North Shore, O'ahu, Hawaii
 ehukai_lat = dms_to_decimal(degrees = 21, minutes =  40, seconds = 19, direction = "N") # 21°40'19"N
 ehukai_lon = dms_to_decimal(degrees = 158, minutes =  3, seconds = 42, direction = "W") # 158°03'42"W
-aoi_1 = AOI(name = "North Shore, Oahu, Hawaii",
+aoi_1 = AOI(name = "North Shore, O'ahu, Hawaii",
             filename = "ehukai",
             lat = ehukai_lat,
             lon = ehukai_lon,
@@ -30,8 +30,8 @@ aoi_2 = AOI(name = "Golden Gate, California",
             filename = "gg",
             lat = gg_lat,
             lon = gg_lon,
-            bbox_lat = 0.25,
-            bbox_lon = 0.25,
+            bbox_lat = 0.05,
+            bbox_lon = 0.05,
             date_offset = 0,
             crm_link = "https://www.ngdc.noaa.gov/thredds/dodsC/crm/cudem/crm_vol7_2024.nc")
 
@@ -42,18 +42,18 @@ aoi_3 = AOI(name = "Diamond Shoals, North Carolina",
             filename = "dshoals",
             lat = ds_lat,
             lon = ds_lon,
-            bbox_lat = 0.25,
-            bbox_lon = 0.25,
+            bbox_lat = 0.05,
+            bbox_lon = 0.05,
             date_offset = 0,
             crm_link = "https://www.ngdc.noaa.gov/thredds/dodsC/crm/cudem/crm_vol2_2023.nc")
 
-# Jobos, Puerto Rico
-jobos_lat = dms_to_decimal(degrees = 18, minutes =  32, seconds = 16, direction = "N") # 18°32'16"N
-jobos_lon = dms_to_decimal(degrees = 67, minutes =  4, seconds = 23, direction = "W") # 67°04'23"W
+# Punta Jacinto, Puerto Rico
+pj_lat = dms_to_decimal(degrees = 18, minutes =  32, seconds = 16, direction = "N") # 18°32'16"N
+pj_lon = dms_to_decimal(degrees = 67, minutes =  4, seconds = 23, direction = "W") # 67°04'23"W
 aoi_4 = AOI(name = "Punta Jacinto, Puerto Rico", 
             filename = "pj",
-            lat = jobos_lat, 
-            lon = jobos_lon,
+            lat = pj_lat, 
+            lon = pj_lon,
             bbox_lat = 0.05,
             bbox_lon = 0.05,
             date_offset = 236,

@@ -43,7 +43,16 @@ for a in aoi_list:
     for d in dates:
 
         # Establish path and append with filename
-        path = data_dir / f"{a.filename}_optical_{d}.tif" # **** NEEDS TO BE CHANGED ****
+        path = data_dir / f"{a.filename}_optical_{d}.tif"
+
+        # Get index of date in dates array, use to get SWH and Clouds for day
+        idx = dates.index(d)
+        swh_value = a.swh_array[idx]
+        cloud_value = a.clouds[idx]
+
+        # Get relative sun azimuth and elevation assuming nadir view from satellite
+        rel_azimuth = 90 - a.sun_azimuth[idx]
+        rel_elevation = 90 - a.sun_elevation[idx]
 
         # Load dataset
         vis = rxr.open_rasterio(path)
@@ -56,9 +65,16 @@ for a in aoi_list:
         # Initialize figure and set parameters
         fig = plt.figure()
         plt.imshow(np.clip(arr, 0, 1))
-        plt.title(f"{a.name}, {d}, Sentinel-2 Imagery")
         plt.axis("off")
-        
+
+        # Title and subtitle
+        plt.title(f"{a.name}, {d}", pad=16)
+        subtitle = (
+            f"Mean SWH: {swh_value:.2f} m, Cloud: {cloud_value:.2f}%\n"
+            f"Relative Solar Azimuth: {rel_azimuth:.2f}°, Relative Solar Elevation: {rel_elevation:.2f}°"
+        )
+        plt.suptitle(subtitle, fontsize=7, y=0.92)
+
         # Set filename from AOI object for saving plot and append to path string
         fname_stem = Path(a.filename).stem
         outpath = outdir_img / f"{fname_stem}_optical_{d}.png"
