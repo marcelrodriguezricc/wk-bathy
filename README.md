@@ -7,14 +7,15 @@ The goal of this project is to derive bathymetric maps by WKB from both optical 
 
     - Select a variety of locations with diverse environmental conditions. 
     - They must also satisfy the conditions...
-        - Publicly accessible hydrographic shallow water survey data for final validation. (NOAA NCEI CRM).
-        - Have a swell-wave regime.
-        - An extended nearshore region of depths below 100 m.
+        - Publicly accessible hydrographic shallow water survey data
+        - Swell-wave regime
+            - Negligible effects from currents
+        - An extended nearshore region of depths below 100 m
 
 
     -  And they should vary by...
-        - Latitude
-        - Exposure to marine processes
+        - Latitude (turbidity)
+        - Exposure to marine processes (depositional/erosional)
         - Seafloor features (reefs, sandbars, canyons, heavy slope)
 
     -  Determine a time window based on the following conditions
@@ -25,13 +26,23 @@ The goal of this project is to derive bathymetric maps by WKB from both optical 
             - Global Ocean Physcis Analysis and Forecast
         - Additionally, record period and direction for future reference.
 
-- Step 2: Find, load, and match datasets
+- Step 2: Load and normalize datasets
 
-    - Filter potential datasets based on AOI bounding box and list of time windows
+    - Initialize each AOI with central latitude and longitude, filename header, link to CRM, and bounding box extents.
 
-    - Load Sentinel 1, Sentinel 2, and NCEI datasets datasets
+    - Load CRM, extract important metadata and save in AOI object.
 
-    - Match the dimensionality (Datum / CRS / Projection) for each dataset so overlayed pixels correspond spatially
+    - For a range of days around CRM creation date, use CMEMS Wave Analysis and Forecast to identify times for each AOI when Mean significant wave height greater than 1 m.
+        - Average of the highest one-third (33%) of waves (measured from trough to crest) that occur in a given period.
+        - Store swell period and direction data from CMEMS in AOI object for image selection and evaluation.
+    
+    - Look for Sentinel-2 imagery from days when significant wave height is greater than 1 m, and get image with best combination of factors for optical WKB.
+        - Higher SWH, low cloud coverage, wave direction toward solar azimuth, preferable solar elevation. 
+        - Store cloud coverage for image selection and evaluation.
+
+    - Look for Sentinel-1 imagery from days when significant wave height is greater than 1 m, and get image with best combination of factors for SAR WKB.
+
+    - Match the datum / CRS / projection of each image.
 
 - Step 4: Derive bathymetry
 
@@ -48,7 +59,7 @@ The goal of this project is to derive bathymetric maps by WKB from both optical 
     - Chart characteristics from wave model.
 
     - Calculate & chart “visibility index” based on the unique requirements for identifying surface waves from optical and SAR imagery.
-        - Sentinel 2 - Glint score & cloud coverage
+        - Sentinel 2 - "Glint score" & cloud coverage
         - Sentinel 1 - Backscatter and L-min
 
     - Compute root mean squared difference for each bathymetric derivation against CRM.
