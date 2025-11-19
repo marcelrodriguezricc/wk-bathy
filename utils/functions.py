@@ -61,3 +61,11 @@ def iterate_offset(n):
     for k in range(1, n + 1):
         yield k
         yield -k
+
+# Normalize Sentinel-1 href
+def normalize_href(href: str) -> str:
+    if href.startswith("s3://"):
+        return href.replace(
+        "s3://sentinel-s1-l1c/",
+        "https://sentinel-s1-l1c.s3.us-west-2.amazonaws.com/")
+    return href
