@@ -30,9 +30,13 @@ The goal of this project is to derive bathymetry by WKB for four nearshore areas
     
     - Look for Sentinel-2 imagery from days when SWH > 1 m, and get image with best combination of factors for optical WKB
         - Higher SWH, low cloud coverage, wave direction toward solar azimuth, preferable solar elevation
-        - Store cloud coverage for image selection and evaluation
+            - Store this information for image selection and evaluation
 
-    - Look for Sentinel-1 imagery from days when SWH > 1 m, and get image with best combination of factors for SAR WKB
+    - Look for Sentinel-1 VV imagery from days when SWH > 1 m, and get image with best combination of factors for SAR WKB
+        - Velocity brunching due to motion of waves relative to SAR.
+            - Swell wavelengths need to be greater than cutoff wavelength given by Lmin = R√H/V, where R is the slant range of the wave, V is the SAR platform velocity, and H is the significant wave height.
+                - Lmin should be as low as possible.
+
 
     - Reproject imagery and CRM for each AOI into respective UTM zone.
 
@@ -44,7 +48,7 @@ The goal of this project is to derive bathymetry by WKB for four nearshore areas
     - SAR
         - 2D Fast Fourier transform > wavelength estimation > linear dispersion [2]
 
-    - Generate maps of derived depths using Mean Sea Level as the vertical datum.
+    - Generate maps of derived depths using Mean Sea Level as the vertical datum
 
 - Step 5: Evaluation
 
