@@ -24,15 +24,17 @@ The goal of this project is to derive bathymetry by WKB for four nearshore areas
 
     - Load CRM, extract important metadata and save in AOI object
 
-    - For a range of days around CRM creation date, use CMEMS Wave Analysis and Forecast to identify times for each AOI when Mean significant wave height greater than 1 m
+    - For a range of days around CRM creation date, use CMEMS Wave Analysis and Forecast to identify times for each AOI when Mean significant wave height (SWH) greater than 1 m
         - Average of the highest one-third (33%) of waves (measured from trough to crest) that occur in a given period
         - Store swell period and direction data from CMEMS in AOI object for image selection and evaluation
     
-    - Look for Sentinel-2 imagery from days when significant wave height is greater than 1 m, and get image with best combination of factors for optical WKB
+    - Look for Sentinel-2 imagery from days when SWH > 1 m, and get image with best combination of factors for optical WKB
         - Higher SWH, low cloud coverage, wave direction toward solar azimuth, preferable solar elevation
         - Store cloud coverage for image selection and evaluation
 
-    - Look for Sentinel-1 imagery from days when significant wave height is greater than 1 m, and get image with best combination of factors for SAR WKB
+    - Look for Sentinel-1 imagery from days when SWH > 1 m, and get image with best combination of factors for SAR WKB
+
+    - Reproject imagery and CRM for each AOI into respective UTM zone.
 
 - Step 4: Derive bathymetry
 
@@ -42,7 +44,7 @@ The goal of this project is to derive bathymetry by WKB for four nearshore areas
     - SAR
         - 2D Fast Fourier transform > wavelength estimation > linear dispersion [2]
 
-    - Generate map figures for each
+    - Generate maps of derived depths using Mean Sea Level as the vertical datum.
 
 - Step 5: Evaluation
 
