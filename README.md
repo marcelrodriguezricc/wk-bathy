@@ -34,10 +34,12 @@ The goal of this project is to derive bathymetry by WKB for four nearshore areas
 
     - Look for Sentinel-1 VV imagery from days when SWH > 1 m, and get image with best combination of factors for SAR WKB
         - Bragg waves on sea surface
-            - Given by λB = 0.5λr sin θi, where λr is the radar wavelength, λB is the sea surface wavelength, and θi is the incidence angle.
-        - Velocity brunching due to motion of waves relative to SAR.
+            - Given by λB = 0.5λr sin θi, where λr is the radar wavelength, λB is the sea surface wavelength, and θi is the incidence angle
+        - Velocity brunching due to motion of waves relative to SAR
             - Swell wavelengths need to be greater than cutoff wavelength given by Lmin = R√H/V, where R is the slant range of the wave, V is the SAR platform velocity, and H is the significant wave height
                 - Lmin should be as low as possible
+                - Only pixels that satisfy Lmin threshold should be used for analysis
+                - The satellite-geometry based non-georeferenced VV measurement data should be used, and each pixel georeferenced with the associated XML file 
 
 
     - Reproject imagery and CRM for each AOI into respective UTM zone.

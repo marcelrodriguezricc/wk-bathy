@@ -96,7 +96,7 @@ for a in aoi_list:
             href = normalize_href(asset.href)
             ext = Path(href).suffix
             outpath = data_dir / f"{a.filename}_sar_{date}{ext}"
-                    
+
 
             # Save file, skip if it already exists
             if outpath.exists():
@@ -113,6 +113,48 @@ for a in aoi_list:
 
                 print(f"Saved {outpath}")
 
+            # Get Product XML
+            if pol == "vv":
+                xml_asset = it.assets.get("schema-product-vv")
+            elif pol == "vh":
+                xml_asset = it.assets.get("schema-product-vh")
+            else:
+                xml_asset = None
+
+            if xml_asset is None:
+                print(
+                    f"No product XML asset for {a.name} on {date}. "
+                )
+                continue
+
+            # There was a pointer error with Sentinel-1 schema-product-vv pointing to a RFI schema instead of product schema in the GRD metadata, this fixes that
+            raw_xml_href = xml_asset.href
+            if "/annotation/rfi/rfi-iw-" in raw_xml_href:
+                xml_href_fixed = raw_xml_href.replace("/annotation/rfi/rfi-iw-", "/annotation/iw-")
+            else:
+                xml_href_fixed = raw_xml_href
+
+            # Prepare product XML for saving
+            xml_href = normalize_href(xml_href_fixed)
+            xml_ext = Path(xml_href).suffix
+            xml_outpath = data_dir / f"{a.filename}_sar_{date}{xml_ext}"
+
+            # Save file, skip if it already exists
+            if xml_outpath.exists():
+                print(f"XML already exists, skipping download: {xml_outpath}")
+            else:
+                print(f"Downloading asset → {xml_outpath}")
+                resp = requests.get(xml_href, stream=True)
+                resp.raise_for_status()
+
+                with xml_outpath.open("wb") as f:
+                    for chunk in resp.iter_content(chunk_size=8192):
+                        if chunk:
+                            f.write(chunk)
+
+                print(f"Saved {xml_outpath}")
+
+            # Store metadata in AOI object for future reference
             found_dates.append(date)
             a.data[date]["sar"] = {
                 "item_id": it.id,

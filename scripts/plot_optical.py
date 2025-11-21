@@ -67,7 +67,7 @@ for a in aoi_list:
         plt.axis("off")
 
         # Title, comment box, layout
-        plt.title(f"{a.name}, {d}", pad=16)
+        plt.title(f"{a.name}, {d}, Sentinel-2", pad=16)
         fig.text(
             0.85, 0.5,                   
             f"Mean SWH: {swh_val:.2f} m\nPeriod: {period_val:.2f} seconds\nDirection: {direction_val:.2f}°\nCloud Coverage: {cloud_val:.2f}\nSolar Azimuth: {sun_az_val:.2f}°\nSolar Elevation: {sun_el_val:.2f}°",
