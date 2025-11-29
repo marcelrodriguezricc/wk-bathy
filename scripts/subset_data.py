@@ -7,7 +7,7 @@ import json
 import rasterio 
 
 import numpy as np
-from utils.functions import build_radar_coordinates, build_lat_lon_grids
+from utils.functions import build_radar_coordinates, build_lat_lon_grids, save_latlon
 import matplotlib.pyplot as plt
 from utils.data_classes import AOI
 from pathlib import Path
@@ -56,7 +56,6 @@ for a in aoi_list:
     period_val = a.data[sar_date]["period"]
     direction_val = a.data[sar_date]["direction"]
 
-
     # --- SAR SUBSETTING ---
 
     # Retrieve SAR metadata
@@ -85,6 +84,10 @@ for a in aoi_list:
     rows, cols = np.where(mask)
     row_min, row_max = rows.min(), rows.max()
     col_min, col_max = cols.min(), cols.max()
+    lat_subset = lat_full[row_min:row_max + 1, col_min:col_max + 1]
+    lon_subset = lon_full[row_min:row_max + 1, col_min:col_max + 1]
+    save_latlon(lat_subset, lon_subset, a.name, a.filename, sar_date, sar_outdir)
+
     with rasterio.open(sar_path) as src:
         window = Window.from_slices(
             (row_min, row_max + 1),
@@ -99,6 +102,15 @@ for a in aoi_list:
             "dtype": "float32"
         })
 
+    # Flip horizontal and vertical if satellite is ascending, flip horizontal if descending, for correct image orientation
+    if orb == "ascending":
+        backscatter = backscatter[::-1, :]
+        lat_subset = lat_subset[::-1, :]
+        lon_subset = lon_subset[::-1, :]
+    elif orb == "descending":
+        backscatter = backscatter[:, ::-1]
+        lon_subset = lon_subset[::-1, :]
+
     # Write subset to new raster
     sar_outpath = sar_outdir / f"{a.filename}_sar_subset_{sar_date}.tiff"
     if sar_outpath.exists():
@@ -112,7 +124,7 @@ for a in aoi_list:
     if sar_img_outpath.exists():
         print(f"SAR image already exists for {a.name}, skipping save: {sar_img_outpath}")
     else:
-        plt.imshow(backscatter, cmap="gray", vmin=None, vmax=None)
+        plt.imshow(backscatter, cmap="gray")
         plt.axis("off")
         plt.tight_layout(pad=0)
         plt.margins(0)
@@ -133,7 +145,6 @@ for a in aoi_list:
             x_min, y_min, x_max, y_max,
             transform=src.transform,
         )
-        print("Window:", window, "height:", window.height, "width:", window.width)
         opt_data = src.read(window=window)
         profile = src.profile.copy()
         profile.update(
@@ -157,7 +168,7 @@ for a in aoi_list:
     if opt_img_outpath.exists():
         print(f"Optical image already exists for {a.name}, skipping save: {opt_img_outpath}")
     else:
-        plt.imshow(opt_data[0], cmap="gray", vmin=None, vmax=None)
+        plt.imshow(opt_data[0], cmap="gray")
         plt.axis("off")
         plt.tight_layout(pad=0)
         plt.margins(0)

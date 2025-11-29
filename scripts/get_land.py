@@ -17,7 +17,7 @@ with open("config/aoi_list.json") as f:
 # Set directory and prefix for saving dataset
 SCRIPT_DIR = Path(__file__).resolve().parent
 ROOT_DIR = SCRIPT_DIR.parent
-out_dir = ROOT_DIR / "data" / "shoreline_vectors"
+out_dir = ROOT_DIR / "data" / "land_vectors"
 out_dir.mkdir(parents=True, exist_ok=True)
 
 # Reconstruct AOI objects and store in array
@@ -27,17 +27,17 @@ aoi_list = [AOI(**a) for a in aoi_data]
 for a in aoi_list:
 
     # Get shoreline link from AOI object
-    cusp_url = a.shoreline_link
+    ne_url = "https://naciscdn.org/naturalearth/10m/physical/ne_10m_land.zip"
 
     # Set filename for saving
-    outpath = out_dir / f"{a.filename}_shoreline.zip"
+    outpath = out_dir / "ne_10m_land.zip"
 
     # If file already exists skip, else download
     if outpath.exists():
         print(f"Zip already exists, skipping download: {outpath}")
     else:
-        print(f"Downloading CUSP shapefile from {cusp_url} ...")
-        resp = requests.get(cusp_url, stream=True)
+        print(f"Downloading Natural Earth shapefile from { ne_url} ...")
+        resp = requests.get(ne_url, stream=True)
         resp.raise_for_status()
         with open(outpath, "wb") as f:
             for chunk in resp.iter_content(chunk_size=8192):
@@ -45,7 +45,7 @@ for a in aoi_list:
         print("Download complete, saved to", outpath)
 
     # Create new folder to save shapefiles
-    extract_dir = out_dir / f"{a.filename}_shoreline_shp"
+    extract_dir = out_dir / f"ne_10m_shp"
     extract_dir.mkdir(exist_ok=True)
 
     # If shapefile folder already exists skip, else download

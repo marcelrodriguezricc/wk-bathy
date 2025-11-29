@@ -22,7 +22,8 @@ aoi_1 = AOI(name = "North Shore, O'ahu, Hawaii",
             bbox_lon = 0.05,
             date_offset = 0,
             crm_link = "https://www.ngdc.noaa.gov/thredds/dodsC/crm/cudem/crm_vol10_2023.nc",
-            shoreline_link = "https://nsde.ngs.noaa.gov/downloads/N20W160.zip")
+            shoreline_buffer = 750,
+            )
 
 # Golden Gate, California
 gg_lat = dms_to_decimal(degrees = 37, minutes =  47, seconds = 35, direction = "N") # 37°47'35"N 
@@ -35,7 +36,8 @@ aoi_2 = AOI(name = "Golden Gate, California",
             bbox_lon = 0.05,
             date_offset = 0,
             crm_link = "https://www.ngdc.noaa.gov/thredds/dodsC/crm/cudem/crm_vol7_2024.nc",
-            shoreline_link = "https://nsde.ngs.noaa.gov/downloads/N35W125.zip")
+            shoreline_buffer = 500,
+            )
 
 # Diamond Shoals, North Carolina
 ds_lat = dms_to_decimal(degrees = 35, minutes =  12, seconds = 15, direction = "N") # 35°12'15"N 
@@ -48,7 +50,9 @@ aoi_3 = AOI(name = "Diamond Shoals, North Carolina",
             bbox_lon = 0.05,
             date_offset = 0,
             crm_link = "https://www.ngdc.noaa.gov/thredds/dodsC/crm/cudem/crm_vol2_2023.nc",
-            shoreline_link = "https://nsde.ngs.noaa.gov/downloads/N35W080.zip")
+            shoreline_buffer = 2500,
+            )
+
 
 # Punta Jacinto, Puerto Rico
 pj_lat = dms_to_decimal(degrees = 18, minutes =  32, seconds = 16, direction = "N") # 18°32'16"N
@@ -61,7 +65,8 @@ aoi_4 = AOI(name = "Punta Jacinto, Puerto Rico",
             bbox_lon = 0.05,
             date_offset = 236,
             crm_link = "https://www.ngdc.noaa.gov/thredds/dodsC/crm/cudem/crm_vol9_2023.nc",
-            shoreline_link = "https://nsde.ngs.noaa.gov/downloads/N15W070.zip")
+            shoreline_buffer = 1000,
+            )
 
 # Compile array
 aoi_list = [aoi_1, aoi_2, aoi_3, aoi_4]

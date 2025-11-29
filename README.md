@@ -42,7 +42,7 @@ The goal of this project is to derive bathymetry by WKB for four nearshore areas
 
 - Step 3: Prepare data
     
-    - Subset images by bounding box with no modifications
+    - Subset images by bounding box without modifying data
 
     - Load NOAA Shoreline shapefile and use buffer to mask land area
 

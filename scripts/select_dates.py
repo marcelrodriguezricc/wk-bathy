@@ -59,7 +59,7 @@ for a in aoi_list:
         cfg = selected_date_config[key]
         a.selected_dates["sar"] = {"date": cfg["sar"]}
         a.selected_dates["optical"] = {"date": cfg["optical"]}
-        print(f"Selections for S{a.name}: SAR → {cfg['sar']}, Optical → {cfg['optical']}")
+        print(f"Selections for {a.name}: SAR → {cfg['sar']}, Optical → {cfg['optical']}")
     else:
         print(f"Warning: no selected_dates config for AOI name: {a.name}")
 

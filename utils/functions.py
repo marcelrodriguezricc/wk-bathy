@@ -235,16 +235,17 @@ def build_lat_lon_grids(tif_path: str | Path, xml_path: str | Path):
 
     return lat_full, lon_full
 
-def find_data(type: str, data_dir: Path, name: str, filename: str) -> Path:
-    pattern = f"{filename}_*_*.*"
-    matches = sorted(
-        m for m in data_dir.glob(pattern)
-        if m.suffix.lower() in [".tif", ".tiff"] 
-    )
-    if not matches:
-        raise FileNotFoundError(f"No {type} data found for AOI: {name}")
-    if len(matches) > 1:
-        print(f"Warning: multiple matches found, using: {matches[0].name}")
-        for m in matches:
-            print("  ", m)
-    return matches[0]
+# Save interpolated lat/lon grid for SAR image subset as npz file
+def save_latlon(lat_subset, lon_subset, name, filename, date, out_dir):
+    out_dir.mkdir(parents=True, exist_ok=True)
+    npz_path = out_dir / f"{filename}_latlon_subset_{date}.npz"
+    if npz_path.exists():
+        print(f"Lat/Lon npz exists for {name}, skipping save: {npz_path}")
+    else:
+        np.savez(
+            npz_path,
+            lat=lat_subset,
+            lon=lon_subset
+        )
+        print(f"Saved lat/lon arrays → {npz_path}")
+    return npz_path

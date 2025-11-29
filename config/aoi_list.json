@@ -5,12 +5,12 @@
     "lat": 21.671944,
     "lon": -158.061667,
     "crm_link": "https://www.ngdc.noaa.gov/thredds/dodsC/crm/cudem/crm_vol10_2023.nc",
-    "shoreline_link": "https://nsde.ngs.noaa.gov/downloads/N20W160.zip",
     "crm_local": "data/crm/crm_vol10_2023.nc",
     "crm_date": "2022-05-10",
     "bbox_lat": 0.05,
     "bbox_lon": 0.05,
     "date_offset": 0,
+    "shoreline_buffer": 750,
     "data": {
       "2022-05-10": {
         "swh": 1.27875,
@@ -268,12 +268,12 @@
     "lat": 37.793056,
     "lon": -122.555278,
     "crm_link": "https://www.ngdc.noaa.gov/thredds/dodsC/crm/cudem/crm_vol7_2024.nc",
-    "shoreline_link": "https://nsde.ngs.noaa.gov/downloads/N35W125.zip",
     "crm_local": "data/crm/crm_vol7_2024.nc",
     "crm_date": "2024-12-02",
     "bbox_lat": 0.05,
     "bbox_lon": 0.05,
     "date_offset": 0,
+    "shoreline_buffer": 500,
     "data": {
       "2024-12-02": {
         "swh": 1.1724999737925828,
@@ -553,12 +553,12 @@
     "lat": 35.204167,
     "lon": -75.494444,
     "crm_link": "https://www.ngdc.noaa.gov/thredds/dodsC/crm/cudem/crm_vol2_2023.nc",
-    "shoreline_link": "https://nsde.ngs.noaa.gov/downloads/N35W080.zip",
     "crm_local": "data/crm/crm_vol2_2023.nc",
     "crm_date": "2023-08-31",
     "bbox_lat": 0.05,
     "bbox_lon": 0.05,
     "date_offset": 0,
+    "shoreline_buffer": 2500,
     "data": {
       "2023-08-31": {
         "swh": 2.7368749388260767,
@@ -757,12 +757,12 @@
     "lat": 18.537778,
     "lon": -67.073056,
     "crm_link": "https://www.ngdc.noaa.gov/thredds/dodsC/crm/cudem/crm_vol9_2023.nc",
-    "shoreline_link": "https://nsde.ngs.noaa.gov/downloads/N15W070.zip",
     "crm_local": "data/crm/crm_vol9_2023.nc",
     "crm_date": "2022-06-07",
     "bbox_lat": 0.05,
     "bbox_lon": 0.05,
     "date_offset": 236,
+    "shoreline_buffer": 1000,
     "data": {
       "2023-01-29": {
         "swh": 1.3762500000000002,
