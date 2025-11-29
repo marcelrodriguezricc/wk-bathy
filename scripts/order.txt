@@ -1,7 +1,20 @@
-1. Set AOI details in aoi.py and run
+1. Set all AOI details in aoi.py and run
+- Initializes AOI objects and creates json for storage
+
 2. Run get_crm.py
+- Downloads CRM datasets for each AOI
+
 3. Run get_wave_subsets.py
+- Gets wave data from CMEMS Wave Analysis and Forecast for each AOI
+
 4. Run get_swh_gt1.py
+- Finds dates with significant wave height >1m for days in a two month window around CRM creation date. 
+
 5. Run both get_optical.py and get_sar.py
-6. Manually select optical and sar datasets for each AOI, copy into respective "selected" folder
-6. Run get_shoreline
+- Finds optical and sar imagery for those days.
+
+6. Set selected optical and sar image dates in select_dates.py and run
+- Store users selected dates and pertinent metadata in AOI object and save to json
+
+7. Run subset_data.py
+- Get subset of full dataset based for each AOI based on bounding box with no modification to original data
