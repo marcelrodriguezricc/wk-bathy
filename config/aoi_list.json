@@ -5,6 +5,7 @@
     "lat": 21.671944,
     "lon": -158.061667,
     "crm_link": "https://www.ngdc.noaa.gov/thredds/dodsC/crm/cudem/crm_vol10_2023.nc",
+    "shoreline_link": "https://nsde.ngs.noaa.gov/downloads/N20W160.zip",
     "crm_local": "data/crm/crm_vol10_2023.nc",
     "crm_date": "2022-05-10",
     "bbox_lat": 0.05,
@@ -239,6 +240,26 @@
         "period": 13.442499999999999,
         "direction": 11.801249999999996
       }
+    },
+    "selected_dates": {
+      "sar": {
+        "date": "2022-04-28",
+        "swh": 1.0237500000000002,
+        "period": 12.44625,
+        "direction": 80.39874999999999,
+        "polarization": "vv",
+        "orbit_state": "ascending",
+        "mean_slant_range": 874963.4790435302,
+        "mean_lmin": 124.68911274495152
+      },
+      "optical": {
+        "date": "2022-04-28",
+        "swh": 1.0237500000000002,
+        "period": 12.44625,
+        "cloud_cover": 6.437818,
+        "sun_azimuth": 111.328914925773,
+        "sun_elevation": 71.2347239061081
+      }
     }
   },
   {
@@ -247,6 +268,7 @@
     "lat": 37.793056,
     "lon": -122.555278,
     "crm_link": "https://www.ngdc.noaa.gov/thredds/dodsC/crm/cudem/crm_vol7_2024.nc",
+    "shoreline_link": "https://nsde.ngs.noaa.gov/downloads/N35W125.zip",
     "crm_local": "data/crm/crm_vol7_2024.nc",
     "crm_date": "2024-12-02",
     "bbox_lat": 0.05,
@@ -503,6 +525,26 @@
         "period": 15.233749659499153,
         "direction": 285.806247635046
       }
+    },
+    "selected_dates": {
+      "sar": {
+        "date": "2024-12-19",
+        "swh": 1.6774999625049531,
+        "period": 17.46874960954301,
+        "direction": 281.98749772040173,
+        "polarization": "vv",
+        "orbit_state": "descending",
+        "mean_slant_range": 843514.3884314892,
+        "mean_lmin": 153.87405752692712
+      },
+      "optical": {
+        "date": "2024-12-19",
+        "swh": 1.6774999625049531,
+        "period": 17.46874960954301,
+        "cloud_cover": 5.187955,
+        "sun_azimuth": 163.764802957938,
+        "sun_elevation": 27.3508698858521
+      }
     }
   },
   {
@@ -511,6 +553,7 @@
     "lat": 35.204167,
     "lon": -75.494444,
     "crm_link": "https://www.ngdc.noaa.gov/thredds/dodsC/crm/cudem/crm_vol2_2023.nc",
+    "shoreline_link": "https://nsde.ngs.noaa.gov/downloads/N35W080.zip",
     "crm_local": "data/crm/crm_vol2_2023.nc",
     "crm_date": "2023-08-31",
     "bbox_lat": 0.05,
@@ -686,6 +729,26 @@
         "period": 9.10374979651533,
         "direction": 134.87750100856647
       }
+    },
+    "selected_dates": {
+      "sar": {
+        "date": "2023-09-12",
+        "swh": 1.583749964600429,
+        "period": 13.86749969003722,
+        "direction": 127.87812616501469,
+        "polarization": "vv",
+        "orbit_state": "ascending",
+        "mean_slant_range": 937524.549143802,
+        "mean_lmin": 166.17573523143687
+      },
+      "optical": {
+        "date": "2023-08-15",
+        "swh": 1.583749964600429,
+        "period": 13.86749969003722,
+        "cloud_cover": 7.081947,
+        "sun_azimuth": 138.242988130022,
+        "sun_elevation": 62.8277545553562
+      }
     }
   },
   {
@@ -694,6 +757,7 @@
     "lat": 18.537778,
     "lon": -67.073056,
     "crm_link": "https://www.ngdc.noaa.gov/thredds/dodsC/crm/cudem/crm_vol9_2023.nc",
+    "shoreline_link": "https://nsde.ngs.noaa.gov/downloads/N15W070.zip",
     "crm_local": "data/crm/crm_vol9_2023.nc",
     "crm_date": "2022-06-07",
     "bbox_lat": 0.05,
@@ -852,6 +916,26 @@
         "swh": 1.49375,
         "period": 9.2925,
         "direction": 33.97749999999999
+      }
+    },
+    "selected_dates": {
+      "sar": {
+        "date": "2023-02-05",
+        "swh": 1.2037499999999999,
+        "period": 10.44625,
+        "direction": 36.39375,
+        "polarization": "vv",
+        "orbit_state": "ascending",
+        "mean_slant_range": 865083.8935781469,
+        "mean_lmin": 133.68048963801195
+      },
+      "optical": {
+        "date": "2023-02-06",
+        "swh": 1.2037499999999999,
+        "period": 10.44625,
+        "cloud_cover": 0.425042,
+        "sun_azimuth": 143.627966706886,
+        "sun_elevation": 48.5006705687683
       }
     }
   }

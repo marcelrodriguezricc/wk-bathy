@@ -204,7 +204,7 @@ def build_lat_lon_grids(tif_path: str | Path, xml_path: str | Path):
     lats = np.array(lats)
     lons = np.array(lons)
 
-    # Build georefernce point grid
+    # Build georeference point grid
     unique_lines = np.unique(lines)
     unique_pixels = np.unique(pixels)
     nL = len(unique_lines)
@@ -234,3 +234,17 @@ def build_lat_lon_grids(tif_path: str | Path, xml_path: str | Path):
         lon_full[:, j] = np.interp(rows_full, unique_lines, lon_on_tie_lines[:, j])
 
     return lat_full, lon_full
+
+def find_data(type: str, data_dir: Path, name: str, filename: str) -> Path:
+    pattern = f"{filename}_*_*.*"
+    matches = sorted(
+        m for m in data_dir.glob(pattern)
+        if m.suffix.lower() in [".tif", ".tiff"] 
+    )
+    if not matches:
+        raise FileNotFoundError(f"No {type} data found for AOI: {name}")
+    if len(matches) > 1:
+        print(f"Warning: multiple matches found, using: {matches[0].name}")
+        for m in matches:
+            print("  ", m)
+    return matches[0]

@@ -28,6 +28,7 @@ aoi_list = [AOI(**a) for a in aoi_data]
 # Link to earth-search catalog
 catalog = Client.open("https://earth-search.aws.element84.com/v1")
 
+# For each AOI...
 for a in aoi_list:
 
     # Get dates from data for which SWH was > 1m
@@ -146,12 +147,10 @@ for a in aoi_list:
                 print(f"Downloading asset → {xml_outpath}")
                 resp = requests.get(xml_href, stream=True)
                 resp.raise_for_status()
-
                 with xml_outpath.open("wb") as f:
                     for chunk in resp.iter_content(chunk_size=8192):
                         if chunk:
                             f.write(chunk)
-
                 print(f"Saved {xml_outpath}")
 
             # Store metadata in AOI object for future reference

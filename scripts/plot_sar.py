@@ -2,8 +2,6 @@
 import sys, pathlib 
 sys.path.insert(0, str(pathlib.Path(__file__).resolve().parents[1]))
 
-print(sys.executable)
-
 # Libraries
 import json
 import rasterio 
@@ -57,7 +55,7 @@ for a in aoi_list:
         pol = a.data[d]["sar"]["polarization"]
         orb = a.data[d]["sar"]["orbit_state"]
 
-        # Use XML metadata to get slant range, azimuth time for each column/row, latitude, and longitude for each pixel
+        # Use XML metadata to get slant range, azimuth time for each column/row, latitude, and longitude for each pixel of raw SAR measurement data
         slant_range_m, azimuth_time = build_radar_coordinates(path, xml_path)
         lat_full, lon_full = build_lat_lon_grids(path, xml_path)
         height, width = lat_full.shape
@@ -70,14 +68,15 @@ for a in aoi_list:
         r_full = np.broadcast_to(slant_range_m, (height, width))
         r_aoi = r_full[mask]
 
+        # Get mean cutoff wavelength for Velocity Brunching mechanism
         mean_r = float(r_aoi.mean())
         velocity_st1 = 7100.0  # m/s
         mean_lmin = mean_r * np.sqrt(swh_val) / velocity_st1
 
+        # Get subset of data based on bounding box mask
         rows, cols = np.where(mask)
         row_min, row_max = rows.min(), rows.max()
         col_min, col_max = cols.min(), cols.max()
-
         with rasterio.open(path) as src:
             window = Window.from_slices(
                 (row_min, row_max + 1),
@@ -85,19 +84,27 @@ for a in aoi_list:
              )
             backscatter = src.read(1, window=window).astype("float32")
 
+        # Apply bounding box mask to get interpolated latitude and longitudes as well
         lat_subset = lat_full[row_min:row_max+1, col_min:col_max+1]
         lon_subset = lon_full[row_min:row_max+1, col_min:col_max+1]
 
+        # Normalize baskscatter values, convert to decibels for visualization
         bs_norm = backscatter / np.nanmax(backscatter)
         bs_db = 10 * np.log10(np.clip(bs_norm, 1e-6, None))
 
-        proj = ccrs.PlateCarree()
-
+        # Set projection
+        proj = ccrs.PlateCarree(globe=ccrs.Globe(datum='WGS84'))
         fig, ax = plt.subplots(subplot_kw={"projection": proj})
 
-        bs_db = bs_db[::-1, :]
-        lat_subset = lat_subset[::-1, :]
-        lon_subset = lon_subset[::-1, :]
+        # Flip horizontal and vertical if satellite is ascending, flip horizontal if descending, for correct image orientation
+        if orb == "ascending":
+            bs_db = bs_db[::-1, :]
+            lat_subset = lat_subset[::-1, :]
+            lon_subset = lon_subset[::-1, :]
+        elif orb == "descending":
+            bs_db = bs_db[:, ::-1]
+            lon_subset = lon_subset[::-1, :]
+             
 
         # Plot
         fig = plt.figure()
@@ -114,6 +121,7 @@ for a in aoi_list:
         )
         plt.tight_layout()
         
+        # Establish path for image output based on filename and date
         fname_stem = Path(a.filename).stem
         outpath = outdir_img / f"{fname_stem}_sar_{d}.png"
 

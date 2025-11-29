@@ -1,5 +1,7 @@
-1. aoi.py
-2. get_crm.py
-3. get_wave_subsets.py
-4. get_swh_gt1.py
-5. get_optical.py / get_sar.py
+1. Set AOI details in aoi.py and run
+2. Run get_crm.py
+3. Run get_wave_subsets.py
+4. Run get_swh_gt1.py
+5. Run both get_optical.py and get_sar.py
+6. Manually select optical and sar datasets for each AOI, copy into respective "selected" folder
+6. Run get_shoreline
