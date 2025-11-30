@@ -250,7 +250,10 @@
         "polarization": "vv",
         "orbit_state": "ascending",
         "mean_slant_range": 874963.4790435302,
-        "mean_lmin": 124.68911274495152
+        "mean_lmin": 124.68911274495152,
+        "fft_per": 85,
+        "fft_lmin": 0.6,
+        "fft_lmax": 300
       },
       "optical": {
         "date": "2022-04-28",
@@ -535,7 +538,10 @@
         "polarization": "vv",
         "orbit_state": "descending",
         "mean_slant_range": 843514.3884314892,
-        "mean_lmin": 153.87405752692712
+        "mean_lmin": 153.87405752692712,
+        "fft_per": 95,
+        "fft_lmin": 0.95,
+        "fft_lmax": 800
       },
       "optical": {
         "date": "2024-12-19",
@@ -739,7 +745,10 @@
         "polarization": "vv",
         "orbit_state": "ascending",
         "mean_slant_range": 937524.549143802,
-        "mean_lmin": 166.17573523143687
+        "mean_lmin": 166.17573523143687,
+        "fft_per": 90,
+        "fft_lmin": 0.7,
+        "fft_lmax": 400
       },
       "optical": {
         "date": "2023-08-15",
@@ -927,7 +936,10 @@
         "polarization": "vv",
         "orbit_state": "ascending",
         "mean_slant_range": 865083.8935781469,
-        "mean_lmin": 133.68048963801195
+        "mean_lmin": 133.68048963801195,
+        "fft_per": 80,
+        "fft_lmin": 0.7,
+        "fft_lmax": 300
       },
       "optical": {
         "date": "2023-02-06",

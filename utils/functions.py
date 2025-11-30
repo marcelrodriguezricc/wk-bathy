@@ -249,3 +249,24 @@ def save_latlon(lat_subset, lon_subset, name, filename, date, out_dir):
         )
         print(f"Saved lat/lon arrays → {npz_path}")
     return npz_path
+
+# Approximate distance between neighboring latitude and longitude points in meters
+def ll_dist(lat1, lon1, lat2, lon2):
+
+    # Convert degrees to radians
+    lat1_rad = np.radians(lat1)
+    lon1_rad = np.radians(lon1)
+    lat2_rad = np.radians(lat2)
+    lon2_rad = np.radians(lon2)
+
+    # Find difference between angles
+    dlat = lat2_rad - lat1_rad
+    dlon = lon2_rad - lon1_rad
+
+    # Equirectangular approximation
+    R = 6371000.0  # Earth radius in meters
+    x = dlon * np.cos(0.5 * (lat1_rad + lat2_rad))
+    y = dlat
+
+    # Return pythagorean distance
+    return R * np.sqrt(x**2 + y**2)

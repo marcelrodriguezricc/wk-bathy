@@ -17,4 +17,13 @@
 - Store users selected dates and pertinent metadata in AOI object and save to json
 
 7. Run subset_data.py
-- Get subset of full dataset based for each AOI based on bounding box with no modification to original data
+- Gets subset of full dataset based for each AOI based on bounding box with no modification to original data
+
+8. Run get_land.py
+- Downloads shapefiles of 10m land borders from Natural Earth 
+
+9. Run mask_land.py
+- Applies masks from land shapefiles to data
+
+10. Run fft_params.py
+- Saves FFT tuning parameters to JSON

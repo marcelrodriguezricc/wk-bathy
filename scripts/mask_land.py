@@ -150,7 +150,7 @@ for a in aoi_list:
                     print(f"Saved masked SAR image for {a.name} → {sar_mask_outpath}")
                 
                 # Write subset to new raster
-                sar_data_outpath = sar_outdir / f"{a.filename}_sar_subset_{sar_date}.tiff"
+                sar_data_outpath = sar_outdir / f"{a.filename}_sar_masked_{sar_date}.tiff"
                 if sar_data_outpath.exists():
                     print(f"Masked SAR data already exists, skipping save: {sar_data_outpath}")
                 else:

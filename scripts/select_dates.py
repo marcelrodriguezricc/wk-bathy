@@ -47,9 +47,6 @@ with open("config/aoi_list.json") as f:
 # Reconstruct AOI objects and store in array
 aoi_list = [AOI(**a) for a in aoi_data]
 
-# Prepare for JSON
-payload = [asdict(a) for a in aoi_list]
-
 # For each aoi...
 for a in aoi_list:
 
@@ -63,7 +60,7 @@ for a in aoi_list:
     else:
         print(f"Warning: no selected_dates config for AOI name: {a.name}")
 
-# Prepare for JSON *after* modifying AOIs
+# Prepare for JSON
 payload = [asdict(a) for a in aoi_list]
 
 # Save to JSON
