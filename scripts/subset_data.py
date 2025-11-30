@@ -86,7 +86,6 @@ for a in aoi_list:
     col_min, col_max = cols.min(), cols.max()
     lat_subset = lat_full[row_min:row_max + 1, col_min:col_max + 1]
     lon_subset = lon_full[row_min:row_max + 1, col_min:col_max + 1]
-    save_latlon(lat_subset, lon_subset, a.name, a.filename, sar_date, sar_outdir)
 
     with rasterio.open(sar_path) as src:
         window = Window.from_slices(
@@ -102,6 +101,7 @@ for a in aoi_list:
             "dtype": "float32"
         })
 
+    print(a.name, orb)
     # Flip horizontal and vertical if satellite is ascending, flip horizontal if descending, for correct image orientation
     if orb == "ascending":
         backscatter = backscatter[::-1, :]
@@ -109,7 +109,9 @@ for a in aoi_list:
         lon_subset = lon_subset[::-1, :]
     elif orb == "descending":
         backscatter = backscatter[:, ::-1]
-        lon_subset = lon_subset[::-1, :]
+        lon_subset = lon_subset[:, ::-1]
+
+    save_latlon(lat_subset, lon_subset, a.name, a.filename, sar_date, sar_outdir)
 
     # Write subset to new raster
     sar_outpath = sar_outdir / f"{a.filename}_sar_subset_{sar_date}.tiff"
@@ -194,6 +196,7 @@ for a in aoi_list:
         "date": opt_date,
         "swh": swh_val,
         "period": period_val,
+        "direction": direction_val,
         "cloud_cover": cloud_val,
         "sun_azimuth": sun_az_val,
         "sun_elevation": sun_el_val,

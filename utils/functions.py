@@ -270,3 +270,32 @@ def ll_dist(lat1, lon1, lat2, lon2):
 
     # Return pythagorean distance
     return R * np.sqrt(x**2 + y**2)
+
+def iter_windows(arr, lat, lon, win_nx, win_ny, step_x, step_y, max_nan_fraction=0.3):
+
+    ny, nx = arr.shape
+
+    half_nx = win_nx // 2
+    half_ny = win_ny // 2
+
+    for j_center in range(half_ny, ny - half_ny, step_y):
+        for i_center in range(half_nx, nx - half_nx, step_x):
+
+            j_start = j_center - half_ny
+            j_end   = j_center + half_ny + 1
+            i_start = i_center - half_nx
+            i_end   = i_center + half_nx + 1
+
+            window = arr[j_start:j_end, i_start:i_end]
+
+            if window.shape != (win_ny, win_nx):
+                continue
+
+            nan_fraction = np.isnan(window).mean()
+            if nan_fraction > max_nan_fraction:
+                continue
+
+            center_lat = float(lat[j_center, i_center])
+            center_lon = float(lon[j_center, i_center])
+
+            yield window, center_lat, center_lon, j_center, i_center

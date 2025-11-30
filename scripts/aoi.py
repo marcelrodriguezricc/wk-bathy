@@ -22,7 +22,7 @@ aoi_1 = AOI(name = "North Shore, O'ahu, Hawaii",
             bbox_lon = 0.05,
             date_offset = 0,
             crm_link = "https://www.ngdc.noaa.gov/thredds/dodsC/crm/cudem/crm_vol10_2023.nc",
-            shoreline_buffer = 750,
+            shoreline_buffer = 2000,
             )
 
 # Golden Gate, California
@@ -36,7 +36,7 @@ aoi_2 = AOI(name = "Golden Gate, California",
             bbox_lon = 0.05,
             date_offset = 0,
             crm_link = "https://www.ngdc.noaa.gov/thredds/dodsC/crm/cudem/crm_vol7_2024.nc",
-            shoreline_buffer = 500,
+            shoreline_buffer = 2000,
             )
 
 # Diamond Shoals, North Carolina
@@ -50,7 +50,7 @@ aoi_3 = AOI(name = "Diamond Shoals, North Carolina",
             bbox_lon = 0.05,
             date_offset = 0,
             crm_link = "https://www.ngdc.noaa.gov/thredds/dodsC/crm/cudem/crm_vol2_2023.nc",
-            shoreline_buffer = 2500,
+            shoreline_buffer = 3000,
             )
 
 
@@ -65,7 +65,7 @@ aoi_4 = AOI(name = "Punta Jacinto, Puerto Rico",
             bbox_lon = 0.05,
             date_offset = 236,
             crm_link = "https://www.ngdc.noaa.gov/thredds/dodsC/crm/cudem/crm_vol9_2023.nc",
-            shoreline_buffer = 1000,
+            shoreline_buffer = 2000,
             )
 
 # Compile array

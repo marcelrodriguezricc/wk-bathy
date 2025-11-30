@@ -44,15 +44,18 @@ The goal of this project is to derive bathymetry by WKB for four nearshore areas
     
     - Subset images by bounding box without modifying data
 
-    - Load NOAA Shoreline shapefile and use buffer to mask land area
+    - Apply Natural Earth shapefile to mask land
 
 - Step 4: Derive bathymetry
 
-    - Optical
-        - Randon transform > discrete Fourier transform > wave celerity > linear dispersion [1]
+    - Apply 2D Fast Fourier Transform
+        - Feather mask to avoid high-frequency artifacts
 
-    - SAR
-        - 2D Fast Fourier transform > wavelength estimation > linear dispersion [2]
+    - Wavelength Estimation
+        - High-intensity blob centroid to estimate wavelength, period, direction.
+
+    - Linear Dispersion
+        - Windowed FFT to derive bathymetry for discrete sections
 
     - Generate maps of derived depths using Mean Sea Level as the vertical datum
 

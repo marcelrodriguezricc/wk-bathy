@@ -13,6 +13,7 @@ import matplotlib.pyplot as plt
 import matplotlib.patches as mpatches
 from scipy.ndimage import label, gaussian_filter, distance_transform_edt
 
+
 # Load JSON array
 with open("config/aoi_list.json") as f:
     aoi_data = json.load(f)
@@ -23,19 +24,18 @@ aoi_list = [AOI(**a) for a in aoi_data]
 # Set directory for loading dataset
 SCRIPT_DIR = Path(__file__).resolve().parent
 ROOT_DIR = SCRIPT_DIR.parent
-data_dir = ROOT_DIR / "data" / "st1" / "masked"
-latlon_dir = ROOT_DIR / "data" / "st1" / "subset"
+data_dir = ROOT_DIR / "data" / "st2" / "masked"
 img_outdir = ROOT_DIR / "images" / "full_scene_fft"
 img_outdir.mkdir(parents=True, exist_ok=True)
 
 # For each AOI...
 for a in aoi_list:
 
-    # Get date of SAR image and set path for retrieval based on date
-    date = a.selected_dates["sar"]["date"]
-    data_path = data_dir / f"{a.filename}_sar_masked_{date}.tiff"
+    # Get date of optical image and set path for retrieval based on date
+    date = a.selected_dates["optical"]["date"]
+    data_path = data_dir / f"{a.filename}_optical_masked_{date}.tif"
 
-    # Load SAR image raster
+    # Load optical image raster
     with rasterio.open(data_path) as src:
         
         # ---- APPLY 2D FAST FOURIER TRANSFORM -----
@@ -46,7 +46,8 @@ for a in aoi_list:
         # Get transform from metadata
         transform = src.transform
 
-        # Get mask and feather
+        # Assign 0 to NaN values from mask
+        # img = np.where(np.isnan(img), 0, img)
         land_mask = np.isnan(img)
         ocean_mask = ~land_mask
         dist = distance_transform_edt(ocean_mask)
@@ -55,7 +56,7 @@ for a in aoi_list:
         mean_ocean = np.nanmean(img)
         img = np.where(land_mask, mean_ocean, img)    
 
-        # Remove the DC bias, or the constant brightness of SAR image (average intensity) that is the zero-frequency component to reveal spectral content of waves
+        # Remove the DC bias, or the constant brightness of optical image (average intensity) that is the zero-frequency component to reveal spectral content of waves
         img = img - mean_ocean
 
         # Use Hanning Window to taper the edges and reduce high frequency artifacts
@@ -77,51 +78,15 @@ for a in aoi_list:
         # Get image size
         ny, nx = img_win.shape 
 
-        # ---- GET MEAN SPATIAL CHANGE IN METERS FOR LAT AND LON -----
+        # Apply log scale for visibility (power spectra span many orders of magnitude)
+        P_log = np.log10(P + 1e-12)
 
-        # Load interpolated latitude and longitude grid for SAR subset image pixels
-        latlon_path = latlon_dir / f"{a.filename}_latlon_subset_{date}.npz"
-        latlon = np.load(latlon_path)
-        lat = latlon["lat"]
-        lon = latlon["lon"]
-
-        # Get dimensionality of latitude and longitude grid
-        ny, nx = lat.shape
-
-        # Use central row as reference
-        j0 = ny // 2
-
-        # Get latitude and longitude for all pixels except last in the row
-        lat_row = lat[j0, :-1]
-        lon_row = lon[j0, :-1]
-
-        # Get latitude and longitude for all neighboring pixels
-        lat_row_next = lat[j0, 1:]
-        lon_row_next = lon[j0, 1:]
-
-        # Find the X distance between neighboring pixels
-        dxs = ll_dist(lat_row, lon_row, lat_row_next, lon_row_next)
-
-        # Calculate mean of X distances
-        dx = np.nanmean(dxs)
-
-        # Use central column as reference
-        i0 = nx // 2
-
-        # Get latitude and longitude for all pixels except last in the column
-        lat_col = lat[:-1, i0]
-        lon_col = lon[:-1, i0]
-
-        # Get latitude and longitude for all neighboring pixels 
-        lat_col_next = lat[1:, i0]
-        lon_col_next = lon[1:, i0]
-
-        # Find Y distance between neighboring pixels
-        dys = ll_dist(lat_col, lon_col, lat_col_next, lon_col_next)
-
-        # Calculate mean of Y distances
-        dy = np.nanmean(dys)
-
+        # Get pixel distance values from dataset metadata
+        transform = src.transform
+        crs = src.crs
+        dx, dy = src.res
+        dx = float(dx)
+        dy = float(dy)
 
         # ----- CONVERT TO WAVENUMBER SPACE -----
         
@@ -137,8 +102,8 @@ for a in aoi_list:
         # ----- THRESHOLDING -----
 
         # Establish lower and upper threshold of wavelengths in consideration, and convert to wavenumber space
-        lambda_min = a.selected_dates["sar"]["mean_lmin"] * a.selected_dates["sar"]["fft_lmin"]
-        lambda_max = a.selected_dates["sar"]["fft_lmax"]
+        lambda_min = 100
+        lambda_max = a.selected_dates["optical"]["fft_lmax"]
         k_min = 2 * np.pi / lambda_max
         k_max = 2 * np.pi / lambda_min
 
@@ -151,7 +116,7 @@ for a in aoi_list:
         P_band = P_smooth[mask]
 
         # Filter for only brightest 30% of pixels
-        thr_percentile = a.selected_dates["sar"]["fft_per"]
+        thr_percentile = a.selected_dates["optical"]["fft_per"]
         thr_value = np.percentile(P_band, thr_percentile)
         hot_mask = (P_log >= thr_value) & mask
 
@@ -292,8 +257,8 @@ for a in aoi_list:
         )
 
     # Get data from CMEMS to compare for tuning
-    period_val = a.selected_dates["sar"]["period"]
-    direction_val = a.selected_dates["sar"]["direction"]
+    period_val = a.selected_dates["optical"]["period"]
+    direction_val = a.selected_dates["optical"]["direction"]
 
     # Data from FFT for tuning
     period_kplus1 = round(blob_info_sorted[0]["period_s"], 1)
@@ -320,14 +285,14 @@ for a in aoi_list:
 
     # Title over subplot titles
     fig.suptitle(
-        f"{a.name} Full Scene FFT, SAR Imagery, {date}",
+        f"{a.name} Full Scene FFT, Optical Imagery, {date}",
         fontsize = 14,
         fontweight = "bold",
         y = .87
     )
 
     # Save plot
-    img_outpath = img_outdir / f"{a.filename}_sar_full_fft_{date}.png"
+    img_outpath = img_outdir / f"{a.filename}_opt_full_fft_{date}.png"
     if img_outpath.exists():
         print(f"Full FFT tuning plot already exists for {a.name}, skipping save: {img_outpath}")
     else:

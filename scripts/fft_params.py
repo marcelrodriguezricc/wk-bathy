@@ -15,41 +15,80 @@ with open("config/aoi_list.json") as f:
 # Reconstruct AOI objects and store in array
 aoi_list = [AOI(**a) for a in aoi_data]
 
-# Set parameters to tune SAR FFT
-ekuhai_sar_per = 85
-ekuhai_sar_lmin = 0.6
-ekuhai_sar_lmax = 300
+# ----- FFT Parameters -----
+# North Shore SAR
+ekuhai_sar_per = 95
+ekuhai_sar_lmin = 0.9
+ekuhai_sar_lmax = 800
+
+# North Shore Optical
+ekuhai_opt_per = 90
+ekuhai_opt_lmin = 90
+ekuhai_opt_lmax = 300
+
+# Golden Gate SAR
 gg_sar_per = 95
 gg_sar_lmin = 0.95
 gg_sar_lmax = 800
-dshoals_sar_per = 90
+
+# Golden Gate Optical
+gg_opt_per = 90
+gg_opt_lmin = 90
+gg_opt_lmax = 300
+
+# Diamond Shoals SAR
+dshoals_sar_per = 85
 dshoals_sar_lmin = 0.7
 dshoals_sar_lmax = 400
-pj_sar_per = 80
+
+# Diamond Shoals Optical
+dshoals_opt_per = 90
+dshoals_opt_lmin = 90
+dshoals_opt_lmax = 300
+
+# Puerto Rico SAR
+pj_sar_per = 90
 pj_sar_lmin = 0.7
-pj_sar_lmax = 300
+pj_sar_lmax = 400
+
+# Puerto Rico Optical
+pj_opt_per = 70
+pj_opt_lmin = 40
+pj_opt_lmax = 300
 
 # Compile params in dict for iterating
 selected_date_config = {
     "North Shore, O'ahu, Hawaii": {
-        "fft_per": ekuhai_sar_per,
-        "fft_lmin": ekuhai_sar_lmin,
-        "fft_lmax": ekuhai_sar_lmax
+        "fft_sar_per": ekuhai_sar_per,
+        "fft_sar_lmin": ekuhai_sar_lmin,
+        "fft_sar_lmax": ekuhai_sar_lmax,
+        "fft_opt_per": ekuhai_opt_per,
+        "fft_opt_lmin": ekuhai_opt_lmin,
+        "fft_opt_lmax": ekuhai_opt_lmax
     },
     "Golden Gate, California": {
-        "fft_per": gg_sar_per,
-        "fft_lmin": gg_sar_lmin,
-        "fft_lmax": gg_sar_lmax
+        "fft_sar_per": gg_sar_per,
+        "fft_sar_lmin": gg_sar_lmin,
+        "fft_sar_lmax": gg_sar_lmax,
+        "fft_opt_per": gg_opt_per,
+        "fft_opt_lmin": gg_opt_lmin,
+        "fft_opt_lmax": gg_opt_lmax
     },
     "Diamond Shoals, North Carolina": {
-        "fft_per": dshoals_sar_per,
-        "fft_lmin": dshoals_sar_lmin,
-        "fft_lmax": dshoals_sar_lmax,
+        "fft_sar_per": dshoals_sar_per,
+        "fft_sar_lmin": dshoals_sar_lmin,
+        "fft_sar_lmax": dshoals_sar_lmax,
+        "fft_opt_per": dshoals_opt_per,
+        "fft_opt_lmin": dshoals_opt_lmin,
+        "fft_opt_lmax": dshoals_opt_lmax,
     },
     "Punta Jacinto, Puerto Rico": {
-        "fft_per": pj_sar_per,
-        "fft_lmin": pj_sar_lmin,
-        "fft_lmax": pj_sar_lmax
+        "fft_sar_per": pj_sar_per,
+        "fft_sar_lmin": pj_sar_lmin,
+        "fft_sar_lmax": pj_sar_lmax,
+        "fft_opt_per": pj_opt_per,
+        "fft_opt_lmin": pj_opt_lmin,
+        "fft_opt_lmax": pj_opt_lmax
     },
 }
 
@@ -60,11 +99,15 @@ for a in aoi_list:
     key = a.name
     if key in selected_date_config:
         cfg = selected_date_config[key]
-        a.selected_dates.setdefault("sar", {})
         a.selected_dates["sar"].update({
-            "fft_per": cfg["fft_per"],
-            "fft_lmin": cfg["fft_lmin"],
-            "fft_lmax": cfg["fft_lmax"],
+            "fft_per": cfg["fft_sar_per"],
+            "fft_lmin": cfg["fft_sar_lmin"],
+            "fft_lmax": cfg["fft_sar_lmax"],
+        })
+        a.selected_dates["optical"].update({
+            "fft_per": cfg["fft_opt_per"],
+            "fft_lmin": cfg["fft_opt_lmin"],
+            "fft_lmax": cfg["fft_opt_lmax"],
         })
         print(f"FFT tuning parameters saved to {a.name}")
     else:
