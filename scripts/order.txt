@@ -4,8 +4,8 @@
 2. Run get_crm.py
 - Downloads CRM datasets for each AOI
 
-3. Run get_wave_subsets.py
-- Gets wave data from CMEMS Wave Analysis and Forecast for each AOI
+3. Run cmems_swell.py / buoy_swell.py
+- Gets swell data
 
 4. Run get_swh_gt1.py
 - Finds dates with significant wave height >1m for days in a two month window around CRM creation date. 
@@ -27,3 +27,6 @@
 
 10. Run fft_params.py
 - Saves FFT tuning parameters to JSON
+
+11. Run sar_bathy.py / opt_bathy.py
+- FFT applied to shifting window over entire AOI, linear dispersion to derive depth for each centroid

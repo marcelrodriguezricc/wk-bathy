@@ -26,14 +26,16 @@ aoi_list = [AOI(**a) for a in aoi_data]
 # Set directory and prefix for loading and saving datasets
 SCRIPT_DIR = Path(__file__).resolve().parent
 ROOT_DIR = SCRIPT_DIR.parent
-sar_dir = ROOT_DIR / "data" / "st1"
+sar_dir = ROOT_DIR / "data" / "st1" / "raw"
 sar_outdir = ROOT_DIR / "data" / "st1" / "subset"
 sar_outdir.mkdir(parents=True, exist_ok=True)
-opt_dir = ROOT_DIR / "data" / "st2"
+opt_dir = ROOT_DIR / "data" / "st2" / "raw"
 opt_outdir = ROOT_DIR / "data" / "st2" / "subset"
 opt_outdir.mkdir(parents=True, exist_ok=True)
-img_outdir = ROOT_DIR / "images" / "subset"
-img_outdir.mkdir(parents=True, exist_ok=True)
+sar_img_outdir = ROOT_DIR / "images" / "st1" / "subset"
+sar_img_outdir.mkdir(parents=True, exist_ok=True)
+opt_img_outdir = ROOT_DIR / "images" / "st2" / "subset"
+opt_img_outdir.mkdir(parents=True, exist_ok=True)
 
 # For each aoi...
 for a in aoi_list:
@@ -122,7 +124,7 @@ for a in aoi_list:
             dst.write(backscatter, 1)
     
     # Save image of raster
-    sar_img_outpath = img_outdir / f"{a.filename}_sar_subset_{sar_date}.png"
+    sar_img_outpath = sar_img_outdir / f"{a.filename}_sar_subset_{sar_date}.png"
     if sar_img_outpath.exists():
         print(f"SAR image already exists for {a.name}, skipping save: {sar_img_outpath}")
     else:
@@ -132,7 +134,7 @@ for a in aoi_list:
         plt.margins(0)
         plt.savefig(sar_img_outpath, bbox_inches="tight", pad_inches=0)
         plt.close()
-        print(f"Saved optical image for {a.name} → {sar_img_outpath}")
+        print(f"Saved SAR image for {a.name} → {sar_img_outpath}")
 
     # --- OPTICAL SUBSETTING ---
 
@@ -166,7 +168,7 @@ for a in aoi_list:
             dst.write(opt_data)
 
     # Save image of raster
-    opt_img_outpath = img_outdir / f"{a.filename}_opt_subset_{opt_date}.png"
+    opt_img_outpath = opt_img_outdir / f"{a.filename}_opt_subset_{opt_date}.png"
     if opt_img_outpath.exists():
         print(f"Optical image already exists for {a.name}, skipping save: {opt_img_outpath}")
     else:

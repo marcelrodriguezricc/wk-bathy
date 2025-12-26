@@ -9,34 +9,34 @@ from pathlib import Path
 from dataclasses import asdict
 
 # Set dates of selected SAR imagery for each AOI
-ekuhai_sar_select = "2022-04-28"
-gg_sar_select = "2024-12-19"
-dshoals_sar_select = "2023-09-12"
-pj_sar_select = "2023-02-05"
+ns_sar_select = "2022-04-16"
+gg_sar_select = "2024-11-13"
+wb_sar_select = "2023-09-03"
+pr_sar_select = "2022-11-13"
 
 # Set dates of selected optical imagery for each AOI
-ekuhai_opt_select = "2022-04-28"
-gg_opt_select = "2024-12-19"
-dshoals_opt_select = "2023-08-15"
-pj_opt_select = "2023-02-06"
+ns_opt_select = "2022-05-13"
+gg_opt_select = "2024-11-04"
+wb_opt_select = "2023-09-22"
+pr_opt_select = "2022-11-28"
 
 # Prepare dict for saving to JSON
 selected_date_config = {
     "North Shore, O'ahu, Hawaii": {
-        "sar": ekuhai_sar_select,
-        "optical": ekuhai_opt_select,
+        "sar": ns_sar_select,
+        "optical": ns_opt_select,
     },
     "Golden Gate, California": {
         "sar": gg_sar_select,
         "optical": gg_opt_select,
     },
-    "Diamond Shoals, North Carolina": {
-        "sar": dshoals_sar_select,
-        "optical": dshoals_opt_select,
+    "Wassabo Beach, Florida": {
+        "sar": wb_sar_select,
+        "optical": wb_opt_select,
     },
-    "Punta Jacinto, Puerto Rico": {
-        "sar": pj_sar_select,
-        "optical": pj_opt_select,
+    "Rincon, Puerto Rico": {
+        "sar": pr_sar_select,
+        "optical": pr_opt_select,
     },
 }
 

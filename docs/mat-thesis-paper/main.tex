@@ -1,0 +1,174 @@
+% ---------- Setup ----------
+\documentclass[12pt]{article}
+
+% ---------- Page Layout ----------
+\usepackage[letterpaper,margin=1in]{geometry}
+\usepackage{setspace}
+
+% ---------- Packages ----------
+\usepackage{graphicx}
+\usepackage{amsmath,amssymb}
+\usepackage{csquotes}
+\usepackage{parskip}
+\usepackage{hyperref}
+\usepackage[nameinlink,noabbrev]{cleveref}
+\usepackage{fancyhdr}
+\usepackage{titlesec}     
+\usepackage[backend=biber,style=ieee,citestyle=ieee,sorting=none]{biblatex}
+\addbibresource{references.bib}
+
+
+% ---------- Hyperref ----------
+\hypersetup{
+  colorlinks=true,
+  linkcolor=blue,
+  citecolor=blue,
+  urlcolor=blue,
+  pdftitle={Evaluating the effectiveness of image processing techniques for wave kinematics bathymetric inversion from satellite imagery},
+  pdfauthor={Marcel Rodriguez-Riccelli}
+}
+
+% ---------- Header / Footer ----------
+\pagestyle{fancy}
+\fancyhf{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+
+% ---------- Title Metadata ----------
+\newcommand{\papertitle}{Evaluating the effectiveness of image processing techniques for satellite-based bathymetric inversion by wave kinematics}
+\newcommand{\papersubtitle}{Applying Media Arts techniques toward addressing the need for data in Coastal Science}
+\newcommand{\papercourse}{A Thesis submitted in partial satisfaction of the requirements for the degree Master of Science in Media Arts and Technology}
+\newcommand{\paperauthor}{Marcel Rodriguez-Riccelli}
+\newcommand{\paperdate}{\today}
+
+% ---------- Title Block ----------
+\newcommand{\makepapertitle}{%
+  \begin{center}
+    {\Large\bfseries \papertitle\par}
+    \vspace{0.35cm}
+    {\large \papersubtitle\par}
+    \vspace{0.6cm}
+    {\papercourse\par}
+    \vspace{0.4cm}
+    {by \paperauthor\par}
+    \vspace{0.3cm}
+    {\paperdate\par}
+  \end{center}
+  \vspace{0.8cm}
+}
+
+% ---------- Begin Document ----------
+\begin{document}
+
+% ---------- Global Spacing ----------
+\onehalfspacing
+
+% ---------- Title ----------
+\makepapertitle
+
+% ---------- Abstract ----------
+\thispagestyle{empty}
+{\Large\bfseries Abstract}
+
+% ---------- Table of Contents ----------
+\newpage
+\thispagestyle{empty}
+\begin{center}
+{\Large\bfseries Table of Contents}
+\end{center}
+\vspace{0.5cm}
+\tableofcontents
+\newpage
+
+% ---------- SECTION 1: Introduction ----------
+\setcounter{page}{1}
+\fancyfoot[C]{\thepage}
+\section{Introduction}
+
+% ---------- 1.1 General Background ----------
+\subsection{Background}
+Since the earliest record of coastal human settlement on the African coast over 100,000 years ago, the coastal zone has been a cradle for human development, to the extent that adaptations to coastal environments are theorized to have influenced human evolutionary traits.~\cite{Will2016} Coasts provide for civilization in several ways---as an abundant source of food and energy resources and as a gateway for travel, commerce, exploration, and recreation---and our understanding of coastal processes has been intrinsically linked to our development as a civilization and species. That token extends into the modern era, as today, the coastal zone is inhabited by approximately 40\% of the global population, and is host to many of the worlds mega-cities and much of our most critical infrastructure.~\cite{Reithmeier2025}
+
+Most mega-cities are located in the Low Elevation Coastal Zone (LECZ), that represents 2\% of the worlds total land area inhabited by 11\% of the global population.~\cite{Neumann2015} The number of people living in the LECZ has increased by 200 million from 1990 to 2015, and is projected to reach 1 billion people by 2050.~\cite{Neumann2015} The majority of natural disasters occur either as a direct cause of marine processes, by meteorological events that occur over the ocean, or by geological events that happen at plate boundaries located at continental edges and mid-ocean ridges.~\cite{Kron2013} Cities in the LECZ are especially vulnerable to the damaging effects of coastal processes exacerbated by warming global climates---namely sea level rise, coastal erosion, and flooding---and so there is a growing need for informed solutions that can mitigate their impact.~\cite{Neumann2015}~\cite{Day2023} The goal of coastal science is to characterize and predictively model coastal processes in order to inform civil engineering projects and other applied use cases.~\cite{Vitousek2023}
+
+% ---------- 1.2 Challenges with measuring coastal phenomena ----------
+\subsection{Challenges with measuring coastal phenomena}
+Coastal environments are exceptionally dynamic---there are several transformative marine and land phenomena continuously occurring on a range of spatial-temporal scales, simultaneously influencing hydro- and morphological dynamics to various extents across discrete coastal areas.~\cite{Hunt2023} For this reason, coastal science is often referred to as being data-poor, as turbulent marine processes and unstable morphology make sampling environmental parameters difficult.~\cite{Vitousek2023}~\cite{Holman2013} Traditionally, the network of coastal monitoring systems had been limited to only a few specific sites that are highly-instrumented with in-situ point sensors. While highly accurate, these in-situ point sensors are limited in the several ways:
+
+ {\small
+ \begin{itemize}
+    \item High cost associated with equipment, maintenance, and deployment~\cite{Vitousek2023}.
+    \item Highly localized, small area of coverage~\cite{Vitousek2023}.
+    \item Nearshore phenomena are highly inhomogeneous in the along-shore direction, requiring a large sensor array to achieve adequate spatial resolution~\cite{Holman2013}.
+    \item Rapid erosion and accretion in the nearshore can dislodge or bury moored instruments~\cite{Holman2013}.
+    \item Large tidal sea-level changes can move in‐situ sensors out of range for meaningful data collection~\cite{Holman2013}.
+\end{itemize}
+ }
+
+Coastal environments are highly inhomogeneous in the along-shore direction, and so the effective range of measurements taken from one area for modeling phenomena in another are highly limited on a variety of environmental parameters.~\cite{Holman2013}. The limitations of the current network of coastal sensing systems prohibits accurate predictive modeling of coastal phenomena on a global scale, and so solutions are needed that both expand the coverage of available measurement data on coastal phenomena.
+
+% ---------- 1.2 Satellite-based remote sensing as a solution ----------
+\subsection{Satellite-based remote sensing as a solution}
+To address the limited coverage of the network of coastal monitoring systems, many coastal researchers have directed their efforts toward using data products born of the current array of Earth observing satellites to measure coastal phenomena.~\cite{Vitousek2023}~\cite{Holman2013} Satellite based remote sensing offers a promising alternative to traditional methods for monitoring in-situ point sensors for overcoming the challenges with measuring coastal phenomena:
+
+{\small
+\begin{itemize}
+    \item Data products are available at little to no cost to the user~\cite{Vitousek2023}.
+    \item Provides global coverage~\cite{Vitousek2023}.
+    \item Able to simultaneously sample a wide spatial array of points~\cite{Holman2013}.
+    \item Sensors are removed from damaging and destabilizing hydrodynamic and morphological processes~\cite{Holman2013}.
+\end{itemize}
+}
+
+
+\subsection{Bathymetry}
+
+Bathymetry is the variable that currently limits numerical modeling of nearshore phenomena.~\cite{Holman2013} Currently, less than ~15\% of the ocean floor, representing ~70\% of the area of Earth’s crust, has been mapped at a spatial resolution of under 5 kilometers.~\cite{Baumann2019} Hydrodynamic processes in the nearshore such as currents and wave dissipation are highly subject to even small changes in bathymetric morphology, and so models predicting nearshore dynamics improve markedly when accurate and detailed bathymetric data is provided.~\cite{Ruessink2001}
+
+% ---------- 1.4 The role of Media Arts ----------
+\subsection{Media Arts}
+Recent efforts in the field of Coastal Science have been toward the development of computational methods for processing sensor data to derive physical measurements, as well as the purposing of powerful embedded computers and accurate peripheral sensors recently made accessible to the public at relatively low cost. These efforts are the result of cross-disciplinary collaboration and borrowing from various domains including---computer graphics, computer vision, three-dimensional modeling, robotics, digital signal processing, machine learning, and networking of multimedia systems---that at the core of the Media Arts discipline. Solutions developed from a Media Arts perspective lend themselves both to the the improvement of data products used for characterizing coastal processes from existing sensors, and the development of scalable instruments that may be integrated to extend the capabilities and reach of the current network of coastal monitoring systems. However, the challenges associated with measuring environmental parameters in the coastal zone require that the development of solutions be informed by knowledge of the physical processes which occur there. The goal of this paper is to aggregate the knowledge necessary for developing solutions for measuring hydro- and morpho-dynamic phenomena, both from existing sensor platforms and by the development of novel sensing systems, and provide examples of each, in support of a framework for applying techniques from the field of Media Arts to interdisciplinary problem solving through individual contribution and collaboration.
+
+% ---------- SECTION 2:  ----------
+\subsection{Coastal Processes}
+
+% ---------- General definition of coastal area ----------
+Broadly, a coast is the greater zone extending both landward and seaward from the shoreline (the boundary where ocean meets land).
+There exist several definitions on the extent of the coastal area offered by disparate scientific bodies. Some sources define the coastal zone according to the distance from the shoreline~\cite{NOAACoastalWatersGlossary} while others define coasts by the extent of processes which occur as a result of the interface of land and sea.~\cite{LibreTexts} Within these general differences lie more specific ones: for the former, regulatory bodies from different countries may demarcate the shoreline according to different tidal reference lines.~\cite{PellachAlterman2021} For the later, studies from different fields may include or exclude certain processes from their definition as necessary based on the timescale of the process of interest.~\cite{LibreTexts}
+
+% ---------- Modeling and spatial-temporal constraints ----------
+Physical models that enable accurate forecasting and analysis are at the crux of coastal science; they are used to inform and support a wide variety of applications, including---weather prediction, infrastructure planning and management, aquaculture and fishing, maritime safety and efficiency, military operation, and biogeophysical parameter estimation.~\cite{DeMeyFreemaux2009} Defining the spatial-temporal extent of which coastal processes should included with careful consideration to the application is an integral part of the modeling processes. For example, models with strongly embedded equilibrium concepts have proven more successful in predicting short-to-medium term phenomena than those which occur over long (multi-decade) timescales.~\cite{Hunt2023}
+
+% ---------- Stommel diagram of coastal processes ----------
+\begin{figure}
+    \centering
+    \includegraphics[width=0.8\linewidth]{images/stommel-diag.jpg}
+    \caption{A Stommel-type schematic diagram representing approximate spatial and temporal modelling scales that are appropriate to hydro- and morpho-dynamic features, based on Hunt et al. 2023.~\cite{Hunt2023}}
+    \label{figure1}
+\end{figure}
+
+% ---------- Importance of understanding hydro-dynamic processes ----------
+Waves that are generated by wind blowing over a large stretch of ocean and perpetuated by the restoring force of gravity, and travel away from their area of generation and propagate into the coastal zone, are the dominant influence on coastal morphology in most areas.~\cite{Davidson2013}~\cite{Garrison2012} As wind waves propagate into the nearshore, decreasing water depth relative to wavelength induces shoaling, increasing wave height and modifying orbital velocities, until depth-limited breaking occurs, dissipating wave energy and driving nearshore circulation, sediment transport, and morphological change. Comprehensive characterization of coastal phenomena requires understanding the combined and interacting effects of ocean wave propagation with other hydro-dynamic processes that occur in the nearshore.
+
+% ---------- Wind generated ocean waves ----------
+Most wave energy is dissipated in a very thin coastal band roughly 100 meters wide, where energy loss rates of approximately 10 - 100 watts per square meter make the surf zone one of the most energetic ocean regions.~\cite{Holman2013}
+
+\subsection{Sensors}
+\subsubsection{Electromagnetic}
+\subsubsection{Acoustic}
+\subsubsection{Complementary}
+
+\section{Example contributions}
+\subsection{Data Processing}
+\subsection{Instrumentation}
+
+
+\section{Conclusion}
+\subsection{A framework for Media Arts–Based Solutions}
+\subsection{Summary}
+
+% ---------- Bibliography ----------
+\printbibliography
+
+% ---------- End Document ----------
+\end{document}

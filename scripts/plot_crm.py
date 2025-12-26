@@ -24,7 +24,7 @@ with open("config/aoi_list.json") as f:
 # Reconstruct AOI objects
 aoi_list = [AOI(**a) for a in aoi_data]
 proj = ccrs.PlateCarree()
-norm = TwoSlopeNorm(vmin=-100, vcenter=0, vmax=500)
+norm = TwoSlopeNorm(vmin=-400, vcenter=0, vmax=400)
 
 # Set directory for saving plot
 SCRIPT_DIR = Path(__file__).resolve().parent

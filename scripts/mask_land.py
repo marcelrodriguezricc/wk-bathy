@@ -35,8 +35,10 @@ xml_dir = ROOT_DIR / "data" / "st1"
 opt_dir = ROOT_DIR / "data" / "st2" / "subset"
 opt_outdir = ROOT_DIR / "data" / "st2" / "masked"
 opt_outdir.mkdir(parents=True, exist_ok=True)
-img_outdir = ROOT_DIR / "images" / "masked"
-img_outdir.mkdir(parents=True, exist_ok=True)
+sar_img_outdir = ROOT_DIR / "images" / "st1" / "masked"
+sar_img_outdir.mkdir(parents=True, exist_ok=True)
+opt_img_outdir = ROOT_DIR / "images" / "st2" / "masked"
+opt_img_outdir.mkdir(parents=True, exist_ok=True)
 
 
 # For each AOI...
@@ -77,7 +79,7 @@ for a in aoi_list:
 
     # Convert to EPSG 32610 to add buffer, then convert back
     land_utm = clipped_land.to_crs("EPSG:32610")
-    land_buffered = land_utm.buffer(a.shoreline_buffer)
+    land_buffered = land_utm.buffer(3500)
     land_buffered = land_buffered.to_crs("EPSG:4326")
 
     # Loop for both dataset (optical and SAR)...
@@ -122,7 +124,7 @@ for a in aoi_list:
                 )
                 
                 # Save image with percent stretch, unmasked area in red, for debugging and establishing buffer extent
-                sar_masktest_outpath = img_outdir / f"{a.filename}_sar_masktest_{sar_date}.png"
+                sar_masktest_outpath = sar_img_outdir / f"{a.filename}_sar_masktest_{sar_date}.png"
                 if sar_masktest_outpath.exists():
                     print(f"SAR mask test image already exists for {a.name}, skipping save: {sar_masktest_outpath}")
                 else:
@@ -137,7 +139,7 @@ for a in aoi_list:
                     print(f"Saved SAR mask test image for {a.name} → {sar_masktest_outpath}")
 
                 # Save masked image with no modifications
-                sar_mask_outpath = img_outdir / f"{a.filename}_sar_mask_{sar_date}.png"
+                sar_mask_outpath = sar_img_outdir / f"{a.filename}_sar_mask_{sar_date}.png"
                 if sar_mask_outpath.exists():
                     print(f"Masked SAR image already exists for {a.name}, skipping save: {sar_mask_outpath}")
                 else:
@@ -192,7 +194,7 @@ for a in aoi_list:
                 )
 
                 # Save image with percent stretch, unmasked area in red, for debugging and establishing buffer extent
-                opt_masktest_outpath = img_outdir / f"{a.filename}_opt_masktest_{opt_date}.png"
+                opt_masktest_outpath = opt_img_outdir / f"{a.filename}_opt_masktest_{opt_date}.png"
                 if opt_masktest_outpath.exists():
                     print(f"Optical mask test image already exists for {a.name}, skipping save: {opt_masktest_outpath}")
                 else:
@@ -207,7 +209,7 @@ for a in aoi_list:
                     print(f"Saved optical mask test image for {a.name} → {opt_masktest_outpath}")
                 
                 # Save masked image with no modifications
-                opt_mask_outpath = img_outdir / f"{a.filename}_opt_mask_{opt_date}.png"
+                opt_mask_outpath = opt_img_outdir / f"{a.filename}_opt_mask_{opt_date}.png"
                 if opt_mask_outpath.exists():
                     print(f"Optical mask test image already exists for {a.name}, skipping save: {opt_mask_outpath}")
                 else:

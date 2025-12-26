@@ -25,7 +25,7 @@ catalog = Client.open("https://earth-search.aws.element84.com/v1")
 # Set directory and prefix for saving dataset
 SCRIPT_DIR = Path(__file__).resolve().parent
 ROOT_DIR = SCRIPT_DIR.parent
-data_dir = ROOT_DIR / "data" / "st2"
+data_dir = ROOT_DIR / "data" / "st2" / "raw"
 data_dir.mkdir(parents=True, exist_ok=True)
 
 # For each AOI...

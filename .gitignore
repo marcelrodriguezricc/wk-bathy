@@ -76,9 +76,10 @@ site/
 # Cython debug symbols
 cython_debug/
 
-# Local data/output caches
+# Local data/image/output caches
 data/
 data/**
+images/window_fft/
 # output/
 # outputs/
 # downloads/

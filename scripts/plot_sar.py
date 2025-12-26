@@ -23,10 +23,10 @@ aoi_list = [AOI(**a) for a in aoi_data]
 # Set directory and prefix for loading dataset
 SCRIPT_DIR = Path(__file__).resolve().parent
 ROOT_DIR = SCRIPT_DIR.parent
-data_dir = ROOT_DIR / "data" / "st1"
+data_dir = ROOT_DIR / "data" / "st1" / "raw"
 
 # Set output folder for plots
-outdir_img = ROOT_DIR / "images" / "st1"
+outdir_img = ROOT_DIR / "images" / "st1 / selection_plots"
 outdir_img.mkdir(parents=True, exist_ok=True)
 
 # For each AOI...

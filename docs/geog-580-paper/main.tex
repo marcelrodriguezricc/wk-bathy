@@ -1,0 +1,196 @@
+\documentclass[12pt]{article}
+
+% ---------- Packages ----------
+\usepackage[utf8]{inputenc}
+\usepackage{setspace}          % Line spacing
+\usepackage{geometry}          % Page layout
+\usepackage{parskip}           % Better paragraph spacing (no indent)
+\usepackage{graphicx}          % For images
+\usepackage{amsmath, amssymb}  % Math
+\usepackage{titlesec}          % Section formatting
+\usepackage{hyperref}          % Clickable links
+\usepackage{csquotes}          % Improved quotations
+\usepackage[backend=biber,style=ieee,sorting=none]{biblatex}
+\addbibresource{references.bib}
+
+
+% ---------- Page Setup ----------
+\geometry{
+  letterpaper,
+  margin=1in
+}
+
+\onehalfspacing  % 1.5 line spacing
+
+% ---------- Title ----------
+\title{
+    \textbf{\Huge Satellite-Derived Bathymetry via Wave-Kinematics Inversion} \\[10pt]
+    \textbf{\Large A Computational Evaluation of Method Effectiveness} \\[10pt]
+    \large Remote Sensing I (GEOG 580) — End of Term Paper \\ [6pt]
+    \large by Marcel Rodriguez-Riccell \\ [4pt]
+}
+
+% ---------- Begin Document ----------
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+
+We created a semi-automated pipeline for deriving bathymetry from optical and synthetic aperture radar satellite imagery by means of a wave-kinematics inversion algorithm. The pipeline, given the latitude and longitude coordinates and bounding box extents for multiple areas of interest: (1) identifies dates and times when swell conditions are appropriate for satellite detection and wave-kinematics inversion, (2) offers the user a selection of optical and synthetic aperture radar imagery to select from along with metrics of variables pertinent to the effectiveness of wave-kinematic bathymetric inversion, (3) processes each selected image for image analysis, (4) performs a 2D Fast Fourier Transform for a grid of discrete overlapping windows that span the extent of the image, (5) applies a linear dispersion equation to derive bathymetry for the centroid of each window, and (6) applies a filter based on a theoretical Coastal Relief Model to remove points that are non-physical. By this algorithm, we attempted to derive bathymetry for four coastal sections, selected for a variety of environmental parameters that contribute or detract from the suitability of satellite-based wave-kinematics inversion for accurately deriving depths for a given area. Our evaluation identifies the various traits that make a coastal section suitable to satellite-based wave-kinematics bathymetric inversion, as well as differences in deriving depth from synthetic aperture radar and optical imagery.
+
+\end{abstract}
+
+% ---------- Main Sections ----------
+\section{Introduction}
+
+Since the earliest record of coastal human settlement on the African coast over 100,000 years ago, the coastal zone has been a cradle for human development, to the extent that ... adaptations to coastal environments are theorized to have influenced human evolutionary traits.~\cite{Will2016} Coasts provide for civilization in several ways---as an abundant source of food and energy resources and as a gateway for travel, commerce, exploration, and recreation. The coastal zone is inhabited by 40\% of the global population, and is host to many of the world’s megacities and much of our critical infrastructure.~\cite{Reithmeier2025} The majority of natural disasters occur either as a direct cause of marine processes, by meteorological events that occur over the ocean, or by geological events that happen at plate boundaries located at continental edges and mid-ocean ridges.~\cite{Kron2013} Settlements and ecosystems in the coastal zone are particularly exposed to the damaging effects of natural disasters, which are becoming increasingly exacerbated by warming global climates, and so there is a growing need for informed solutions that can mitigate their impact.~\cite{Neumann2015} The goal of coastal science is to characterize and predict coastal processes in order to inform civil engineering projects and other applied use cases.~\cite{Vitousek2023} Coastal science is often referred to as being data-poor — the coastal zone is a highly dynamic environment where turbulent marine processes and unstable morphology make sampling environmental parameters difficult.~\cite{Vitousek2023}~\cite{Holman2013} Scientific research vessels (R/Vs) that deploy scientific instrumentation for quantifying marine phenomena are unable to operate in the turbulent and shallow depths of the surf-zone.~\cite{Holman2013} Traditionally, in-situ point sensors have been the method of choice for measuring nearshore phenomena, but are limited in several ways:
+
+ {\small
+ \begin{itemize}
+    \item High cost associated with equipment, maintenance, and deployment~\cite{Vitousek2023}.
+    \item Highly localized, small area of coverage~\cite{Vitousek2023}.
+    \item Nearshore phenomena are highly inhomogeneous in the along-shore direction, requiring a large sensor array to achieve adequate spatial resolution~\cite{Holman2013}.
+    \item Rapid erosion and accretion in the nearshore can dislodge or bury moored instruments~\cite{Holman2013}.
+    \item Large tidal sea-level changes can move in‐situ sensors out of range for meaningful data collection~\cite{Holman2013}.
+\end{itemize}
+ }
+
+In recent years, advances in computing and remote sensing technology have enabled the use of satellite-based remote sensing in monitoring and measuring coastal processes.~\cite{Vitousek2023}~\cite{Holman2013} Satellite based remote sensing offers a promising alternative to overcoming the challenges with measuring coastal phenomena:
+
+{\small
+\begin{itemize}
+    \item Data are available at little to no cost to the user~\cite{Vitousek2023}.
+    \item Provides global coverage~\cite{Vitousek2023}.
+    \item Able to simultaneously sample a wide spatial array of points~\cite{Holman2013}.
+    \item Sensors are removed from damaging and destabilizing hydrodynamic and morphological processes~\cite{Holman2013}.
+\end{itemize}
+}
+
+Bathymetry is the variable that currently limits numerical modeling of nearshore phenomena.~\cite{Holman2013} Currently, less than ~15\% of the ocean floor, representing ~70\% of the area of Earth’s crust, has been mapped at a spatial resolution of under 5 kilometers.~\cite{Baumann2019} Hydrodynamic processes in the nearshore such as currents and wave dissipation are highly subject to even small changes in bathymetric morphology, and so models predicting nearshore dynamics improve markedly when accurate and detailed bathymetric data is provided.~\cite{Ruessink2001} While both active and passive satellite remote sensors are unable to penetrate the surface of the ocean in all but the shallowest and least turbid areas, characteristics of the seafloor can be derived from images of surface phenomena by retrieval algorithms.~\cite{Reithmeier2025} A common method that has been the focus of recent efforts to address the need for moderate-to-high resolution nearshore depth maps is wave-kinematics bathymetric inversion by satellite-imagery.~\cite{ODea2025} Wave-kinematics bathymetric inversion algorithms estimate spatial variance in wave celerity across the image and use the relationship between wave celerity and depth given by linear or non-linear dispersion equations to derive depth.~\cite{ODea2025} When creating our algorithm for deriving bathymetry, we considered two algorithms: one for synthetic aperture radar imagery from Sentinel-1 in Mudiyanselage et al., 2024~\cite{Mudiyanselage2024} and another for optical imagery from Sentinel-2 in Bergsma et al., 2019.~\cite{Bergsma2019} 
+
+\section{Method for Deriving Bathymetry}
+
+We began by selecting our areas of interest based on a variety of traits that make an area more or less suited to being subject to wave-kinematics bathymetric inversion. Additional conditions we set forth for area-of-interest selection required an available Coastal Relief Model for our final evaluation of the physicality of depth points derived by the algorithm, a nearby buoy for an accurate external measurement of peak period to be applied to the linear dispersion equation. The selected areas included:
+
+ {\small
+\begin{itemize}
+    \item North Shore of O'ahu, Hawaii, USA (21°41'22"N 158°06'08"W)
+    \begin{itemize}
+        \item Highly complex bathymetry with flat tabletop reefs and lava spires
+        \item Severely sloped and narrow nearshore area
+        \item Exposed to a large combination of swells
+        \item Energetic long-period ground swells in winter
+        \item Low turbidity
+    \end{itemize}
+    \item Golden Gate, California, USA (37°43'47"N 122°44'47"W)
+    \begin{itemize}
+        \item Bay mouth formed by tectonic subsidence
+        \item Complex shipping-lane bathymetry
+        \item Wide nearshore area
+        \item Highly energetic combination swells
+        \item Strong tidal currents from bay mouth.
+        \item High turbidity
+    \end{itemize}
+    \item Wassabo Beach, Florida, USA (35°12'15"N 75°29'40"W)
+    \begin{itemize}
+        \item Predominantly southbound swell direction 
+        \item Energetic in winter months 
+        \item Common wave setup
+        \item Wide nearshore area
+        \item Moderate turbidity
+    \end{itemize}
+    \item Rincon, Puerto Rico (18°23'28"N 67°17'36"W)
+    \begin{itemize}
+        \item Regular fore-reef outer-reef setup
+        \item Energetic swells in winter, subject to episodic extreme hurricane events late summer
+        \item Narrow nearshore area
+    \end{itemize}
+\end{itemize}
+}
+
+Of these four, Wassabo Beach was chosen as the control subject to confirm the algorithm's correctness, as this location was thoughtfully selected for its suitability toward wave-kinematics bathymetric inversion by Mudiyanselage et al.~\cite{Mudiyanselage2024}
+
+Wave-kinematics bathymetric inversion requires that the imaged area for which depth is being derived is experiencing a swell event with a mean significant wave height of over 1m.~\cite{Mudiyanselage2024}~\cite{Bergsma2019} The first step our program takes is to download the respective Coastal Relief Model for each area of interest from the NOAA CRM database, retrieve the date of its creation from the associated metadata file, and use the mean significant wave height minimum condition to compile a list of eligible dates and times based on historical wave data.~\ref{fig:ns_swh} 
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.7\linewidth]{/Users/marcel/Desktop/wkb-evaluation/images/swh_plots/ns_swh.png}
+    \caption{Significant wave height plot for the north shore region around the creation date.}
+    \label{fig:ns_swh}
+\end{figure}
+
+Peak period is also retrieved for each day and stored, to be applied to the linear dispersion equation for deriving depth at the end of the pipeline. Separate workflows exist for doing this from both the Copernicus Marine Service Wave Analysis and Forecasting model and NOAA National Buoy historical dataset, to mixed results, that will be discussed in our conclusion section. 
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.6\linewidth]{/Users/marcel/Desktop/wkb-evaluation/images/st2/selection_plots/wb_optical_2023-09-22.png}
+    \caption{Optical imagery of the Wassabo Beach area of interest with image metadata that is pertinent to selection.}
+    \label{fig:wb_opt}
+\end{figure}
+
+The list of dates with significant wave height greater than  1m is used to query the Sentinel-1 and Sentinel-2 databases for available imagery, with some additional filter conditions to ensure image suitability. A folder of plotted images accompanied by metadata and other calculations pertinent to the measurability of waves by both optical and radar is compiled, from which the user can select one image for each area of interest and sensor type.~\ref{fig:wb_opt} The algorithm then automatically downloads a subset of the Natural Earth Land polygon vector dataset for a 10 m approximation of coastal boundaries, and applies a buffer operation to create a mask that excludes especially shallow and land areas.~\ref{fig:pr_mask}
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.7\linewidth]{/Users/marcel/Desktop/wkb-evaluation/images/for_paper/pr-mask.png}
+    \caption{Left: Unmasked area in red, Right: Mask applied SAR image of Rincon, Puerto Rico, 11/13/2022.}
+    \label{fig:pr_mask}
+\end{figure}
+
+Each masked image is then divided into several overlapping windowed subsets, and a 2D Fast Fourier Transform (FFT) is applied to each subset. A blob grouping method outlined in Mudiyanselage et al.~\cite{Mudiyanselage2024} is applied to the resulting 2D FFT to obtain a wavelength measurement for the predominant swell for each window.~\ref{fig:ns_fft}
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.7\linewidth]{/Users/marcel/Desktop/wkb-evaluation/images/window_fft/ns_sar_wfft_0_2022-04-16.png}
+    \caption{A 2D FFT with blob grouping applied for a window from the SAR imagery of the North Shore, O'ahu, Hawaii USA area of interest.}
+    \label{fig:ns_fft}
+\end{figure}
+
+The wavelength measurement for each window retrieved through the algorithm by the 2D FFT is combined with external peak period measurement previously obtained from the historical wave dataset to the following linear dispersion equation 
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.3\linewidth]{/Users/marcel/Desktop/wkb-evaluation/images/write_up_figures/linear-disp-eq.png}
+    \caption{Linear dispersion equation relating wavelength, period, and depth.}
+    \label{fig:dispersion}
+\end{figure}
+
+where $h$ is the depth being derived for the window centroid, $\lambda$ is the algorithmically obtained wavelength measurement from the 2D FFT for that same window, and $T_p$ is the externally obtained peak wave period for the entire scene. The centroid depth measurements for each window are re-aggregated into a grid of depths for the full area of interest. The NOAA Coastal Relief Model is used to filter depths that fall outside of a range of 10 meters, as we consider depths outside of that range to be non-physical. Comparing the number of filtered depth points can allow us to ascertain how effective derivation was for that image. Superimposing the filtered points over the original satellite image allows us to note features that may have caused the algorithm to be in error.~\ref{fig:derived_depths}
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.6\linewidth]{/Users/marcel/Desktop/wkb-evaluation/images/for_paper/depth-figure.png}
+    \caption{Derived depth grids for each area of interest superimposed above original satellite imagery.}
+    \label{fig:derived_depths}
+\end{figure}
+
+\section{Conclusion}
+
+We were not able to obtain any physically realistic derived depths that passed through the Coastal Relief Model depth filter for selected optical imagery from any of the four areas of interest. The 2D FFT of the optical imagery shows strong high frequency content that is not within the wavelength range of the ocean swells we're interested in, which possibly indicates that the optical imagery may need to be subjected to more rigorous pre-processing techniques, such as the Radon Transform outlined in Bergsma et al., 2019.~\cite{Bergsma2019} The query for Sentinel-2 imagery also produced less options for user selection when compared to available Sentinel-1 imagery, possibly due to cloud coverage filters and lower revisit frequency. Some areas of interest had only one or two images to select from still containing a fair amount of cloud obscuration.
+
+For synthetic aperture radar imagery, we were successful in deriving depths for most points of the Wassabo Beach, Florida area of interest that served as our control. The Golden Gate area of interest was also partially successful, specifically in the areas away from the bay mouth for which complex bathymetry and circulatory profile around the bay mouth may have been the cause of errors. Only a single point passed through the filter for the North Shore, O'ahu, Hawaii and none for the Rincon, Puerto Rico areas of interest. The common features between these two areas, and where they differ from the other two areas, is the narrow nearshore zone. Future work will include further inquiries into the relationship between error in depth derivation and a narrow nearshore area.
+
+As mentioned earlier, we created two separate pipelines for getting significant wave height and the external peak period used for the $T_p$ variable in the linear dispersion equation for every window in each area: one for the Copernicus Marine Wave Analysis and Forecast model, and one for the NOAA National Buoy dataset. The peak period for the same area at the same time between the modeled and measured datasets varied greatly, and the Copernicus Marine Wave Analysis and Forecast model caused our algorithm to derive zero depth points that passed the filter for any area of interest. This suggests that the wave kinematic inversion algorithm is particularly sensitive to inaccuracies in $T_p$; it is the only squared term in the linear dispersion equation. This may also explain inaccuracies in areas with complex bathymetry, those that are exposed to a combination of swells, and those with narrow nearshore regions. These factors may contribute toward greater variation in actual $T_p$ for each point for which depth is derived throughout the scene, causing the single $T_p$ value retrieved for the entire area to be inaccurate for deriving depth at those points. Methods for dealing with these inaccuracies include deriving depths at regular transects in the direction of the primary swell, and using the theoretical Coastal Relief Model to obtain discrete $T_p$ values for each window, which our future work will evaluate.~\cite{ODea2025}~\cite{Mudiyanselage2024}~\cite{Bergsma2019}
+
+From this evaluation, we have qualitatively determined some of the environmental factors that contribute to the effectiveness of the wave-kinematics bathymetric inversion algorithms:
+
+{\small
+\begin{itemize}
+\item Significant wave height 
+\item Swell direction deviation
+\item Swell period
+\item Proximity to a buoy
+\item Wave set-up
+\item Extent of the nearshore area (distance at which waves shoal from coastline)
+\item Current profile
+\item Bathymetric complexity
+\end{itemize}
+}
+
+Future work will include quantitative evaluation by applying the algorithm to areas with existing multibeam sonar-based survey data that can serve as a ground-truth source for evaluating the Root Mean Square Error (RMSE) of derived depths. From these quantitative evaluations, we hope to formulate a ``wave-kinematics bathymetry applicability'' weighted index, for which a global raster of index values can be generated, to be used as a resource for directing expansion of existing high-resolution bathymetric maps by this method.
+
+% ---------- References ----------
+\printbibliography
+
+\end{document}

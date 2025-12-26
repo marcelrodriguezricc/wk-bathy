@@ -11,61 +11,60 @@ from dataclasses import asdict
 from utils.data_classes import AOI
 from utils.functions import dms_to_decimal
 
-# North Shore, O'ahu, Hawaii
-ehukai_lat = dms_to_decimal(degrees = 21, minutes =  40, seconds = 19, direction = "N") # 21°40'19"N
-ehukai_lon = dms_to_decimal(degrees = 158, minutes =  3, seconds = 42, direction = "W") # 158°03'42"W
+ns_lat = dms_to_decimal(degrees = 21, minutes =  41, seconds = 22, direction = "N") # 21°41'22"N 
+ns_lon = dms_to_decimal(degrees = 158, minutes =  6, seconds = 8, direction = "W") # 158°06'08"W
 aoi_1 = AOI(name = "North Shore, O'ahu, Hawaii",
-            filename = "ehukai",
-            lat = ehukai_lat,
-            lon = ehukai_lon,
-            bbox_lat = 0.05,
-            bbox_lon = 0.05,
+            filename = "ns",
+            lat = ns_lat,
+            lon = ns_lon,
+            bbox_lat = 0.1,
+            bbox_lon = 0.1,
             date_offset = 0,
+            buoy_number = 51201,
             crm_link = "https://www.ngdc.noaa.gov/thredds/dodsC/crm/cudem/crm_vol10_2023.nc",
-            shoreline_buffer = 2000,
             )
 
 # Golden Gate, California
-gg_lat = dms_to_decimal(degrees = 37, minutes =  47, seconds = 35, direction = "N") # 37°47'35"N 
-gg_lon = dms_to_decimal(degrees = 122, minutes =  33, seconds = 19, direction = "W")# 122°33'19"W
+gg_lat = dms_to_decimal(degrees = 37, minutes =  45, seconds = 33, direction = "N") # 37°45'33"N
+gg_lon = dms_to_decimal(degrees = 122, minutes =  39, seconds = 57, direction = "W") # 122°39'57"W
 aoi_2 = AOI(name = "Golden Gate, California",
             filename = "gg",
             lat = gg_lat,
             lon = gg_lon,
-            bbox_lat = 0.05,
-            bbox_lon = 0.05,
+            bbox_lat = 0.2,
+            bbox_lon = 0.2,
             date_offset = 0,
+            buoy_number = 46237,
             crm_link = "https://www.ngdc.noaa.gov/thredds/dodsC/crm/cudem/crm_vol7_2024.nc",
-            shoreline_buffer = 2000,
             )
 
-# Diamond Shoals, North Carolina
-ds_lat = dms_to_decimal(degrees = 35, minutes =  12, seconds = 15, direction = "N") # 35°12'15"N 
-ds_lon = dms_to_decimal(degrees = 75, minutes =  29, seconds = 40, direction = "W") # 75°29'40"W
-aoi_3 = AOI(name = "Diamond Shoals, North Carolina",
-            filename = "dshoals",
-            lat = ds_lat,
-            lon = ds_lon,
-            bbox_lat = 0.05,
-            bbox_lon = 0.05,
+# Wassabo Beach, Florida
+wb_lat = dms_to_decimal(degrees = 27, minutes =  43, seconds = 31, direction = "N") # 27°43'31"N
+wb_lon = dms_to_decimal(degrees = 80, minutes =  15, seconds = 6, direction = "W") # 80°15'06"W
+aoi_3 = AOI(name = "Wassabo Beach, Florida",
+            filename = "wb",
+            lat = wb_lat,
+            lon = wb_lon,
+            bbox_lat = 0.2,
+            bbox_lon = 0.2,
             date_offset = 0,
-            crm_link = "https://www.ngdc.noaa.gov/thredds/dodsC/crm/cudem/crm_vol2_2023.nc",
-            shoreline_buffer = 3000,
+            buoy_number= 41114,
+            crm_link = "https://www.ngdc.noaa.gov/thredds/dodsC/crm/cudem/crm_vol3_2023.nc",
             )
 
 
-# Punta Jacinto, Puerto Rico
-pj_lat = dms_to_decimal(degrees = 18, minutes =  32, seconds = 16, direction = "N") # 18°32'16"N
-pj_lon = dms_to_decimal(degrees = 67, minutes =  4, seconds = 23, direction = "W") # 67°04'23"W
-aoi_4 = AOI(name = "Punta Jacinto, Puerto Rico", 
-            filename = "pj",
-            lat = pj_lat, 
-            lon = pj_lon,
-            bbox_lat = 0.05,
-            bbox_lon = 0.05,
-            date_offset = 236,
+# Rincon, Puerto Rico
+pr_lat = dms_to_decimal(degrees = 18, minutes =  23, seconds = 28, direction = "N") # 18°23'28"N
+pr_lon = dms_to_decimal(degrees = 67, minutes =  17, seconds = 36, direction = "W") # 67°17'36"W
+aoi_4 = AOI(name = "Rincon, Puerto Rico", 
+            filename = "pr",
+            lat = pr_lat, 
+            lon = pr_lon,
+            bbox_lat = 0.1,
+            bbox_lon = 0.1,
+            date_offset = 150,
+            buoy_number= 41115,
             crm_link = "https://www.ngdc.noaa.gov/thredds/dodsC/crm/cudem/crm_vol9_2023.nc",
-            shoreline_buffer = 2000,
             )
 
 # Compile array

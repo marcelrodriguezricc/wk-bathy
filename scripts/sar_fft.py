@@ -35,6 +35,12 @@ for a in aoi_list:
     date = a.selected_dates["sar"]["date"]
     data_path = data_dir / f"{a.filename}_sar_masked_{date}.tiff"
 
+    # Get period from object data
+    tp = a.selected_dates["sar"]["period"]
+
+    # Gravity coef.
+    g = 9.81
+
     # Load SAR image raster
     with rasterio.open(data_path) as src:
         
@@ -137,8 +143,9 @@ for a in aoi_list:
         # ----- THRESHOLDING -----
 
         # Establish lower and upper threshold of wavelengths in consideration, and convert to wavenumber space
-        lambda_min = a.selected_dates["sar"]["mean_lmin"] * a.selected_dates["sar"]["fft_lmin"]
-        lambda_max = a.selected_dates["sar"]["fft_lmax"]
+        lambda_deep = g * tp**2 / (2 * np.pi)
+        lambda_min = 0.5 * lambda_deep
+        lambda_max = 1.75 * lambda_deep
         k_min = 2 * np.pi / lambda_max
         k_max = 2 * np.pi / lambda_min
 
@@ -308,7 +315,7 @@ for a in aoi_list:
     # Comment box on side of plots for tuning
     fig.text(
             0.725, 0.5,                   
-            f"CMEMS Period: {period_val:.2f} seconds\nCMEMS Mean Direction: {direction_val:.2f}°\nK1 + Period: {period_kplus1:.2f} seconds\nK1 + Direction: {direction_kplus1:.2f}\nK1 - Period: {period_kminus1:.2f} seconds\nK1 - Direction: {direction_kminus1:.2f}\nK2 + Period: {period_kplus2:.2f} seconds\nK2 + Direction: {direction_kplus2:.2f}\nK2 - Period: {period_kminus2:.2f} seconds\nK2 - Direction: {direction_kminus2:.2f}",
+            f"CMEMS Mean Period: {period_val:.2f} seconds\nCMEMS Mean Direction: {direction_val:.2f}°\nK1 + Period: {period_kplus1:.2f} seconds\nK1 + Direction: {direction_kplus1:.2f}°\nK1 - Period: {period_kminus1:.2f} seconds\nK1 - Direction: {direction_kminus1:.2f}°\nK2 + Period: {period_kplus2:.2f} seconds\nK2 + Direction: {direction_kplus2:.2f}°\nK2 - Period: {period_kminus2:.2f} seconds\nK2 - Direction: {direction_kminus2:.2f}°",
             va = "center", ha = "left",
             fontsize = 10,
             linespacing = 2.0,

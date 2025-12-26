@@ -271,31 +271,92 @@ def ll_dist(lat1, lon1, lat2, lon2):
     # Return pythagorean distance
     return R * np.sqrt(x**2 + y**2)
 
-def iter_windows(arr, lat, lon, win_nx, win_ny, step_x, step_y, max_nan_fraction=0.3):
+# Iterate through subset windows of the full input image in coordinate space
+def iter_windows(arr, lat, lon, win_nx, win_ny, step_x, step_y, max_nan_fraction = 0.3):
 
+    # Get window shape
     ny, nx = arr.shape
-
     half_nx = win_nx // 2
     half_ny = win_ny // 2
 
+    # For each window center...
     for j_center in range(half_ny, ny - half_ny, step_y):
         for i_center in range(half_nx, nx - half_nx, step_x):
 
+            # Get window bounds
             j_start = j_center - half_ny
             j_end   = j_center + half_ny + 1
             i_start = i_center - half_nx
             i_end   = i_center + half_nx + 1
 
+            # Store bounds in array
             window = arr[j_start:j_end, i_start:i_end]
 
+            # If window shape is the incorrect size, skip
             if window.shape != (win_ny, win_nx):
                 continue
 
+            # If window shape is over 30% NaN values, skip
             nan_fraction = np.isnan(window).mean()
             if nan_fraction > max_nan_fraction:
                 continue
 
+
+            # Get latitude and longitude of window center
             center_lat = float(lat[j_center, i_center])
             center_lon = float(lon[j_center, i_center])
 
+            # Return bounds array, center point in latitude and longitude and pixel coordinates
             yield window, center_lat, center_lon, j_center, i_center
+
+# Iterate through subset windows of the full input image in image space
+def iter_windows_image(
+    arr,
+    win_nx,
+    win_ny,
+    step_x,
+    step_y,
+    max_nan_fraction=0.3,
+):
+
+    # Get window shape
+    ny, nx = arr.shape
+    half_nx = win_nx // 2
+    half_ny = win_ny // 2
+
+    # For each window center...
+    for j_center in range(half_ny, ny - half_ny, step_y):
+        for i_center in range(half_nx, nx - half_nx, step_x):
+
+            # Window bounds in pixel space
+            j_start = j_center - half_ny
+            i_start = i_center - half_nx
+            j_end   = j_start + win_ny
+            i_end   = i_start + win_nx
+
+            # Store bounds in array
+            window = arr[j_start:j_end, i_start:i_end]
+
+            # If window shape is the incorrect size, skip
+            if window.shape != (win_ny, win_nx):
+                continue
+
+            # If window shape is over 30% NaN values, skip
+            nan_fraction = np.isnan(window).mean()
+            if nan_fraction > max_nan_fraction:
+                continue
+
+            # Image-space center coordinates (pixel units)
+            cx = float(i_center)
+            cy = float(j_center)
+
+            yield window, cx, cy, j_center, i_center
+        
+def depth_from_lambda_T(lam_array, T, g=9.81):
+    lam = np.asarray(lam_array, dtype=float)
+    arg = (2 * np.pi * lam) / (g * T**2)
+
+    h = np.full_like(lam, np.nan, dtype=float)
+    valid = arg < 1.0
+    h[valid] = (lam[valid] / (2 * np.pi)) * np.arctanh(arg[valid])
+    return h

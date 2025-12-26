@@ -20,10 +20,10 @@ aoi_list = [AOI(**a) for a in aoi_data]
 # Set directory and prefix for loading dataset
 SCRIPT_DIR = Path(__file__).resolve().parent
 ROOT_DIR = SCRIPT_DIR.parent
-data_dir = ROOT_DIR / "data" / "st2"
+data_dir = ROOT_DIR / "data" / "st2" / "raw"
 
 # Set output folder for plots
-outdir_img = ROOT_DIR / "images" / "st2"
+outdir_img = ROOT_DIR / "images" / "st2 / selection_plots"
 outdir_img.mkdir(parents=True, exist_ok=True)
 
 # For each AOI...
@@ -69,7 +69,7 @@ for a in aoi_list:
         # Title, comment box, layout
         plt.title(f"{a.name}, {d}, Sentinel-2", pad=16)
         fig.text(
-            0.85, 0.5,                   
+            0.9, 0.5,                   
             f"Mean SWH: {swh_val:.2f} m\nPeriod: {period_val:.2f} seconds\nDirection: {direction_val:.2f}°\nCloud Coverage: {cloud_val:.2f}\nSolar Azimuth: {sun_az_val:.2f}°\nSolar Elevation: {sun_el_val:.2f}°",
             va="center", ha="left",
             fontsize=10,

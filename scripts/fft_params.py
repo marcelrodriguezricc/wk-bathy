@@ -16,79 +16,79 @@ with open("config/aoi_list.json") as f:
 aoi_list = [AOI(**a) for a in aoi_data]
 
 # ----- FFT Parameters -----
-# North Shore SAR
-ekuhai_sar_per = 95
-ekuhai_sar_lmin = 0.9
-ekuhai_sar_lmax = 800
+# North Shore SAR FULL
+ns_sar_per = 95
 
-# North Shore Optical
-ekuhai_opt_per = 90
-ekuhai_opt_lmin = 90
-ekuhai_opt_lmax = 300
+# North Shore Optical FULL
+ns_opt_per = 90
 
-# Golden Gate SAR
+# North Shore SAR WINDOW
+ns_wsar_per = 98
+
+# North Shore Optical WINDOW
+ns_wopt_per = 98
+
+# Golden Gate SAR FULL
 gg_sar_per = 95
-gg_sar_lmin = 0.95
-gg_sar_lmax = 800
 
-# Golden Gate Optical
+# Golden Gate Optical FULL
 gg_opt_per = 90
-gg_opt_lmin = 90
-gg_opt_lmax = 300
 
-# Diamond Shoals SAR
-dshoals_sar_per = 85
-dshoals_sar_lmin = 0.7
-dshoals_sar_lmax = 400
+# Golden Gate SAR WINDOW
+gg_wsar_per = 98
 
-# Diamond Shoals Optical
-dshoals_opt_per = 90
-dshoals_opt_lmin = 90
-dshoals_opt_lmax = 300
+# Golden Gate Optical WINDOW
+gg_wopt_per = 98
 
-# Puerto Rico SAR
-pj_sar_per = 90
-pj_sar_lmin = 0.7
-pj_sar_lmax = 400
+# Wassabo Beach SAR FULL
+wb_sar_per = 85
 
-# Puerto Rico Optical
-pj_opt_per = 70
-pj_opt_lmin = 40
-pj_opt_lmax = 300
+# Wassabo Beach Optical FULL
+wb_opt_per = 90
+
+# Wassabo Beach SAR WINDOW
+wb_wsar_per = 98
+
+# Wassabo Beach Optical WINDOW
+wb_wopt_per = 98
+
+# Puerto Rico SAR FULL
+pr_sar_per = 90
+
+# Puerto Rico Optical FULL
+pr_opt_per = 70
+
+# Puerto Rico SAR WINDOW
+pr_wsar_per = 98
+
+# Puerto Rico Optical WINDOW
+pr_wopt_per = 98
 
 # Compile params in dict for iterating
 selected_date_config = {
     "North Shore, O'ahu, Hawaii": {
-        "fft_sar_per": ekuhai_sar_per,
-        "fft_sar_lmin": ekuhai_sar_lmin,
-        "fft_sar_lmax": ekuhai_sar_lmax,
-        "fft_opt_per": ekuhai_opt_per,
-        "fft_opt_lmin": ekuhai_opt_lmin,
-        "fft_opt_lmax": ekuhai_opt_lmax
+        "fft_sar_per": ns_sar_per,
+        "fft_opt_per": ns_opt_per,
+        "fft_wsar_per": ns_wsar_per,
+        "fft_wopt_per": ns_wopt_per,
     },
     "Golden Gate, California": {
         "fft_sar_per": gg_sar_per,
-        "fft_sar_lmin": gg_sar_lmin,
-        "fft_sar_lmax": gg_sar_lmax,
         "fft_opt_per": gg_opt_per,
-        "fft_opt_lmin": gg_opt_lmin,
-        "fft_opt_lmax": gg_opt_lmax
+        "fft_wsar_per": gg_wsar_per,
+        "fft_wopt_per": gg_wopt_per,
     },
-    "Diamond Shoals, North Carolina": {
-        "fft_sar_per": dshoals_sar_per,
-        "fft_sar_lmin": dshoals_sar_lmin,
-        "fft_sar_lmax": dshoals_sar_lmax,
-        "fft_opt_per": dshoals_opt_per,
-        "fft_opt_lmin": dshoals_opt_lmin,
-        "fft_opt_lmax": dshoals_opt_lmax,
+    "Wassabo Beach, Florida": {
+        "fft_sar_per": wb_sar_per,
+        "fft_opt_per": wb_opt_per,
+        "fft_wsar_per": wb_wsar_per,
+        "fft_wopt_per": wb_wopt_per,
     },
-    "Punta Jacinto, Puerto Rico": {
-        "fft_sar_per": pj_sar_per,
-        "fft_sar_lmin": pj_sar_lmin,
-        "fft_sar_lmax": pj_sar_lmax,
-        "fft_opt_per": pj_opt_per,
-        "fft_opt_lmin": pj_opt_lmin,
-        "fft_opt_lmax": pj_opt_lmax
+    "Rincon, Puerto Rico": {
+        "fft_sar_per": pr_sar_per,
+        "fft_opt_per": pr_opt_per,
+        "fft_wsar_per": pr_wsar_per,
+        "fft_wopt_per": pr_wopt_per,
     },
 }
 
@@ -101,13 +101,11 @@ for a in aoi_list:
         cfg = selected_date_config[key]
         a.selected_dates["sar"].update({
             "fft_per": cfg["fft_sar_per"],
-            "fft_lmin": cfg["fft_sar_lmin"],
-            "fft_lmax": cfg["fft_sar_lmax"],
+            "fft_wper": cfg["fft_wsar_per"],
         })
         a.selected_dates["optical"].update({
             "fft_per": cfg["fft_opt_per"],
-            "fft_lmin": cfg["fft_opt_lmin"],
-            "fft_lmax": cfg["fft_opt_lmax"],
+            "fft_wper": cfg["fft_wopt_per"],
         })
         print(f"FFT tuning parameters saved to {a.name}")
     else:

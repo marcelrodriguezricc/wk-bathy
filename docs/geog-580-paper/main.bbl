@@ -1,0 +1,516 @@
+% $ biblatex auxiliary file $
+% $ biblatex bbl format version 3.3 $
+% Do not modify the above lines!
+%
+% This is an auxiliary file used by the 'biblatex' package.
+% This file may safely be deleted. It will be recreated by
+% biber as required.
+%
+\begingroup
+\makeatletter
+\@ifundefined{ver@biblatex.sty}
+  {\@latex@error
+     {Missing 'biblatex' package}
+     {The bibliography requires the 'biblatex' package.}
+      \aftergroup\endinput}
+  {}
+\endgroup
+
+
+\refsection{0}
+  \datalist[entry]{none/global//global/global/global}
+    \entry{Will2016}{article}{}{}
+      \name{author}{4}{}{%
+        {{hash=18adb1acfdd4a19585c5fb6bad7afbc5}{%
+           family={Will},
+           familyi={W\bibinitperiod},
+           given={M.},
+           giveni={M\bibinitperiod}}}%
+        {{hash=d07d77471df1b86a9c9570baada25aaa}{%
+           family={Kandel},
+           familyi={K\bibinitperiod},
+           given={A.\bibnamedelimi W.},
+           giveni={A\bibinitperiod\bibinitdelim W\bibinitperiod}}}%
+        {{hash=4035a33f04ca83daaef28df602b009e6}{%
+           family={Kyriacou},
+           familyi={K\bibinitperiod},
+           given={K.},
+           giveni={K\bibinitperiod}}}%
+        {{hash=27e825f84730e74c8792deaffee8e11a}{%
+           family={Conard},
+           familyi={C\bibinitperiod},
+           given={N.\bibnamedelimi J.},
+           giveni={N\bibinitperiod\bibinitdelim J\bibinitperiod}}}%
+      }
+      \strng{namehash}{dad7506c3fdf7f5b0eaeb0a927aa4a02}
+      \strng{fullhash}{a43e2c112e664304eebfe9b21c05fcaf}
+      \strng{fullhashraw}{a43e2c112e664304eebfe9b21c05fcaf}
+      \strng{bibnamehash}{a43e2c112e664304eebfe9b21c05fcaf}
+      \strng{authorbibnamehash}{a43e2c112e664304eebfe9b21c05fcaf}
+      \strng{authornamehash}{dad7506c3fdf7f5b0eaeb0a927aa4a02}
+      \strng{authorfullhash}{a43e2c112e664304eebfe9b21c05fcaf}
+      \strng{authorfullhashraw}{a43e2c112e664304eebfe9b21c05fcaf}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Quaternary International}
+      \field{month}{6}
+      \field{title}{An evolutionary perspective on coastal adaptations by modern humans during the Middle Stone Age of Africa}
+      \field{volume}{404}
+      \field{year}{2016}
+      \field{pages}{68\bibrangedash 86}
+      \range{pages}{19}
+      \verb{doi}
+      \verb 10.1016/j.quaint.2015.10.021
+      \endverb
+    \endentry
+    \entry{Reithmeier2025}{article}{}{}
+      \name{author}{6}{}{%
+        {{hash=c896a48ae8b38d20cbd229dc9613f4cd}{%
+           family={Reithmeier},
+           familyi={R\bibinitperiod},
+           given={M.},
+           giveni={M\bibinitperiod}}}%
+        {{hash=fc40841832bc6ac243c02970b8817991}{%
+           family={Laut},
+           familyi={L\bibinitperiod},
+           given={I.},
+           giveni={I\bibinitperiod}}}%
+        {{hash=cc15d586b744fa706afb4bf153cfb610}{%
+           family={Gawehn},
+           familyi={G\bibinitperiod},
+           given={M.},
+           giveni={M\bibinitperiod}}}%
+        {{hash=0bc0a01feeca1623d60f8dec0d9b1482}{%
+           family={Kleih},
+           familyi={K\bibinitperiod},
+           given={C.},
+           giveni={C\bibinitperiod}}}%
+        {{hash=2ed1136b46bd388daadc5ccb7dd3772c}{%
+           family={Schneider\bibnamedelimb von\bibnamedelima Deimling},
+           familyi={S\bibinitperiod\bibinitdelim v\bibinitperiod\bibinitdelim D\bibinitperiod},
+           given={J.},
+           giveni={J\bibinitperiod}}}%
+        {{hash=50719291e2efdbe722badd691304cef8}{%
+           family={Hartmann},
+           familyi={H\bibinitperiod},
+           given={K.},
+           giveni={K\bibinitperiod}}}%
+      }
+      \strng{namehash}{0f3e8ea518ad014fc58bce1b7e089b2d}
+      \strng{fullhash}{497f1f398c2e75f1b1bb10aac47b92d4}
+      \strng{fullhashraw}{497f1f398c2e75f1b1bb10aac47b92d4}
+      \strng{bibnamehash}{497f1f398c2e75f1b1bb10aac47b92d4}
+      \strng{authorbibnamehash}{497f1f398c2e75f1b1bb10aac47b92d4}
+      \strng{authornamehash}{0f3e8ea518ad014fc58bce1b7e089b2d}
+      \strng{authorfullhash}{497f1f398c2e75f1b1bb10aac47b92d4}
+      \strng{authorfullhashraw}{497f1f398c2e75f1b1bb10aac47b92d4}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{International Hydrographic Review}
+      \field{month}{4}
+      \field{note}{online}
+      \field{number}{2}
+      \field{title}{Improving global coastal bathymetry from waves – Introducing scalable processing and post-processing workflows for 100 m resolution grids}
+      \field{volume}{30}
+      \field{year}{2025}
+      \verb{doi}
+      \verb 10.58440/ihr-30-2-a18
+      \endverb
+    \endentry
+    \entry{Kron2013}{article}{}{}
+      \name{author}{1}{}{%
+        {{hash=3ea7ea6586c9f1b1ad1127417719739a}{%
+           family={Kron},
+           familyi={K\bibinitperiod},
+           given={W.},
+           giveni={W\bibinitperiod}}}%
+      }
+      \strng{namehash}{3ea7ea6586c9f1b1ad1127417719739a}
+      \strng{fullhash}{3ea7ea6586c9f1b1ad1127417719739a}
+      \strng{fullhashraw}{3ea7ea6586c9f1b1ad1127417719739a}
+      \strng{bibnamehash}{3ea7ea6586c9f1b1ad1127417719739a}
+      \strng{authorbibnamehash}{3ea7ea6586c9f1b1ad1127417719739a}
+      \strng{authornamehash}{3ea7ea6586c9f1b1ad1127417719739a}
+      \strng{authorfullhash}{3ea7ea6586c9f1b1ad1127417719739a}
+      \strng{authorfullhashraw}{3ea7ea6586c9f1b1ad1127417719739a}
+      \field{sortinit}{3}
+      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Natural Hazards}
+      \field{month}{4}
+      \field{number}{3}
+      \field{title}{Coasts: the high-risk areas of the world}
+      \field{volume}{66}
+      \field{year}{2013}
+      \field{pages}{1363\bibrangedash 1382}
+      \range{pages}{20}
+      \verb{doi}
+      \verb 10.1007/s11069-012-0215-4
+      \endverb
+    \endentry
+    \entry{Neumann2015}{article}{}{}
+      \name{author}{4}{}{%
+        {{hash=e67af0fbde027911fcbd86b80b2e6053}{%
+           family={Neumann},
+           familyi={N\bibinitperiod},
+           given={B.},
+           giveni={B\bibinitperiod}}}%
+        {{hash=921be3ca304c3c184dcbb5f096e54ecd}{%
+           family={Vafeidis},
+           familyi={V\bibinitperiod},
+           given={A.\bibnamedelimi T.},
+           giveni={A\bibinitperiod\bibinitdelim T\bibinitperiod}}}%
+        {{hash=5598db2444f4f6025070eebdb06528c1}{%
+           family={Zimmermann},
+           familyi={Z\bibinitperiod},
+           given={J.},
+           giveni={J\bibinitperiod}}}%
+        {{hash=9bf6b4b8a1c47ec73e0c4fdbb81dc467}{%
+           family={Nicholls},
+           familyi={N\bibinitperiod},
+           given={R.\bibnamedelimi J.},
+           giveni={R\bibinitperiod\bibinitdelim J\bibinitperiod}}}%
+      }
+      \strng{namehash}{3df092ba724b9df79ffe5012dd8f30b8}
+      \strng{fullhash}{ecb2a74c29cdedc3c23519f75d666dab}
+      \strng{fullhashraw}{ecb2a74c29cdedc3c23519f75d666dab}
+      \strng{bibnamehash}{ecb2a74c29cdedc3c23519f75d666dab}
+      \strng{authorbibnamehash}{ecb2a74c29cdedc3c23519f75d666dab}
+      \strng{authornamehash}{3df092ba724b9df79ffe5012dd8f30b8}
+      \strng{authorfullhash}{ecb2a74c29cdedc3c23519f75d666dab}
+      \strng{authorfullhashraw}{ecb2a74c29cdedc3c23519f75d666dab}
+      \field{sortinit}{4}
+      \field{sortinithash}{9381316451d1b9788675a07e972a12a7}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{PLOS ONE}
+      \field{month}{3}
+      \field{number}{3}
+      \field{title}{Future Coastal Population Growth and Exposure to Sea-Level Rise and Coastal Flooding - A Global Assessment}
+      \field{volume}{10}
+      \field{year}{2015}
+      \field{pages}{e0118571}
+      \range{pages}{-1}
+      \verb{doi}
+      \verb 10.1371/journal.pone.0118571
+      \endverb
+    \endentry
+    \entry{Vitousek2023}{article}{}{}
+      \name{author}{6}{}{%
+        {{hash=60bc6fe2faea23ae73c955d804a1aea1}{%
+           family={Vitousek},
+           familyi={V\bibinitperiod},
+           given={S.},
+           giveni={S\bibinitperiod}}}%
+        {{hash=5257c3a87190667a5cab34be63f537ee}{%
+           family={Buscombe},
+           familyi={B\bibinitperiod},
+           given={D.},
+           giveni={D\bibinitperiod}}}%
+        {{hash=af699455485de79110b5ef924a8cbc91}{%
+           family={Vos},
+           familyi={V\bibinitperiod},
+           given={K.},
+           giveni={K\bibinitperiod}}}%
+        {{hash=0aefbf7b31261fc76c0b6e6f1f90cbd2}{%
+           family={Barnard},
+           familyi={B\bibinitperiod},
+           given={P.\bibnamedelimi L.},
+           giveni={P\bibinitperiod\bibinitdelim L\bibinitperiod}}}%
+        {{hash=0d1da3ad22f8a37167644bce9db2e8e1}{%
+           family={Ritchie},
+           familyi={R\bibinitperiod},
+           given={A.\bibnamedelimi C.},
+           giveni={A\bibinitperiod\bibinitdelim C\bibinitperiod}}}%
+        {{hash=8b8663b73c32e3bcfd7e2563d4ce9d43}{%
+           family={Warrick},
+           familyi={W\bibinitperiod},
+           given={J.\bibnamedelimi A.},
+           giveni={J\bibinitperiod\bibinitdelim A\bibinitperiod}}}%
+      }
+      \strng{namehash}{630e3c986d512c9fb82d4740db2fcfba}
+      \strng{fullhash}{8fcc78b50b60e9fd35086c2f70d6e977}
+      \strng{fullhashraw}{8fcc78b50b60e9fd35086c2f70d6e977}
+      \strng{bibnamehash}{8fcc78b50b60e9fd35086c2f70d6e977}
+      \strng{authorbibnamehash}{8fcc78b50b60e9fd35086c2f70d6e977}
+      \strng{authornamehash}{630e3c986d512c9fb82d4740db2fcfba}
+      \strng{authorfullhash}{8fcc78b50b60e9fd35086c2f70d6e977}
+      \strng{authorfullhashraw}{8fcc78b50b60e9fd35086c2f70d6e977}
+      \field{sortinit}{5}
+      \field{sortinithash}{20e9b4b0b173788c5dace24730f47d8c}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Cambridge Prisms: Coastal Futures}
+      \field{title}{The future of coastal monitoring through satellite remote sensing}
+      \field{volume}{1}
+      \field{year}{2023}
+      \field{pages}{e10}
+      \range{pages}{-1}
+      \verb{doi}
+      \verb 10.1017/cft.2022.4
+      \endverb
+    \endentry
+    \entry{Holman2013}{article}{}{}
+      \name{author}{2}{}{%
+        {{hash=0e9f39af5dc2cae0d5e97189e4d7a85f}{%
+           family={Holman},
+           familyi={H\bibinitperiod},
+           given={R.},
+           giveni={R\bibinitperiod}}}%
+        {{hash=0d068c7d3db3bedb0e3d6084f7856737}{%
+           family={Haller},
+           familyi={H\bibinitperiod},
+           given={M.\bibnamedelimi C.},
+           giveni={M\bibinitperiod\bibinitdelim C\bibinitperiod}}}%
+      }
+      \strng{namehash}{bb35d06aeed3e3c6f72ef3ee850482c0}
+      \strng{fullhash}{bb35d06aeed3e3c6f72ef3ee850482c0}
+      \strng{fullhashraw}{bb35d06aeed3e3c6f72ef3ee850482c0}
+      \strng{bibnamehash}{bb35d06aeed3e3c6f72ef3ee850482c0}
+      \strng{authorbibnamehash}{bb35d06aeed3e3c6f72ef3ee850482c0}
+      \strng{authornamehash}{bb35d06aeed3e3c6f72ef3ee850482c0}
+      \strng{authorfullhash}{bb35d06aeed3e3c6f72ef3ee850482c0}
+      \strng{authorfullhashraw}{bb35d06aeed3e3c6f72ef3ee850482c0}
+      \field{sortinit}{7}
+      \field{sortinithash}{108d0be1b1bee9773a1173443802c0a3}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Annual Review of Marine Science}
+      \field{month}{1}
+      \field{number}{1}
+      \field{title}{Remote Sensing of the Nearshore}
+      \field{volume}{5}
+      \field{year}{2013}
+      \field{pages}{95\bibrangedash 113}
+      \range{pages}{19}
+      \verb{doi}
+      \verb 10.1146/annurev-marine-121211-172408
+      \endverb
+    \endentry
+    \entry{Baumann2019}{online}{}{}
+      \name{author}{1}{}{%
+        {{hash=4b649ae47bb7a8b235be85718a643e88}{%
+           family={Baumann},
+           familyi={B\bibinitperiod},
+           given={J.},
+           giveni={J\bibinitperiod}}}%
+      }
+      \list{organization}{1}{%
+        {Esri}%
+      }
+      \strng{namehash}{4b649ae47bb7a8b235be85718a643e88}
+      \strng{fullhash}{4b649ae47bb7a8b235be85718a643e88}
+      \strng{fullhashraw}{4b649ae47bb7a8b235be85718a643e88}
+      \strng{bibnamehash}{4b649ae47bb7a8b235be85718a643e88}
+      \strng{authorbibnamehash}{4b649ae47bb7a8b235be85718a643e88}
+      \strng{authornamehash}{4b649ae47bb7a8b235be85718a643e88}
+      \strng{authorfullhash}{4b649ae47bb7a8b235be85718a643e88}
+      \strng{authorfullhashraw}{4b649ae47bb7a8b235be85718a643e88}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{ArcUser}
+      \field{month}{2}
+      \field{note}{Accessed: 2025-02-06}
+      \field{title}{The Race to Make a High-Resolution Map of the World's Oceans}
+      \field{year}{2019}
+      \verb{urlraw}
+      \verb https://www.esri.com/about/newsroom/arcuser/xprize
+      \endverb
+      \verb{url}
+      \verb https://www.esri.com/about/newsroom/arcuser/xprize
+      \endverb
+    \endentry
+    \entry{Ruessink2001}{article}{}{}
+      \name{author}{5}{}{%
+        {{hash=16a64c0737ac40f4d6b212189e045a3c}{%
+           family={Ruessink},
+           familyi={R\bibinitperiod},
+           given={B.\bibnamedelimi G.},
+           giveni={B\bibinitperiod\bibinitdelim G\bibinitperiod}}}%
+        {{hash=5b8ff5eec3eac71ef762983245c29e7c}{%
+           family={Miles},
+           familyi={M\bibinitperiod},
+           given={J.\bibnamedelimi R.},
+           giveni={J\bibinitperiod\bibinitdelim R\bibinitperiod}}}%
+        {{hash=d638d97ba1db0c0a72abe33f6e9bdba6}{%
+           family={Feddersen},
+           familyi={F\bibinitperiod},
+           given={F.},
+           giveni={F\bibinitperiod}}}%
+        {{hash=74499b7f7c1ecc9b877f44135690e782}{%
+           family={Guza},
+           familyi={G\bibinitperiod},
+           given={R.\bibnamedelimi T.},
+           giveni={R\bibinitperiod\bibinitdelim T\bibinitperiod}}}%
+        {{hash=ccd48edf5b217559edefe02fd465c9c9}{%
+           family={Elgar},
+           familyi={E\bibinitperiod},
+           given={S.},
+           giveni={S\bibinitperiod}}}%
+      }
+      \strng{namehash}{3211d2e3a4201fad96976f2f9bb2ff2c}
+      \strng{fullhash}{da3c1e3bc5e76eefa7174cb579611a58}
+      \strng{fullhashraw}{da3c1e3bc5e76eefa7174cb579611a58}
+      \strng{bibnamehash}{da3c1e3bc5e76eefa7174cb579611a58}
+      \strng{authorbibnamehash}{da3c1e3bc5e76eefa7174cb579611a58}
+      \strng{authornamehash}{3211d2e3a4201fad96976f2f9bb2ff2c}
+      \strng{authorfullhash}{da3c1e3bc5e76eefa7174cb579611a58}
+      \strng{authorfullhashraw}{da3c1e3bc5e76eefa7174cb579611a58}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Journal of Geophysical Research}
+      \field{number}{C10}
+      \field{title}{Modeling the alongshore current on barred beaches}
+      \field{volume}{106}
+      \field{year}{2001}
+      \field{pages}{22451\bibrangedash 22463}
+      \range{pages}{13}
+    \endentry
+    \entry{ODea2025}{article}{}{}
+      \name{author}{5}{}{%
+        {{hash=e4adf6f6320a7fc82b444bcc3bead2e3}{%
+           family={O'Dea},
+           familyi={O\bibinitperiod},
+           given={A.},
+           giveni={A\bibinitperiod}}}%
+        {{hash=3e0fc1fc877b115a9614e5230be73678}{%
+           family={Anderson},
+           familyi={A\bibinitperiod},
+           given={D.},
+           giveni={D\bibinitperiod}}}%
+        {{hash=0e9f39af5dc2cae0d5e97189e4d7a85f}{%
+           family={Holman},
+           familyi={H\bibinitperiod},
+           given={R.},
+           giveni={R\bibinitperiod}}}%
+        {{hash=0288ee4856703675f48118f450c47d1a}{%
+           family={Painter},
+           familyi={P\bibinitperiod},
+           given={C.},
+           giveni={C\bibinitperiod}}}%
+        {{hash=aed62ee2ef4213b81bff6d6b4a4c9623}{%
+           family={Brodie},
+           familyi={B\bibinitperiod},
+           given={K.},
+           giveni={K\bibinitperiod}}}%
+      }
+      \strng{namehash}{d86e4f9578b679034f55375b9f99a0a5}
+      \strng{fullhash}{3e8a53d617330958ac50d5316bf77894}
+      \strng{fullhashraw}{3e8a53d617330958ac50d5316bf77894}
+      \strng{bibnamehash}{3e8a53d617330958ac50d5316bf77894}
+      \strng{authorbibnamehash}{3e8a53d617330958ac50d5316bf77894}
+      \strng{authornamehash}{d86e4f9578b679034f55375b9f99a0a5}
+      \strng{authorfullhash}{3e8a53d617330958ac50d5316bf77894}
+      \strng{authorfullhashraw}{3e8a53d617330958ac50d5316bf77894}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Coastal Engineering}
+      \field{month}{7}
+      \field{title}{Wave kinematics-based bathymetry estimates from satellite optical video}
+      \field{volume}{200}
+      \field{year}{2025}
+      \field{pages}{104753}
+      \range{pages}{1}
+      \verb{doi}
+      \verb 10.1016/j.coastaleng.2025.104753
+      \endverb
+    \endentry
+    \entry{Mudiyanselage2024}{article}{}{}
+      \name{author}{3}{}{%
+        {{hash=7d11e056112c22c935ebd2914d9de1c1}{%
+           family={Mudiyanselage},
+           familyi={M\bibinitperiod},
+           given={S.\bibnamedelimi D.},
+           giveni={S\bibinitperiod\bibinitdelim D\bibinitperiod}}}%
+        {{hash=12d833d0c0ec26277076d765819289e2}{%
+           family={Wilkinson},
+           familyi={W\bibinitperiod},
+           given={B.},
+           giveni={B\bibinitperiod}}}%
+        {{hash=3a9f8d4df3220b24d19b664eeec3d61a}{%
+           family={Abd-Elrahman},
+           familyi={A\bibinithyphendelim E\bibinitperiod},
+           given={A.},
+           giveni={A\bibinitperiod}}}%
+      }
+      \strng{namehash}{9e76de62acb5920f2432437c6b258ac3}
+      \strng{fullhash}{b4051ef675b4022b7257ad420bd58985}
+      \strng{fullhashraw}{b4051ef675b4022b7257ad420bd58985}
+      \strng{bibnamehash}{b4051ef675b4022b7257ad420bd58985}
+      \strng{authorbibnamehash}{b4051ef675b4022b7257ad420bd58985}
+      \strng{authornamehash}{9e76de62acb5920f2432437c6b258ac3}
+      \strng{authorfullhash}{b4051ef675b4022b7257ad420bd58985}
+      \strng{authorfullhashraw}{b4051ef675b4022b7257ad420bd58985}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Remote Sensing}
+      \field{month}{1}
+      \field{number}{1}
+      \field{title}{Automated High-Resolution Bathymetry from {Sentinel-1} SAR Images in Deeper Nearshore Coastal Waters in Eastern Florida}
+      \field{volume}{16}
+      \field{year}{2024}
+      \field{pages}{1}
+      \range{pages}{1}
+      \verb{doi}
+      \verb 10.3390/rs16010001
+      \endverb
+    \endentry
+    \entry{Bergsma2019}{article}{}{}
+      \name{author}{3}{}{%
+        {{hash=79ee87bf9e44b7189c312da5ffd63364}{%
+           family={Bergsma},
+           familyi={B\bibinitperiod},
+           given={E.\bibnamedelimi W.\bibnamedelimi J.},
+           giveni={E\bibinitperiod\bibinitdelim W\bibinitperiod\bibinitdelim J\bibinitperiod}}}%
+        {{hash=71ed6d5756a944082c778ddec50e1da4}{%
+           family={Almar},
+           familyi={A\bibinitperiod},
+           given={R.},
+           giveni={R\bibinitperiod}}}%
+        {{hash=7ead3ac24261a500c3613e893d434cca}{%
+           family={Maisongrande},
+           familyi={M\bibinitperiod},
+           given={P.},
+           giveni={P\bibinitperiod}}}%
+      }
+      \strng{namehash}{135882dcbd465530031572724a35382b}
+      \strng{fullhash}{80f2b2657b625c994d1aceb8737bf137}
+      \strng{fullhashraw}{80f2b2657b625c994d1aceb8737bf137}
+      \strng{bibnamehash}{80f2b2657b625c994d1aceb8737bf137}
+      \strng{authorbibnamehash}{80f2b2657b625c994d1aceb8737bf137}
+      \strng{authornamehash}{135882dcbd465530031572724a35382b}
+      \strng{authorfullhash}{80f2b2657b625c994d1aceb8737bf137}
+      \strng{authorfullhashraw}{80f2b2657b625c994d1aceb8737bf137}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Remote Sensing}
+      \field{month}{1}
+      \field{number}{16}
+      \field{title}{Radon-Augmented {Sentinel-2} Satellite Imagery to Derive Wave-Patterns and Regional Bathymetry}
+      \field{volume}{11}
+      \field{year}{2019}
+      \field{pages}{1918}
+      \range{pages}{1}
+      \verb{doi}
+      \verb 10.3390/rs11161918
+      \endverb
+    \endentry
+  \enddatalist
+\endrefsection
+\endinput
+

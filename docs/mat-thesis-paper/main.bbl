@@ -1,0 +1,639 @@
+% $ biblatex auxiliary file $
+% $ biblatex bbl format version 3.3 $
+% Do not modify the above lines!
+%
+% This is an auxiliary file used by the 'biblatex' package.
+% This file may safely be deleted. It will be recreated by
+% biber as required.
+%
+\begingroup
+\makeatletter
+\@ifundefined{ver@biblatex.sty}
+  {\@latex@error
+     {Missing 'biblatex' package}
+     {The bibliography requires the 'biblatex' package.}
+      \aftergroup\endinput}
+  {}
+\endgroup
+
+
+\refsection{0}
+  \datalist[entry]{none/global//global/global/global}
+    \entry{Will2016}{article}{}{}
+      \name{author}{4}{}{%
+        {{hash=18adb1acfdd4a19585c5fb6bad7afbc5}{%
+           family={Will},
+           familyi={W\bibinitperiod},
+           given={M.},
+           giveni={M\bibinitperiod}}}%
+        {{hash=d07d77471df1b86a9c9570baada25aaa}{%
+           family={Kandel},
+           familyi={K\bibinitperiod},
+           given={A.\bibnamedelimi W.},
+           giveni={A\bibinitperiod\bibinitdelim W\bibinitperiod}}}%
+        {{hash=4035a33f04ca83daaef28df602b009e6}{%
+           family={Kyriacou},
+           familyi={K\bibinitperiod},
+           given={K.},
+           giveni={K\bibinitperiod}}}%
+        {{hash=27e825f84730e74c8792deaffee8e11a}{%
+           family={Conard},
+           familyi={C\bibinitperiod},
+           given={N.\bibnamedelimi J.},
+           giveni={N\bibinitperiod\bibinitdelim J\bibinitperiod}}}%
+      }
+      \strng{namehash}{dad7506c3fdf7f5b0eaeb0a927aa4a02}
+      \strng{fullhash}{a43e2c112e664304eebfe9b21c05fcaf}
+      \strng{fullhashraw}{a43e2c112e664304eebfe9b21c05fcaf}
+      \strng{bibnamehash}{a43e2c112e664304eebfe9b21c05fcaf}
+      \strng{authorbibnamehash}{a43e2c112e664304eebfe9b21c05fcaf}
+      \strng{authornamehash}{dad7506c3fdf7f5b0eaeb0a927aa4a02}
+      \strng{authorfullhash}{a43e2c112e664304eebfe9b21c05fcaf}
+      \strng{authorfullhashraw}{a43e2c112e664304eebfe9b21c05fcaf}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Quaternary International}
+      \field{month}{6}
+      \field{title}{An evolutionary perspective on coastal adaptations by modern humans during the Middle Stone Age of Africa}
+      \field{volume}{404}
+      \field{year}{2016}
+      \field{pages}{68\bibrangedash 86}
+      \range{pages}{19}
+      \verb{doi}
+      \verb 10.1016/j.quaint.2015.10.021
+      \endverb
+    \endentry
+    \entry{Reithmeier2025}{article}{}{}
+      \name{author}{6}{}{%
+        {{hash=c896a48ae8b38d20cbd229dc9613f4cd}{%
+           family={Reithmeier},
+           familyi={R\bibinitperiod},
+           given={M.},
+           giveni={M\bibinitperiod}}}%
+        {{hash=fc40841832bc6ac243c02970b8817991}{%
+           family={Laut},
+           familyi={L\bibinitperiod},
+           given={I.},
+           giveni={I\bibinitperiod}}}%
+        {{hash=cc15d586b744fa706afb4bf153cfb610}{%
+           family={Gawehn},
+           familyi={G\bibinitperiod},
+           given={M.},
+           giveni={M\bibinitperiod}}}%
+        {{hash=0bc0a01feeca1623d60f8dec0d9b1482}{%
+           family={Kleih},
+           familyi={K\bibinitperiod},
+           given={C.},
+           giveni={C\bibinitperiod}}}%
+        {{hash=2ed1136b46bd388daadc5ccb7dd3772c}{%
+           family={Schneider\bibnamedelimb von\bibnamedelima Deimling},
+           familyi={S\bibinitperiod\bibinitdelim v\bibinitperiod\bibinitdelim D\bibinitperiod},
+           given={J.},
+           giveni={J\bibinitperiod}}}%
+        {{hash=50719291e2efdbe722badd691304cef8}{%
+           family={Hartmann},
+           familyi={H\bibinitperiod},
+           given={K.},
+           giveni={K\bibinitperiod}}}%
+      }
+      \strng{namehash}{0f3e8ea518ad014fc58bce1b7e089b2d}
+      \strng{fullhash}{497f1f398c2e75f1b1bb10aac47b92d4}
+      \strng{fullhashraw}{497f1f398c2e75f1b1bb10aac47b92d4}
+      \strng{bibnamehash}{497f1f398c2e75f1b1bb10aac47b92d4}
+      \strng{authorbibnamehash}{497f1f398c2e75f1b1bb10aac47b92d4}
+      \strng{authornamehash}{0f3e8ea518ad014fc58bce1b7e089b2d}
+      \strng{authorfullhash}{497f1f398c2e75f1b1bb10aac47b92d4}
+      \strng{authorfullhashraw}{497f1f398c2e75f1b1bb10aac47b92d4}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{International Hydrographic Review}
+      \field{month}{4}
+      \field{note}{online}
+      \field{number}{2}
+      \field{title}{Improving global coastal bathymetry from waves – Introducing scalable processing and post-processing workflows for 100 m resolution grids}
+      \field{volume}{30}
+      \field{year}{2025}
+      \verb{doi}
+      \verb 10.58440/ihr-30-2-a18
+      \endverb
+    \endentry
+    \entry{Neumann2015}{article}{}{}
+      \name{author}{4}{}{%
+        {{hash=2a259ad8745212116be168c069f66065}{%
+           family={Neumann},
+           familyi={N\bibinitperiod},
+           given={Barbara},
+           giveni={B\bibinitperiod}}}%
+        {{hash=699aa687158be40ec85d0d31f72c3f9d}{%
+           family={Vafeidis},
+           familyi={V\bibinitperiod},
+           given={Athanasios\bibnamedelima T.},
+           giveni={A\bibinitperiod\bibinitdelim T\bibinitperiod}}}%
+        {{hash=b60790f057ffa02a42b9b4badeb16518}{%
+           family={Zimmermann},
+           familyi={Z\bibinitperiod},
+           given={Joachim},
+           giveni={J\bibinitperiod}}}%
+        {{hash=351c82fd8df362ed518ace4f595d7e94}{%
+           family={Nicholls},
+           familyi={N\bibinitperiod},
+           given={Robert\bibnamedelima J.},
+           giveni={R\bibinitperiod\bibinitdelim J\bibinitperiod}}}%
+      }
+      \strng{namehash}{8c760186d0f85a0f25e2b1f03906b040}
+      \strng{fullhash}{61798c4f147a13669426ada2a8dd3494}
+      \strng{fullhashraw}{61798c4f147a13669426ada2a8dd3494}
+      \strng{bibnamehash}{61798c4f147a13669426ada2a8dd3494}
+      \strng{authorbibnamehash}{61798c4f147a13669426ada2a8dd3494}
+      \strng{authornamehash}{8c760186d0f85a0f25e2b1f03906b040}
+      \strng{authorfullhash}{61798c4f147a13669426ada2a8dd3494}
+      \strng{authorfullhashraw}{61798c4f147a13669426ada2a8dd3494}
+      \field{sortinit}{3}
+      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{PLOS ONE}
+      \field{month}{3}
+      \field{number}{3}
+      \field{title}{Future Coastal Population Growth and Exposure to Sea-Level Rise and Coastal Flooding: A Global Assessment}
+      \field{volume}{10}
+      \field{year}{2015}
+      \field{pages}{e0118571}
+      \range{pages}{-1}
+      \verb{doi}
+      \verb 10.1371/journal.pone.0118571
+      \endverb
+    \endentry
+    \entry{Kron2013}{article}{}{}
+      \name{author}{1}{}{%
+        {{hash=3ea7ea6586c9f1b1ad1127417719739a}{%
+           family={Kron},
+           familyi={K\bibinitperiod},
+           given={W.},
+           giveni={W\bibinitperiod}}}%
+      }
+      \strng{namehash}{3ea7ea6586c9f1b1ad1127417719739a}
+      \strng{fullhash}{3ea7ea6586c9f1b1ad1127417719739a}
+      \strng{fullhashraw}{3ea7ea6586c9f1b1ad1127417719739a}
+      \strng{bibnamehash}{3ea7ea6586c9f1b1ad1127417719739a}
+      \strng{authorbibnamehash}{3ea7ea6586c9f1b1ad1127417719739a}
+      \strng{authornamehash}{3ea7ea6586c9f1b1ad1127417719739a}
+      \strng{authorfullhash}{3ea7ea6586c9f1b1ad1127417719739a}
+      \strng{authorfullhashraw}{3ea7ea6586c9f1b1ad1127417719739a}
+      \field{sortinit}{5}
+      \field{sortinithash}{20e9b4b0b173788c5dace24730f47d8c}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Natural Hazards}
+      \field{month}{4}
+      \field{number}{3}
+      \field{title}{Coasts: the high-risk areas of the world}
+      \field{volume}{66}
+      \field{year}{2013}
+      \field{pages}{1363\bibrangedash 1382}
+      \range{pages}{20}
+      \verb{doi}
+      \verb 10.1007/s11069-012-0215-4
+      \endverb
+    \endentry
+    \entry{Day2023}{article}{}{}
+      \name{author}{6}{}{%
+        {{hash=a46e06db2a54bdae9f4ab89a988c943a}{%
+           family={Day},
+           familyi={D\bibinitperiod},
+           given={John\bibnamedelima W.},
+           giveni={J\bibinitperiod\bibinitdelim W\bibinitperiod}}}%
+        {{hash=714ae3679f31a5b5b498fc47f43b9818}{%
+           family={Hall},
+           familyi={H\bibinitperiod},
+           given={Charles\bibnamedelima A.},
+           giveni={C\bibinitperiod\bibinitdelim A\bibinitperiod}}}%
+        {{hash=989df4b58eacbd1780a407db2e00387b}{%
+           family={Klitgaard},
+           familyi={K\bibinitperiod},
+           given={Kent},
+           giveni={K\bibinitperiod}}}%
+        {{hash=57616ec94cda5a043ebc123211f57a06}{%
+           family={Gunn},
+           familyi={G\bibinitperiod},
+           given={Joel\bibnamedelima D.},
+           giveni={J\bibinitperiod\bibinitdelim D\bibinitperiod}}}%
+        {{hash=45fa6d8afa62ffe4620b75ecd115a1f4}{%
+           family={Ko},
+           familyi={K\bibinitperiod},
+           given={Jae-Young},
+           giveni={J\bibinithyphendelim Y\bibinitperiod}}}%
+        {{hash=dd2e912879af66ae647e4ae07f291269}{%
+           family={Burger},
+           familyi={B\bibinitperiod},
+           given={Joseph\bibnamedelima R.},
+           giveni={J\bibinitperiod\bibinitdelim R\bibinitperiod}}}%
+      }
+      \strng{namehash}{b47147187b31d94549026746aca374ed}
+      \strng{fullhash}{a1316afdb0413860478fac68489c082f}
+      \strng{fullhashraw}{a1316afdb0413860478fac68489c082f}
+      \strng{bibnamehash}{a1316afdb0413860478fac68489c082f}
+      \strng{authorbibnamehash}{a1316afdb0413860478fac68489c082f}
+      \strng{authornamehash}{b47147187b31d94549026746aca374ed}
+      \strng{authorfullhash}{a1316afdb0413860478fac68489c082f}
+      \strng{authorfullhashraw}{a1316afdb0413860478fac68489c082f}
+      \field{sortinit}{7}
+      \field{sortinithash}{108d0be1b1bee9773a1173443802c0a3}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Cambridge Prisms: Coastal Futures}
+      \field{title}{The Coming Perfect Storm: Diminishing Sustainability of Coastal Human--Natural Systems in the Anthropocene}
+      \field{volume}{1}
+      \field{year}{2023}
+      \field{pages}{e35}
+      \range{pages}{-1}
+      \verb{doi}
+      \verb 10.1017/cft.2023.23
+      \endverb
+    \endentry
+    \entry{Vitousek2023}{article}{}{}
+      \name{author}{6}{}{%
+        {{hash=60bc6fe2faea23ae73c955d804a1aea1}{%
+           family={Vitousek},
+           familyi={V\bibinitperiod},
+           given={S.},
+           giveni={S\bibinitperiod}}}%
+        {{hash=5257c3a87190667a5cab34be63f537ee}{%
+           family={Buscombe},
+           familyi={B\bibinitperiod},
+           given={D.},
+           giveni={D\bibinitperiod}}}%
+        {{hash=af699455485de79110b5ef924a8cbc91}{%
+           family={Vos},
+           familyi={V\bibinitperiod},
+           given={K.},
+           giveni={K\bibinitperiod}}}%
+        {{hash=0aefbf7b31261fc76c0b6e6f1f90cbd2}{%
+           family={Barnard},
+           familyi={B\bibinitperiod},
+           given={P.\bibnamedelimi L.},
+           giveni={P\bibinitperiod\bibinitdelim L\bibinitperiod}}}%
+        {{hash=0d1da3ad22f8a37167644bce9db2e8e1}{%
+           family={Ritchie},
+           familyi={R\bibinitperiod},
+           given={A.\bibnamedelimi C.},
+           giveni={A\bibinitperiod\bibinitdelim C\bibinitperiod}}}%
+        {{hash=8b8663b73c32e3bcfd7e2563d4ce9d43}{%
+           family={Warrick},
+           familyi={W\bibinitperiod},
+           given={J.\bibnamedelimi A.},
+           giveni={J\bibinitperiod\bibinitdelim A\bibinitperiod}}}%
+      }
+      \strng{namehash}{630e3c986d512c9fb82d4740db2fcfba}
+      \strng{fullhash}{8fcc78b50b60e9fd35086c2f70d6e977}
+      \strng{fullhashraw}{8fcc78b50b60e9fd35086c2f70d6e977}
+      \strng{bibnamehash}{8fcc78b50b60e9fd35086c2f70d6e977}
+      \strng{authorbibnamehash}{8fcc78b50b60e9fd35086c2f70d6e977}
+      \strng{authornamehash}{630e3c986d512c9fb82d4740db2fcfba}
+      \strng{authorfullhash}{8fcc78b50b60e9fd35086c2f70d6e977}
+      \strng{authorfullhashraw}{8fcc78b50b60e9fd35086c2f70d6e977}
+      \field{sortinit}{8}
+      \field{sortinithash}{a231b008ebf0ecbe0b4d96dcc159445f}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Cambridge Prisms: Coastal Futures}
+      \field{title}{The future of coastal monitoring through satellite remote sensing}
+      \field{volume}{1}
+      \field{year}{2023}
+      \field{pages}{e10}
+      \range{pages}{-1}
+      \verb{doi}
+      \verb 10.1017/cft.2022.4
+      \endverb
+    \endentry
+    \entry{Hunt2023}{article}{}{}
+      \name{author}{6}{}{%
+        {{hash=340c7f6b3a97ed8f9c27d6d499843c83}{%
+           family={Hunt},
+           familyi={H\bibinitperiod},
+           given={E.},
+           giveni={E\bibinitperiod}}}%
+        {{hash=a5e9eb5c82960a20d2ca4782d1f6b41f}{%
+           family={Davidson},
+           familyi={D\bibinitperiod},
+           given={M.},
+           giveni={M\bibinitperiod}}}%
+        {{hash=849f77fb65af215404022296fb749c9c}{%
+           family={Steele},
+           familyi={S\bibinitperiod},
+           given={E.\bibnamedelimi C.\bibnamedelimi C.},
+           giveni={E\bibinitperiod\bibinitdelim C\bibinitperiod\bibinitdelim C\bibinitperiod}}}%
+        {{hash=81985fbbf11c5718ef0634120797cca5}{%
+           family={Amies},
+           familyi={A\bibinitperiod},
+           given={J.\bibnamedelimi D.},
+           giveni={J\bibinitperiod\bibinitdelim D\bibinitperiod}}}%
+        {{hash=fefa3ba420932688dacff3bfe4e89212}{%
+           family={Scott},
+           familyi={S\bibinitperiod},
+           given={T.},
+           giveni={T\bibinitperiod}}}%
+        {{hash=fb213573b0642c44ac6f98b2ea05133f}{%
+           family={Russell},
+           familyi={R\bibinitperiod},
+           given={P.},
+           giveni={P\bibinitperiod}}}%
+      }
+      \strng{namehash}{eb57ba290f8b25f6f70897fde78d6c65}
+      \strng{fullhash}{a563064bfcbb9e1aded496184ad2005b}
+      \strng{fullhashraw}{a563064bfcbb9e1aded496184ad2005b}
+      \strng{bibnamehash}{a563064bfcbb9e1aded496184ad2005b}
+      \strng{authorbibnamehash}{a563064bfcbb9e1aded496184ad2005b}
+      \strng{authornamehash}{eb57ba290f8b25f6f70897fde78d6c65}
+      \strng{authorfullhash}{a563064bfcbb9e1aded496184ad2005b}
+      \strng{authorfullhashraw}{a563064bfcbb9e1aded496184ad2005b}
+      \field{sortinit}{9}
+      \field{sortinithash}{0a5ebc79d83c96b6579069544c73c7d4}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Cambridge Prisms: Coastal Futures}
+      \field{month}{1}
+      \field{title}{Shoreline Modelling on Timescales of Days to Decades}
+      \field{volume}{1}
+      \field{year}{2023}
+      \field{pages}{e16}
+      \range{pages}{-1}
+      \verb{doi}
+      \verb 10.1017/cft.2023.5
+      \endverb
+    \endentry
+    \entry{Holman2013}{article}{}{}
+      \name{author}{2}{}{%
+        {{hash=0e9f39af5dc2cae0d5e97189e4d7a85f}{%
+           family={Holman},
+           familyi={H\bibinitperiod},
+           given={R.},
+           giveni={R\bibinitperiod}}}%
+        {{hash=0d068c7d3db3bedb0e3d6084f7856737}{%
+           family={Haller},
+           familyi={H\bibinitperiod},
+           given={M.\bibnamedelimi C.},
+           giveni={M\bibinitperiod\bibinitdelim C\bibinitperiod}}}%
+      }
+      \strng{namehash}{bb35d06aeed3e3c6f72ef3ee850482c0}
+      \strng{fullhash}{bb35d06aeed3e3c6f72ef3ee850482c0}
+      \strng{fullhashraw}{bb35d06aeed3e3c6f72ef3ee850482c0}
+      \strng{bibnamehash}{bb35d06aeed3e3c6f72ef3ee850482c0}
+      \strng{authorbibnamehash}{bb35d06aeed3e3c6f72ef3ee850482c0}
+      \strng{authornamehash}{bb35d06aeed3e3c6f72ef3ee850482c0}
+      \strng{authorfullhash}{bb35d06aeed3e3c6f72ef3ee850482c0}
+      \strng{authorfullhashraw}{bb35d06aeed3e3c6f72ef3ee850482c0}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Annual Review of Marine Science}
+      \field{month}{1}
+      \field{number}{1}
+      \field{title}{Remote Sensing of the Nearshore}
+      \field{volume}{5}
+      \field{year}{2013}
+      \field{pages}{95\bibrangedash 113}
+      \range{pages}{19}
+      \verb{doi}
+      \verb 10.1146/annurev-marine-121211-172408
+      \endverb
+    \endentry
+    \entry{NOAACoastalWatersGlossary}{online}{}{}
+      \name{author}{1}{}{%
+        {{hash=ffac21afca55ac91cfedb6c27f6adca0}{%
+           family={{NOAA National Weather Service}},
+           familyi={N\bibinitperiod}}}%
+      }
+      \strng{namehash}{ffac21afca55ac91cfedb6c27f6adca0}
+      \strng{fullhash}{ffac21afca55ac91cfedb6c27f6adca0}
+      \strng{fullhashraw}{ffac21afca55ac91cfedb6c27f6adca0}
+      \strng{bibnamehash}{ffac21afca55ac91cfedb6c27f6adca0}
+      \strng{authorbibnamehash}{ffac21afca55ac91cfedb6c27f6adca0}
+      \strng{authornamehash}{ffac21afca55ac91cfedb6c27f6adca0}
+      \strng{authorfullhash}{ffac21afca55ac91cfedb6c27f6adca0}
+      \strng{authorfullhashraw}{ffac21afca55ac91cfedb6c27f6adca0}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{note}{Accessed May 1, 2025}
+      \field{title}{Glossary: Coastal Waters}
+      \field{urlday}{1}
+      \field{urlmonth}{5}
+      \field{urlyear}{2025}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb https://forecast.weather.gov/glossary.php?word=coastal%20waters
+      \endverb
+      \verb{url}
+      \verb https://forecast.weather.gov/glossary.php?word=coastal%20waters
+      \endverb
+    \endentry
+    \entry{LibreTexts}{online}{}{}
+      \name{author}{1}{}{%
+        {{hash=b19f915060ef3b56a6709e897e5a34c1}{%
+           family={{Geosciences LibreTexts}},
+           familyi={G\bibinitperiod}}}%
+      }
+      \strng{namehash}{b19f915060ef3b56a6709e897e5a34c1}
+      \strng{fullhash}{b19f915060ef3b56a6709e897e5a34c1}
+      \strng{fullhashraw}{b19f915060ef3b56a6709e897e5a34c1}
+      \strng{bibnamehash}{b19f915060ef3b56a6709e897e5a34c1}
+      \strng{authorbibnamehash}{b19f915060ef3b56a6709e897e5a34c1}
+      \strng{authornamehash}{b19f915060ef3b56a6709e897e5a34c1}
+      \strng{authorfullhash}{b19f915060ef3b56a6709e897e5a34c1}
+      \strng{authorfullhashraw}{b19f915060ef3b56a6709e897e5a34c1}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{note}{Accessed May 1, 2025}
+      \field{title}{Definition of the Coast}
+      \field{urlday}{1}
+      \field{urlmonth}{5}
+      \field{urlyear}{2025}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb https://geo.libretexts.org/Bookshelves/Oceanography/Coastal_Dynamics_(Bosboom_and_Stive)/01%3A_Overview/1.05%3A_Coastal_(morpho)_dynamics/1.5.01%3A_Definition_of_the_coast
+      \endverb
+      \verb{url}
+      \verb https://geo.libretexts.org/Bookshelves/Oceanography/Coastal_Dynamics_(Bosboom_and_Stive)/01%3A_Overview/1.05%3A_Coastal_(morpho)_dynamics/1.5.01%3A_Definition_of_the_coast
+      \endverb
+    \endentry
+    \entry{PellachAlterman2021}{incollection}{}{}
+      \name{author}{2}{}{%
+        {{hash=9e873bc2378d3e1c9f44a856a25f65a1}{%
+           family={Pellach},
+           familyi={P\bibinitperiod},
+           given={Cygal},
+           giveni={C\bibinitperiod}}}%
+        {{hash=4a745f13ec59b9f27797ef73c1c4a798}{%
+           family={Alterman},
+           familyi={A\bibinitperiod},
+           given={Rachelle},
+           giveni={R\bibinitperiod}}}%
+      }
+      \name{editor}{2}{}{%
+        {{hash=4a745f13ec59b9f27797ef73c1c4a798}{%
+           family={Alterman},
+           familyi={A\bibinitperiod},
+           given={Rachelle},
+           giveni={R\bibinitperiod}}}%
+        {{hash=9e873bc2378d3e1c9f44a856a25f65a1}{%
+           family={Pellach},
+           familyi={P\bibinitperiod},
+           given={Cygal},
+           giveni={C\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Routledge}%
+      }
+      \strng{namehash}{c8175149bb3518024a3ba937b3ff806c}
+      \strng{fullhash}{c8175149bb3518024a3ba937b3ff806c}
+      \strng{fullhashraw}{c8175149bb3518024a3ba937b3ff806c}
+      \strng{bibnamehash}{c8175149bb3518024a3ba937b3ff806c}
+      \strng{authorbibnamehash}{c8175149bb3518024a3ba937b3ff806c}
+      \strng{authornamehash}{c8175149bb3518024a3ba937b3ff806c}
+      \strng{authorfullhash}{c8175149bb3518024a3ba937b3ff806c}
+      \strng{authorfullhashraw}{c8175149bb3518024a3ba937b3ff806c}
+      \strng{editorbibnamehash}{d1e3ef10235beeac693addc9501d0e54}
+      \strng{editornamehash}{d1e3ef10235beeac693addc9501d0e54}
+      \strng{editorfullhash}{d1e3ef10235beeac693addc9501d0e54}
+      \strng{editorfullhashraw}{d1e3ef10235beeac693addc9501d0e54}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{Regulating Coastal Zones: International Perspectives on Land Management Instruments}
+      \field{title}{Comparative analysis II: Land demarcation and property rights}
+      \field{year}{2021}
+      \field{pages}{389\bibrangedash 417}
+      \range{pages}{29}
+      \verb{doi}
+      \verb 10.4324/9780429432699-24
+      \endverb
+    \endentry
+    \entry{DeMeyFreemaux2009}{article}{}{}
+      \name{author}{6}{}{%
+        {{hash=61243892246af684d7b7f16ca2aaf3c3}{%
+           family={{De Mey-Frémaux}},
+           familyi={D\bibinitperiod},
+           given={P.},
+           giveni={P\bibinitperiod}}}%
+        {{hash=e2e090950f7977f2e5f124ebcdd19052}{%
+           family={{Hall, E.}},
+           familyi={H\bibinitperiod}}}%
+        {{hash=8efa8aafd8d2457cfefae6474157a84d}{%
+           family={{Wilkin, J.}},
+           familyi={W\bibinitperiod}}}%
+        {{hash=7fd79199b5d3a637eacad35ebea881a3}{%
+           family={{Moore, A.}},
+           familyi={M\bibinitperiod}}}%
+        {{hash=af155941d644f18586ab38cff99a7b12}{%
+           family={{Edwards, C.}},
+           familyi={E\bibinitperiod}}}%
+        {{hash=38ef52141b0054c9914a374349d22036}{%
+           family={{Haidvogel, D.}},
+           familyi={H\bibinitperiod}}}%
+      }
+      \strng{namehash}{f59427b01175193892825bf5a212af34}
+      \strng{fullhash}{55aa69726a3d77719723251d7c01aff9}
+      \strng{fullhashraw}{55aa69726a3d77719723251d7c01aff9}
+      \strng{bibnamehash}{55aa69726a3d77719723251d7c01aff9}
+      \strng{authorbibnamehash}{55aa69726a3d77719723251d7c01aff9}
+      \strng{authornamehash}{f59427b01175193892825bf5a212af34}
+      \strng{authorfullhash}{55aa69726a3d77719723251d7c01aff9}
+      \strng{authorfullhashraw}{55aa69726a3d77719723251d7c01aff9}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Oceanography}
+      \field{month}{9}
+      \field{title}{Applications in Coastal Modeling and Forecasting}
+      \field{volume}{22}
+      \field{year}{2009}
+      \verb{doi}
+      \verb 10.5670/oceanog.2009.79
+      \endverb
+    \endentry
+    \entry{Davidson2013}{article}{}{}
+      \name{author}{3}{}{%
+        {{hash=285c4d0fdab59d43f7c3364a7e0aa264}{%
+           family={Davidson},
+           familyi={D\bibinitperiod},
+           given={M.\bibnamedelimi A.},
+           giveni={M\bibinitperiod\bibinitdelim A\bibinitperiod}}}%
+        {{hash=e2eb8357d071ed55cfcd684d1d286278}{%
+           family={Splinter},
+           familyi={S\bibinitperiod},
+           given={K.\bibnamedelimi D.},
+           giveni={K\bibinitperiod\bibinitdelim D\bibinitperiod}}}%
+        {{hash=de947c002f8c574d3813107203f07e80}{%
+           family={Turner},
+           familyi={T\bibinitperiod},
+           given={I.\bibnamedelimi L.},
+           giveni={I\bibinitperiod\bibinitdelim L\bibinitperiod}}}%
+      }
+      \strng{namehash}{41ad197725358f871573530cd5a0046a}
+      \strng{fullhash}{fde096ef123480b689d83c26bd832820}
+      \strng{fullhashraw}{fde096ef123480b689d83c26bd832820}
+      \strng{bibnamehash}{fde096ef123480b689d83c26bd832820}
+      \strng{authorbibnamehash}{fde096ef123480b689d83c26bd832820}
+      \strng{authornamehash}{41ad197725358f871573530cd5a0046a}
+      \strng{authorfullhash}{fde096ef123480b689d83c26bd832820}
+      \strng{authorfullhashraw}{fde096ef123480b689d83c26bd832820}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Coastal Engineering}
+      \field{month}{3}
+      \field{title}{A Simple Equilibrium Model for Predicting Shoreline Change}
+      \field{volume}{73}
+      \field{year}{2013}
+      \field{pages}{191\bibrangedash 202}
+      \range{pages}{12}
+      \verb{doi}
+      \verb 10.1016/j.coastaleng.2012.11.002
+      \endverb
+    \endentry
+    \entry{Garrison2012}{book}{}{}
+      \name{author}{1}{}{%
+        {{hash=b39e0ba990e13badd5af74cd1150e11c}{%
+           family={Garrison},
+           familyi={G\bibinitperiod},
+           given={Tom},
+           giveni={T\bibinitperiod}}}%
+      }
+      \list{location}{1}{%
+        {Belmont, CA}%
+      }
+      \list{publisher}{1}{%
+        {Brooks/Cole, Cengage Learning}%
+      }
+      \strng{namehash}{b39e0ba990e13badd5af74cd1150e11c}
+      \strng{fullhash}{b39e0ba990e13badd5af74cd1150e11c}
+      \strng{fullhashraw}{b39e0ba990e13badd5af74cd1150e11c}
+      \strng{bibnamehash}{b39e0ba990e13badd5af74cd1150e11c}
+      \strng{authorbibnamehash}{b39e0ba990e13badd5af74cd1150e11c}
+      \strng{authornamehash}{b39e0ba990e13badd5af74cd1150e11c}
+      \strng{authorfullhash}{b39e0ba990e13badd5af74cd1150e11c}
+      \strng{authorfullhashraw}{b39e0ba990e13badd5af74cd1150e11c}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{edition}{6}
+      \field{title}{Essentials of Oceanography}
+      \field{year}{2012}
+    \endentry
+  \enddatalist
+\endrefsection
+\endinput
+

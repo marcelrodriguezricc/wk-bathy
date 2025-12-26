@@ -26,7 +26,7 @@ num_days = params.num_days
 # Set directory for loading datasets
 SCRIPT_DIR = Path(__file__).resolve().parent
 ROOT_DIR = SCRIPT_DIR.parent
-dir = ROOT_DIR / "data" / "models"
+dir = ROOT_DIR / "data" / "swell"
 
 # For each AOI...
 for a in aoi_list:
@@ -48,6 +48,9 @@ for a in aoi_list:
 
         # Get path to wave model for day and load
         path = dir / f"{header}_wave_{d}.nc"
+        if not path.exists():
+            print(f"Missing: {path}, skipping.")
+            continue
 
         # Load dataset, get significant wave height, and calculate daily mean
         ds = xr.open_dataset(path)

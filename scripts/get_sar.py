@@ -19,7 +19,7 @@ with open("config/aoi_list.json") as f:
 # Set directory and prefix for saving dataset
 SCRIPT_DIR = Path(__file__).resolve().parent
 ROOT_DIR = SCRIPT_DIR.parent
-data_dir = ROOT_DIR / "data" / "st1"
+data_dir = ROOT_DIR / "data" / "st1" / "raw"
 data_dir.mkdir(parents=True, exist_ok=True)
 
 # Reconstruct AOI objects and store in array

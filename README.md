@@ -1,7 +1,7 @@
-# A quantitative evaluation of Optical vs. SAR-based Wave Kinematic Bathymetry (WKB) for deriving ocean depth in the surf-zone
+# A semi-automated modular pipeline for deriving bathymetry from optical and synthetic aperture radar satellite imagery by wave-kinematics inversion
 
 ## Project overview
-The goal of this project is to derive bathymetry by WKB for four nearshore areas from both optical and SAR imagery, use existing hydrographic shallow water survey data as a source of ground-truth to compute the Root Mean Square Error (RMSE), and determine the strengths and weaknesses of each method.
+The goal of this project is to derive bathymetry by four nearshore areas from both optical and SAR imagery by multiple methods, in order to evaluate the effectiveness of various techniques and methodologies
 
 - Step 1: Determine four Areas of Interest (AOI)
 
@@ -50,6 +50,7 @@ The goal of this project is to derive bathymetry by WKB for four nearshore areas
 
     - Apply 2D Fast Fourier Transform
         - Feather mask to avoid high-frequency artifacts
+        - Tune parameters for each AOI
 
     - Wavelength Estimation
         - High-intensity blob centroid to estimate wavelength, period, direction.
@@ -57,19 +58,13 @@ The goal of this project is to derive bathymetry by WKB for four nearshore areas
     - Linear Dispersion
         - Windowed FFT to derive bathymetry for discrete sections
 
-    - Generate maps of derived depths using Mean Sea Level as the vertical datum
-
 - Step 5: Evaluation
 
-    - Chart characteristics from wave model
+    - Apply depth filter based on CRM to evaluate effectiveness of 
 
-    - Compute root mean squared difference for each bathymetric derivation against CRM
+    - Note effectiveness of WKB given various environmental factors without processing and global tuning.
 
-    - Generate a difference map using RMS error for each pixel
-
-    - Calculate & chart “visibility index” based on the unique requirements for identifying surface waves from optical and SAR imagery
-        - Sentinel 1 - Backscatter and L-min
-        - Sentinel 2 - "Glint score" & cloud coverage
+    - Identify different tuning and data processing methods that make WKB more effective for various environments.
 
 ## Setup
 
