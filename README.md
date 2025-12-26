@@ -1,4 +1,4 @@
-# A semi-automated modular pipeline for deriving bathymetry from optical and synthetic aperture radar satellite imagery by wave-kinematics inversion
+# A modular pipeline for deriving bathymetry from optical and synthetic aperture radar satellite imagery by wave-kinematics inversion
 
 ## Project overview
 The goal of this project is to derive bathymetry by four nearshore areas from both optical and SAR imagery by multiple methods, in order to evaluate the effectiveness of various techniques and methodologies
