@@ -79,7 +79,7 @@ cython_debug/
 # Local data/image/output caches
 data/
 data/**
-images/window_fft/
+images/
 # output/
 # outputs/
 # downloads/
