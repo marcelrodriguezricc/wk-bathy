@@ -1,7 +1,7 @@
-WK-Bathy: A Modular Development Environment for Advancing Wave-Kinematics-Based Bathymetric Inversion from Satellite Imagery Using Multimedia Processing Techniques
+# WK-Bathy: A Modular Development Environment for Advancing Wave-Kinematics-Based Bathymetric Inversion from Satellite Imagery Using Multimedia Processing Techniques
 
 ## Project overview
-The goal of this project is to derive bathymetry by four nearshore areas from both optical and SAR imagery by multiple methods, in order to evaluate the effectiveness of various techniques and methodologies
+The goal of this project is to provide a development environment for experimenting with algorithmic pipelines by which to perform wave kinematic bathymetric inversion across different areas of interest a processing strategies. Below is an example:
 
 - Step 1: Determine four Areas of Interest (AOI)
 
@@ -60,11 +60,9 @@ The goal of this project is to derive bathymetry by four nearshore areas from bo
 
 - Step 5: Evaluation
 
-    - Apply depth filter based on CRM to evaluate effectiveness of 
+    - Filter non-physical bathymetric estimations against the Coastal Reference Model
 
-    - Note effectiveness of WKB given various environmental factors without processing and global tuning.
-
-    - Identify different tuning and data processing methods that make WKB more effective for various environments.
+    - Calculate Root Mean Square Error against ground-truth multibeam echosounder data
 
 ## Setup
 
@@ -87,14 +85,6 @@ Optional: install dev tooling
 ```bash
 pip install pytest ruff black mypy
 ```
-
-## Works cited
-
-- [1] E. W. J. Bergsma, R. Almar, and P. Maisongrande, “Radon-Augmented Sentinel-2 Satellite Imagery to Derive Wave-Patterns and Regional Bathymetry,” Remote Sensing, vol. 11, no. 16,
-p. 1918, Jan. 2019, doi: 10.3390/rs11161918.
-
-- [2] S. D. Mudiyanselage, B. Wilkinson, and A. Abd-Elrahman,
-“Automated High-Resolution Bathymetry from Sentinel-1 SAR Images in Deeper Nearshore Coastal Waters in Eastern Florida,” Remote Sensing, vol. 16, no. 1, p. 1, Jan. 2024, doi: 10.3390/rs16010001.
 
 ## License
 
