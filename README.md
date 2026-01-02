@@ -1,4 +1,4 @@
-# WK-Bathy: A Modular Development Environment for Advancing Wave-Kinematics-Based Bathymetric Inversion from Satellite Imagery Using Multimedia Processing Techniques
+# WK-Bathy: A Modular Development Environment for Advancing Satellite-Image-Based Wave Kinematics Bathymetric Inversion
 
 ## Project overview
 The goal of this project is to provide a development environment for experimenting with algorithmic pipelines by which to perform wave kinematic bathymetric inversion across different areas of interest a processing strategies. Below is an example:
