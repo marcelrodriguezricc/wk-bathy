@@ -529,8 +529,8 @@
       \strng{authornamehash}{4b649ae47bb7a8b235be85718a643e88}
       \strng{authorfullhash}{4b649ae47bb7a8b235be85718a643e88}
       \strng{authorfullhashraw}{4b649ae47bb7a8b235be85718a643e88}
-      \field{sortinit}{2}
-      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{journaltitle}{ArcUser}
@@ -581,8 +581,8 @@
       \strng{authornamehash}{3211d2e3a4201fad96976f2f9bb2ff2c}
       \strng{authorfullhash}{da3c1e3bc5e76eefa7174cb579611a58}
       \strng{authorfullhashraw}{da3c1e3bc5e76eefa7174cb579611a58}
-      \field{sortinit}{2}
-      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{journaltitle}{Journal of Geophysical Research}
@@ -644,6 +644,48 @@
       \verb 10.1016/j.coastaleng.2025.104753
       \endverb
     \endentry
+    \entry{Mudiyanselage2024}{article}{}{}
+      \name{author}{3}{}{%
+        {{hash=7d11e056112c22c935ebd2914d9de1c1}{%
+           family={Mudiyanselage},
+           familyi={M\bibinitperiod},
+           given={S.\bibnamedelimi D.},
+           giveni={S\bibinitperiod\bibinitdelim D\bibinitperiod}}}%
+        {{hash=12d833d0c0ec26277076d765819289e2}{%
+           family={Wilkinson},
+           familyi={W\bibinitperiod},
+           given={B.},
+           giveni={B\bibinitperiod}}}%
+        {{hash=3a9f8d4df3220b24d19b664eeec3d61a}{%
+           family={Abd-Elrahman},
+           familyi={A\bibinithyphendelim E\bibinitperiod},
+           given={A.},
+           giveni={A\bibinitperiod}}}%
+      }
+      \strng{namehash}{9e76de62acb5920f2432437c6b258ac3}
+      \strng{fullhash}{b4051ef675b4022b7257ad420bd58985}
+      \strng{fullhashraw}{b4051ef675b4022b7257ad420bd58985}
+      \strng{bibnamehash}{b4051ef675b4022b7257ad420bd58985}
+      \strng{authorbibnamehash}{b4051ef675b4022b7257ad420bd58985}
+      \strng{authornamehash}{9e76de62acb5920f2432437c6b258ac3}
+      \strng{authorfullhash}{b4051ef675b4022b7257ad420bd58985}
+      \strng{authorfullhashraw}{b4051ef675b4022b7257ad420bd58985}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Remote Sensing}
+      \field{month}{1}
+      \field{number}{1}
+      \field{title}{Automated High-Resolution Bathymetry from {Sentinel-1} SAR Images in Deeper Nearshore Coastal Waters in Eastern Florida}
+      \field{volume}{16}
+      \field{year}{2024}
+      \field{pages}{1}
+      \range{pages}{1}
+      \verb{doi}
+      \verb 10.3390/rs16010001
+      \endverb
+    \endentry
     \entry{NOAACoastalWatersGlossary}{online}{}{}
       \name{author}{1}{}{%
         {{hash=ffac21afca55ac91cfedb6c27f6adca0}{%
@@ -658,8 +700,8 @@
       \strng{authornamehash}{ffac21afca55ac91cfedb6c27f6adca0}
       \strng{authorfullhash}{ffac21afca55ac91cfedb6c27f6adca0}
       \strng{authorfullhashraw}{ffac21afca55ac91cfedb6c27f6adca0}
-      \field{sortinit}{3}
-      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{note}{Accessed May 1, 2025}
@@ -689,8 +731,8 @@
       \strng{authornamehash}{b19f915060ef3b56a6709e897e5a34c1}
       \strng{authorfullhash}{b19f915060ef3b56a6709e897e5a34c1}
       \strng{authorfullhashraw}{b19f915060ef3b56a6709e897e5a34c1}
-      \field{sortinit}{3}
-      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{note}{Accessed May 1, 2025}
@@ -746,8 +788,8 @@
       \strng{editornamehash}{d1e3ef10235beeac693addc9501d0e54}
       \strng{editorfullhash}{d1e3ef10235beeac693addc9501d0e54}
       \strng{editorfullhashraw}{d1e3ef10235beeac693addc9501d0e54}
-      \field{sortinit}{3}
-      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{booktitle}{Regulating Coastal Zones: International Perspectives on Land Management Instruments}
@@ -781,8 +823,8 @@
       \strng{authornamehash}{b39e0ba990e13badd5af74cd1150e11c}
       \strng{authorfullhash}{b39e0ba990e13badd5af74cd1150e11c}
       \strng{authorfullhashraw}{b39e0ba990e13badd5af74cd1150e11c}
-      \field{sortinit}{3}
-      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{edition}{6}
@@ -811,8 +853,8 @@
       \strng{authornamehash}{f18e5efb1ae25222542c0e074c704a91}
       \strng{authorfullhash}{f18e5efb1ae25222542c0e074c704a91}
       \strng{authorfullhashraw}{f18e5efb1ae25222542c0e074c704a91}
-      \field{sortinit}{3}
-      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{edition}{2}
@@ -844,8 +886,8 @@
       \strng{authornamehash}{ac60484bf000810a2853c511f1467cc7}
       \strng{authorfullhash}{ac60484bf000810a2853c511f1467cc7}
       \strng{authorfullhashraw}{ac60484bf000810a2853c511f1467cc7}
-      \field{sortinit}{3}
-      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{title}{Wind Waves: Their Generation and Propagation on the Ocean Surface}
@@ -884,6 +926,29 @@
       \field{volume}{69}
       \field{pages}{5181\bibrangedash 5190}
       \range{pages}{10}
+    \endentry
+    \entry{ShoalingWaveSD}{article}{}{}
+      \name{author}{1}{}{%
+        {{hash=21abe5a91c2949aba6ef77033a5f98f3}{%
+           family={{Elsevier}},
+           familyi={E\bibinitperiod}}}%
+      }
+      \strng{namehash}{21abe5a91c2949aba6ef77033a5f98f3}
+      \strng{fullhash}{21abe5a91c2949aba6ef77033a5f98f3}
+      \strng{fullhashraw}{21abe5a91c2949aba6ef77033a5f98f3}
+      \strng{bibnamehash}{21abe5a91c2949aba6ef77033a5f98f3}
+      \strng{authorbibnamehash}{21abe5a91c2949aba6ef77033a5f98f3}
+      \strng{authornamehash}{21abe5a91c2949aba6ef77033a5f98f3}
+      \strng{authorfullhash}{21abe5a91c2949aba6ef77033a5f98f3}
+      \strng{authorfullhashraw}{21abe5a91c2949aba6ef77033a5f98f3}
+      \field{sortinit}{3}
+      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{howpublished}{\url{https://www.sciencedirect.com/topics/earth-and-planetary-sciences/shoaling-wave}}
+      \field{note}{Accessed 2025}
+      \field{title}{{Shoaling Wave}}
+      \field{year}{2020}
     \endentry
     \entry{HartMiskin1945}{article}{}{}
       \name{author}{2}{}{%
@@ -952,47 +1017,28 @@
       \verb 10.1109/36.951097
       \endverb
     \endentry
-    \entry{Mudiyanselage2024}{article}{}{}
-      \name{author}{3}{}{%
-        {{hash=7d11e056112c22c935ebd2914d9de1c1}{%
-           family={Mudiyanselage},
-           familyi={M\bibinitperiod},
-           given={S.\bibnamedelimi D.},
-           giveni={S\bibinitperiod\bibinitdelim D\bibinitperiod}}}%
-        {{hash=12d833d0c0ec26277076d765819289e2}{%
-           family={Wilkinson},
-           familyi={W\bibinitperiod},
-           given={B.},
-           giveni={B\bibinitperiod}}}%
-        {{hash=3a9f8d4df3220b24d19b664eeec3d61a}{%
-           family={Abd-Elrahman},
-           familyi={A\bibinithyphendelim E\bibinitperiod},
-           given={A.},
-           giveni={A\bibinitperiod}}}%
+    \entry{NWSMarineDefinitions}{manual}{}{}
+      \name{author}{1}{}{%
+        {{hash=f53bd99ef59b09060b690438780e0228}{%
+           family={{National Weather Service}},
+           familyi={N\bibinitperiod}}}%
       }
-      \strng{namehash}{9e76de62acb5920f2432437c6b258ac3}
-      \strng{fullhash}{b4051ef675b4022b7257ad420bd58985}
-      \strng{fullhashraw}{b4051ef675b4022b7257ad420bd58985}
-      \strng{bibnamehash}{b4051ef675b4022b7257ad420bd58985}
-      \strng{authorbibnamehash}{b4051ef675b4022b7257ad420bd58985}
-      \strng{authornamehash}{9e76de62acb5920f2432437c6b258ac3}
-      \strng{authorfullhash}{b4051ef675b4022b7257ad420bd58985}
-      \strng{authorfullhashraw}{b4051ef675b4022b7257ad420bd58985}
-      \field{sortinit}{4}
-      \field{sortinithash}{9381316451d1b9788675a07e972a12a7}
+      \strng{namehash}{f53bd99ef59b09060b690438780e0228}
+      \strng{fullhash}{f53bd99ef59b09060b690438780e0228}
+      \strng{fullhashraw}{f53bd99ef59b09060b690438780e0228}
+      \strng{bibnamehash}{f53bd99ef59b09060b690438780e0228}
+      \strng{authorbibnamehash}{f53bd99ef59b09060b690438780e0228}
+      \strng{authornamehash}{f53bd99ef59b09060b690438780e0228}
+      \strng{authorfullhash}{f53bd99ef59b09060b690438780e0228}
+      \strng{authorfullhashraw}{f53bd99ef59b09060b690438780e0228}
+      \field{sortinit}{3}
+      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{journaltitle}{Remote Sensing}
-      \field{month}{1}
-      \field{number}{1}
-      \field{title}{Automated High-Resolution Bathymetry from {Sentinel-1} SAR Images in Deeper Nearshore Coastal Waters in Eastern Florida}
-      \field{volume}{16}
-      \field{year}{2024}
-      \field{pages}{1}
-      \range{pages}{1}
-      \verb{doi}
-      \verb 10.3390/rs16010001
-      \endverb
+      \field{howpublished}{\url{https://www.weather.gov/gum/MarineDefinitions}}
+      \field{note}{Accessed 2025}
+      \field{title}{Marine Definitions}
+      \field{year}{2025}
     \endentry
     \entry{Bergsma2019}{article}{}{}
       \name{author}{3}{}{%
@@ -1020,8 +1066,8 @@
       \strng{authornamehash}{135882dcbd465530031572724a35382b}
       \strng{authorfullhash}{80f2b2657b625c994d1aceb8737bf137}
       \strng{authorfullhashraw}{80f2b2657b625c994d1aceb8737bf137}
-      \field{sortinit}{4}
-      \field{sortinithash}{9381316451d1b9788675a07e972a12a7}
+      \field{sortinit}{3}
+      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{journaltitle}{Remote Sensing}
@@ -1034,6 +1080,1171 @@
       \range{pages}{1}
       \verb{doi}
       \verb 10.3390/rs11161918
+      \endverb
+    \endentry
+    \entry{Prandle1984}{incollection}{}{}
+      \name{author}{1}{}{%
+        {{hash=8b8670228d0b899ad32112a1a7c0afc3}{%
+           family={Prandle},
+           familyi={P\bibinitperiod},
+           given={David},
+           giveni={D\bibinitperiod}}}%
+      }
+      \strng{namehash}{8b8670228d0b899ad32112a1a7c0afc3}
+      \strng{fullhash}{8b8670228d0b899ad32112a1a7c0afc3}
+      \strng{fullhashraw}{8b8670228d0b899ad32112a1a7c0afc3}
+      \strng{bibnamehash}{8b8670228d0b899ad32112a1a7c0afc3}
+      \strng{authorbibnamehash}{8b8670228d0b899ad32112a1a7c0afc3}
+      \strng{authornamehash}{8b8670228d0b899ad32112a1a7c0afc3}
+      \strng{authorfullhash}{8b8670228d0b899ad32112a1a7c0afc3}
+      \strng{authorfullhashraw}{8b8670228d0b899ad32112a1a7c0afc3}
+      \field{sortinit}{4}
+      \field{sortinithash}{9381316451d1b9788675a07e972a12a7}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{Coastal and Estuarine Dynamics}
+      \field{note}{Chapter indicating how tides, density gradients, and winds generate residual circulation in the coastal zone}
+      \field{title}{Coastal Circulation}
+      \field{year}{1984}
+      \field{pages}{237\bibrangedash 260}
+      \range{pages}{24}
+    \endentry
+    \entry{Zhang2022}{article}{}{}
+      \name{author}{4}{}{%
+        {{hash=2c65dc0155fc0f151c939cd8fa10040e}{%
+           family={Zhang},
+           familyi={Z\bibinitperiod},
+           given={Xuan},
+           giveni={X\bibinitperiod}}}%
+        {{hash=761371b068975315bf51fc2541e5e5f2}{%
+           family={Simons},
+           familyi={S\bibinitperiod},
+           given={Richard},
+           giveni={R\bibinitperiod}}}%
+        {{hash=e4829c2b1031e349e31cc560ede5eafe}{%
+           family={Zheng},
+           familyi={Z\bibinitperiod},
+           given={J.},
+           giveni={J\bibinitperiod}}}%
+        {{hash=08835018e7f90fcf262517bf88eb4d72}{%
+           family={Zhang},
+           familyi={Z\bibinitperiod},
+           given={C.},
+           giveni={C\bibinitperiod}}}%
+      }
+      \strng{namehash}{595cb6e20f94392a0e78fbfd3f2e42bc}
+      \strng{fullhash}{40e934aedeedcb2d1a2e61b5d2aea52e}
+      \strng{fullhashraw}{40e934aedeedcb2d1a2e61b5d2aea52e}
+      \strng{bibnamehash}{40e934aedeedcb2d1a2e61b5d2aea52e}
+      \strng{authorbibnamehash}{40e934aedeedcb2d1a2e61b5d2aea52e}
+      \strng{authornamehash}{595cb6e20f94392a0e78fbfd3f2e42bc}
+      \strng{authorfullhash}{40e934aedeedcb2d1a2e61b5d2aea52e}
+      \strng{authorfullhashraw}{40e934aedeedcb2d1a2e61b5d2aea52e}
+      \field{sortinit}{4}
+      \field{sortinithash}{9381316451d1b9788675a07e972a12a7}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Ocean Engineering}
+      \field{title}{A Review of the State of Research on Wave–Current Interaction in Nearshore Areas}
+      \field{volume}{243}
+      \field{year}{2022}
+      \field{pages}{110202}
+      \range{pages}{1}
+      \verb{doi}
+      \verb 10.1016/j.oceaneng.2021.110202
+      \endverb
+    \endentry
+    \entry{Grimshaw2009}{manual}{}{}
+      \name{author}{2}{}{%
+        {{hash=e751fcbd2a94a8e99d922104fe31a632}{%
+           family={Grimshaw},
+           familyi={G\bibinitperiod},
+           given={Roger},
+           giveni={R\bibinitperiod}}}%
+        {{hash=17f5fc40bec8453ffd23475386509404}{%
+           family={Yamamoto},
+           familyi={Y\bibinitperiod},
+           given={Hiroki},
+           giveni={H\bibinitperiod}}}%
+      }
+      \list{institution}{1}{%
+        {Woods Hole Oceanographic Institution, Geophysical Fluid Dynamics Program}%
+      }
+      \list{location}{1}{%
+        {Woods Hole, MA}%
+      }
+      \strng{namehash}{944a49501a4d2646f02e34f8460f6189}
+      \strng{fullhash}{944a49501a4d2646f02e34f8460f6189}
+      \strng{fullhashraw}{944a49501a4d2646f02e34f8460f6189}
+      \strng{bibnamehash}{944a49501a4d2646f02e34f8460f6189}
+      \strng{authorbibnamehash}{944a49501a4d2646f02e34f8460f6189}
+      \strng{authornamehash}{944a49501a4d2646f02e34f8460f6189}
+      \strng{authorfullhash}{944a49501a4d2646f02e34f8460f6189}
+      \strng{authorfullhashraw}{944a49501a4d2646f02e34f8460f6189}
+      \field{sortinit}{4}
+      \field{sortinithash}{9381316451d1b9788675a07e972a12a7}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{note}{Lecture notes (PDF). Retrieved from https://gfd.whoi.edu/wp-content/uploads/sites/18/2018/03/lecture18-roger_136605.pdf}
+      \field{title}{Lecture 18: Wave-Mean Flow Interaction, Part I}
+      \field{year}{2009}
+      \verb{urlraw}
+      \verb https://gfd.whoi.edu/wp-content/uploads/sites/18/2018/03/lecture18-roger_136605.pdf
+      \endverb
+      \verb{url}
+      \verb https://gfd.whoi.edu/wp-content/uploads/sites/18/2018/03/lecture18-roger_136605.pdf
+      \endverb
+    \endentry
+    \entry{KumarHayatdavoodi2023}{article}{}{}
+      \name{author}{2}{}{%
+        {{hash=3aecf2a0d37debb8b53de0473eeb718b}{%
+           family={Kumar},
+           familyi={K\bibinitperiod},
+           given={Arun},
+           giveni={A\bibinitperiod}}}%
+        {{hash=1207b6141eca78cd40c8e80796aec09f}{%
+           family={Hayatdavoodi},
+           familyi={H\bibinitperiod},
+           given={Masoud},
+           giveni={M\bibinitperiod}}}%
+      }
+      \strng{namehash}{eabc4640f40de3666defb1791ec6e670}
+      \strng{fullhash}{eabc4640f40de3666defb1791ec6e670}
+      \strng{fullhashraw}{eabc4640f40de3666defb1791ec6e670}
+      \strng{bibnamehash}{eabc4640f40de3666defb1791ec6e670}
+      \strng{authorbibnamehash}{eabc4640f40de3666defb1791ec6e670}
+      \strng{authornamehash}{eabc4640f40de3666defb1791ec6e670}
+      \strng{authorfullhash}{eabc4640f40de3666defb1791ec6e670}
+      \strng{authorfullhashraw}{eabc4640f40de3666defb1791ec6e670}
+      \field{sortinit}{4}
+      \field{sortinithash}{9381316451d1b9788675a07e972a12a7}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Journal of Ocean Engineering and Marine Energy}
+      \field{number}{3}
+      \field{title}{On wave–current interaction in deep and finite water depths}
+      \field{volume}{9}
+      \field{year}{2023}
+      \field{pages}{455\bibrangedash 475}
+      \range{pages}{21}
+      \verb{doi}
+      \verb 10.1007/s40722-023-00278-x
+      \endverb
+    \endentry
+    \entry{Todd2019}{article}{}{}
+      \true{moreauthor}
+      \true{morelabelname}
+      \name{author}{1}{}{%
+        {{hash=d596f365c9a619c24ef00a57bffc416a}{%
+           family={Todd},
+           familyi={T\bibinitperiod},
+           given={R.\bibnamedelimi E.},
+           giveni={R\bibinitperiod\bibinitdelim E\bibinitperiod}}}%
+      }
+      \strng{namehash}{18d3601229e3df2b4b4e875c240bfe6f}
+      \strng{fullhash}{18d3601229e3df2b4b4e875c240bfe6f}
+      \strng{fullhashraw}{18d3601229e3df2b4b4e875c240bfe6f}
+      \strng{bibnamehash}{18d3601229e3df2b4b4e875c240bfe6f}
+      \strng{authorbibnamehash}{18d3601229e3df2b4b4e875c240bfe6f}
+      \strng{authornamehash}{18d3601229e3df2b4b4e875c240bfe6f}
+      \strng{authorfullhash}{18d3601229e3df2b4b4e875c240bfe6f}
+      \strng{authorfullhashraw}{18d3601229e3df2b4b4e875c240bfe6f}
+      \field{sortinit}{4}
+      \field{sortinithash}{9381316451d1b9788675a07e972a12a7}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Frontiers in Marine Science}
+      \field{title}{Global Perspectives on Observing Ocean Boundary and Shelf Seas}
+      \field{volume}{6}
+      \field{year}{2019}
+      \field{pages}{423}
+      \range{pages}{1}
+      \verb{doi}
+      \verb 10.3389/fmars.2019.00423
+      \endverb
+    \endentry
+    \entry{Honegger2018}{article}{}{}
+      \name{author}{5}{}{%
+        {{hash=da1b3a075b0ea4fe21af556125dcba41}{%
+           family={Honegger},
+           familyi={H\bibinitperiod},
+           given={Daniel},
+           giveni={D\bibinitperiod}}}%
+        {{hash=88f15c1cc814ace1b55d81a2912434a0}{%
+           family={Bruneau},
+           familyi={B\bibinitperiod},
+           given={Nicolas},
+           giveni={N\bibinitperiod}}}%
+        {{hash=002501a3bfa33f29ad24d124ddf4ae6a}{%
+           family={Bertin},
+           familyi={B\bibinitperiod},
+           given={Xavier},
+           giveni={X\bibinitperiod}}}%
+        {{hash=a2ba8b91c0d988e31b3f289f11eb3481}{%
+           family={Dodet},
+           familyi={D\bibinitperiod},
+           given={Guillaume},
+           giveni={G\bibinitperiod}}}%
+        {{hash=f042116b9ba7bd4e58f4c6729e7c362a}{%
+           family={Fortunato},
+           familyi={F\bibinitperiod},
+           given={André\bibnamedelima B.},
+           giveni={A\bibinitperiod\bibinitdelim B\bibinitperiod}}}%
+      }
+      \strng{namehash}{e03f5e378bb15e2c81e0152292dc5cf0}
+      \strng{fullhash}{fbe59f1ef9488bef8b7ce1cebb79f97b}
+      \strng{fullhashraw}{fbe59f1ef9488bef8b7ce1cebb79f97b}
+      \strng{bibnamehash}{fbe59f1ef9488bef8b7ce1cebb79f97b}
+      \strng{authorbibnamehash}{fbe59f1ef9488bef8b7ce1cebb79f97b}
+      \strng{authornamehash}{e03f5e378bb15e2c81e0152292dc5cf0}
+      \strng{authorfullhash}{fbe59f1ef9488bef8b7ce1cebb79f97b}
+      \strng{authorfullhashraw}{fbe59f1ef9488bef8b7ce1cebb79f97b}
+      \field{sortinit}{5}
+      \field{sortinithash}{20e9b4b0b173788c5dace24730f47d8c}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Coastal Engineering}
+      \field{title}{Wave-current interactions in a wave-dominated tidal inlet}
+      \field{volume}{141}
+      \field{year}{2018}
+      \field{pages}{57\bibrangedash 74}
+      \range{pages}{18}
+      \verb{doi}
+      \verb 10.1016/j.coastaleng.2018.10.004
+      \endverb
+    \endentry
+    \entry{Cheriton2016}{article}{}{}
+      \name{author}{3}{}{%
+        {{hash=9f18b6d2b7346c047979a96e8908b3d0}{%
+           family={Cheriton},
+           familyi={C\bibinitperiod},
+           given={Olivia},
+           giveni={O\bibinitperiod}}}%
+        {{hash=24c44711d5b75c2f9aee9a81e7913e95}{%
+           family={Storlazzi},
+           familyi={S\bibinitperiod},
+           given={Curt\bibnamedelima D.},
+           giveni={C\bibinitperiod\bibinitdelim D\bibinitperiod}}}%
+        {{hash=924fe7aed74887e5cb0a686d39abcb47}{%
+           family={Rosenberger},
+           familyi={R\bibinitperiod},
+           given={Kurt\bibnamedelima J.},
+           giveni={K\bibinitperiod\bibinitdelim J\bibinitperiod}}}%
+      }
+      \strng{namehash}{49c9fe6579935e330a1323359b71683c}
+      \strng{fullhash}{a63547ef93bd69d931c29901e4e7972b}
+      \strng{fullhashraw}{a63547ef93bd69d931c29901e4e7972b}
+      \strng{bibnamehash}{a63547ef93bd69d931c29901e4e7972b}
+      \strng{authorbibnamehash}{a63547ef93bd69d931c29901e4e7972b}
+      \strng{authornamehash}{49c9fe6579935e330a1323359b71683c}
+      \strng{authorfullhash}{a63547ef93bd69d931c29901e4e7972b}
+      \strng{authorfullhashraw}{a63547ef93bd69d931c29901e4e7972b}
+      \field{sortinit}{5}
+      \field{sortinithash}{20e9b4b0b173788c5dace24730f47d8c}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Journal of Geophysical Research: Oceans}
+      \field{number}{5}
+      \field{title}{Observations of wave transformation over a fringing coral reef and the importance of low-frequency waves and offshore water levels to runup, overwash, and coastal flooding}
+      \field{volume}{121}
+      \field{year}{2016}
+      \field{pages}{3364\bibrangedash 3384}
+      \range{pages}{21}
+      \verb{doi}
+      \verb 10.1002/2015JC011231
+      \endverb
+    \endentry
+    \entry{Storlazzi2003}{article}{}{}
+      \name{author}{3}{}{%
+        {{hash=24c44711d5b75c2f9aee9a81e7913e95}{%
+           family={Storlazzi},
+           familyi={S\bibinitperiod},
+           given={Curt\bibnamedelima D.},
+           giveni={C\bibinitperiod\bibinitdelim D\bibinitperiod}}}%
+        {{hash=207a78e5193131e916623aa997a5e681}{%
+           family={Jaffe},
+           familyi={J\bibinitperiod},
+           given={Bruce\bibnamedelima E.},
+           giveni={B\bibinitperiod\bibinitdelim E\bibinitperiod}}}%
+        {{hash=3644a9dd5ba67fc2058681deca97879e}{%
+           family={Logan},
+           familyi={L\bibinitperiod},
+           given={John\bibnamedelima B.},
+           giveni={J\bibinitperiod\bibinitdelim B\bibinitperiod}}}%
+      }
+      \strng{namehash}{45d000aaa6912c1647ab22271519ec73}
+      \strng{fullhash}{5347bf410f3d26181546de8f9e0998dc}
+      \strng{fullhashraw}{5347bf410f3d26181546de8f9e0998dc}
+      \strng{bibnamehash}{5347bf410f3d26181546de8f9e0998dc}
+      \strng{authorbibnamehash}{5347bf410f3d26181546de8f9e0998dc}
+      \strng{authornamehash}{45d000aaa6912c1647ab22271519ec73}
+      \strng{authorfullhash}{5347bf410f3d26181546de8f9e0998dc}
+      \strng{authorfullhashraw}{5347bf410f3d26181546de8f9e0998dc}
+      \field{sortinit}{5}
+      \field{sortinithash}{20e9b4b0b173788c5dace24730f47d8c}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Journal of Geophysical Research}
+      \field{number}{C8}
+      \field{title}{Wave transformation across fringing reefs: A synthesis and numerical modeling study}
+      \field{volume}{108}
+      \field{year}{2003}
+      \verb{doi}
+      \verb 10.1029/2002JC001608
+      \endverb
+    \endentry
+    \entry{Vetter2010}{article}{}{}
+      \true{moreauthor}
+      \true{morelabelname}
+      \name{author}{1}{}{%
+        {{hash=9abd77f8bb3ddb4e118d35f6b957595f}{%
+           family={Vetter},
+           familyi={V\bibinitperiod},
+           given={O.\bibnamedelimi J.},
+           giveni={O\bibinitperiod\bibinitdelim J\bibinitperiod}}}%
+      }
+      \strng{namehash}{cf4b983fb08a40d805036d6a4a3ede50}
+      \strng{fullhash}{cf4b983fb08a40d805036d6a4a3ede50}
+      \strng{fullhashraw}{cf4b983fb08a40d805036d6a4a3ede50}
+      \strng{bibnamehash}{cf4b983fb08a40d805036d6a4a3ede50}
+      \strng{authorbibnamehash}{cf4b983fb08a40d805036d6a4a3ede50}
+      \strng{authornamehash}{cf4b983fb08a40d805036d6a4a3ede50}
+      \strng{authorfullhash}{cf4b983fb08a40d805036d6a4a3ede50}
+      \strng{authorfullhashraw}{cf4b983fb08a40d805036d6a4a3ede50}
+      \field{sortinit}{5}
+      \field{sortinithash}{20e9b4b0b173788c5dace24730f47d8c}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Journal of Physical Oceanography}
+      \field{title}{On wave-driven flow over a coral reef}
+      \field{volume}{40}
+      \field{year}{2010}
+      \field{pages}{395\bibrangedash 412}
+      \range{pages}{18}
+      \verb{doi}
+      \verb 10.1175/2009JPO4238.1
+      \endverb
+    \endentry
+    \entry{HolmanGuza1984}{article}{}{}
+      \name{author}{2}{}{%
+        {{hash=4851de69063224a205337f23459ebdc2}{%
+           family={Holman},
+           familyi={H\bibinitperiod},
+           given={R.\bibnamedelimi A.},
+           giveni={R\bibinitperiod\bibinitdelim A\bibinitperiod}}}%
+        {{hash=74499b7f7c1ecc9b877f44135690e782}{%
+           family={Guza},
+           familyi={G\bibinitperiod},
+           given={R.\bibnamedelimi T.},
+           giveni={R\bibinitperiod\bibinitdelim T\bibinitperiod}}}%
+      }
+      \strng{namehash}{b23f84830b32d012be8bb921243e8dc4}
+      \strng{fullhash}{b23f84830b32d012be8bb921243e8dc4}
+      \strng{fullhashraw}{b23f84830b32d012be8bb921243e8dc4}
+      \strng{bibnamehash}{b23f84830b32d012be8bb921243e8dc4}
+      \strng{authorbibnamehash}{b23f84830b32d012be8bb921243e8dc4}
+      \strng{authornamehash}{b23f84830b32d012be8bb921243e8dc4}
+      \strng{authorfullhash}{b23f84830b32d012be8bb921243e8dc4}
+      \strng{authorfullhashraw}{b23f84830b32d012be8bb921243e8dc4}
+      \field{sortinit}{5}
+      \field{sortinithash}{20e9b4b0b173788c5dace24730f47d8c}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Journal of Physical Oceanography}
+      \field{title}{Directional wave measurements at a natural headland}
+      \field{volume}{14}
+      \field{year}{1984}
+      \field{pages}{922\bibrangedash 929}
+      \range{pages}{8}
+      \verb{doi}
+      \verb 10.1175/1520-0485(1984)014<0922:DWM A NH>2.0.CO;2
+      \endverb
+    \endentry
+    \entry{Elgar1994}{article}{}{}
+      \name{author}{3}{}{%
+        {{hash=603e0cdcae639d6f827c327363645fea}{%
+           family={Elgar},
+           familyi={E\bibinitperiod},
+           given={Steve},
+           giveni={S\bibinitperiod}}}%
+        {{hash=74499b7f7c1ecc9b877f44135690e782}{%
+           family={Guza},
+           familyi={G\bibinitperiod},
+           given={R.\bibnamedelimi T.},
+           giveni={R\bibinitperiod\bibinitdelim T\bibinitperiod}}}%
+        {{hash=d638d97ba1db0c0a72abe33f6e9bdba6}{%
+           family={Feddersen},
+           familyi={F\bibinitperiod},
+           given={F.},
+           giveni={F\bibinitperiod}}}%
+      }
+      \strng{namehash}{ee6deacb9e88dc51b35bcee26f3a25f9}
+      \strng{fullhash}{526939fd47387897be9a934304504eb5}
+      \strng{fullhashraw}{526939fd47387897be9a934304504eb5}
+      \strng{bibnamehash}{526939fd47387897be9a934304504eb5}
+      \strng{authorbibnamehash}{526939fd47387897be9a934304504eb5}
+      \strng{authornamehash}{ee6deacb9e88dc51b35bcee26f3a25f9}
+      \strng{authorfullhash}{526939fd47387897be9a934304504eb5}
+      \strng{authorfullhashraw}{526939fd47387897be9a934304504eb5}
+      \field{sortinit}{5}
+      \field{sortinithash}{20e9b4b0b173788c5dace24730f47d8c}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Journal of Geophysical Research}
+      \field{title}{Directional spreading of waves in the nearshore}
+      \field{volume}{99}
+      \field{year}{1994}
+      \field{pages}{16\bibrangessep 275\bibrangedash 16\bibrangessep 285}
+      \range{pages}{-56}
+      \verb{doi}
+      \verb 10.1029/94JC01183
+      \endverb
+    \endentry
+    \entry{PODAACMissions}{article}{}{}
+      \name{author}{1}{}{%
+        {{hash=e1ec8773a4aa1677e6d86ed6073fbdb3}{%
+           family={{Physical Oceanography Distributed Active Archive Center (PO.DAAC), NASA/JPL}},
+           familyi={P\bibinitperiod}}}%
+      }
+      \strng{namehash}{e1ec8773a4aa1677e6d86ed6073fbdb3}
+      \strng{fullhash}{e1ec8773a4aa1677e6d86ed6073fbdb3}
+      \strng{fullhashraw}{e1ec8773a4aa1677e6d86ed6073fbdb3}
+      \strng{bibnamehash}{e1ec8773a4aa1677e6d86ed6073fbdb3}
+      \strng{authorbibnamehash}{e1ec8773a4aa1677e6d86ed6073fbdb3}
+      \strng{authornamehash}{e1ec8773a4aa1677e6d86ed6073fbdb3}
+      \strng{authorfullhash}{e1ec8773a4aa1677e6d86ed6073fbdb3}
+      \strng{authorfullhashraw}{e1ec8773a4aa1677e6d86ed6073fbdb3}
+      \field{sortinit}{5}
+      \field{sortinithash}{20e9b4b0b173788c5dace24730f47d8c}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{howpublished}{\url{https://podaac.jpl.nasa.gov/missions}}
+      \field{note}{Accessed 2025; Overview of NASA and partner missions.}
+      \field{title}{Missions}
+      \field{year}{2025}
+    \endentry
+    \entry{Kudryavtsev2017}{article}{}{}
+      \name{author}{5}{}{%
+        {{hash=4d9c78876ecea804c29853a156a46bcf}{%
+           family={Kudryavtsev},
+           familyi={K\bibinitperiod},
+           given={Vladimir},
+           giveni={V\bibinitperiod}}}%
+        {{hash=1eb94fc920b62e552b6fd8fc4a84568f}{%
+           family={Yurovskaya},
+           familyi={Y\bibinitperiod},
+           given={Maria},
+           giveni={M\bibinitperiod}}}%
+        {{hash=2638ec258335ed1353ae8830f666c01a}{%
+           family={Chapron},
+           familyi={C\bibinitperiod},
+           given={Bertrand},
+           giveni={B\bibinitperiod}}}%
+        {{hash=dc4b25866a3570d7a80b73f219b0e71c}{%
+           family={Collard},
+           familyi={C\bibinitperiod},
+           given={Fabrice},
+           giveni={F\bibinitperiod}}}%
+        {{hash=9b271f73d54aeb8ea4dbd0b5f453a851}{%
+           family={Donlon},
+           familyi={D\bibinitperiod},
+           given={Craig},
+           giveni={C\bibinitperiod}}}%
+      }
+      \strng{namehash}{aa1d98844fe4037a7cf15f5ff61e572d}
+      \strng{fullhash}{6ec3f1093f4428151d939191b26686d6}
+      \strng{fullhashraw}{6ec3f1093f4428151d939191b26686d6}
+      \strng{bibnamehash}{6ec3f1093f4428151d939191b26686d6}
+      \strng{authorbibnamehash}{6ec3f1093f4428151d939191b26686d6}
+      \strng{authornamehash}{aa1d98844fe4037a7cf15f5ff61e572d}
+      \strng{authorfullhash}{6ec3f1093f4428151d939191b26686d6}
+      \strng{authorfullhashraw}{6ec3f1093f4428151d939191b26686d6}
+      \field{sortinit}{6}
+      \field{sortinithash}{b33bc299efb3c36abec520a4c896a66d}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Journal of Geophysical Research: Oceans}
+      \field{number}{2}
+      \field{title}{Sun glitter imagery of ocean surface waves. Part 1: Directional spectrum retrieval and validation}
+      \field{volume}{122}
+      \field{year}{2017}
+      \field{pages}{1369\bibrangedash 1389}
+      \range{pages}{21}
+      \verb{doi}
+      \verb 10.1002/2016JC012425
+      \endverb
+    \endentry
+    \entry{NASASARHandbook2019}{book}{}{}
+      \true{moreeditor}
+      \true{morelabelname}
+      \name{editor}{1}{}{%
+        {{hash=465d104e2e320c1abd8afcbba28441cd}{%
+           family={Flores-Anderson},
+           familyi={F\bibinithyphendelim A\bibinitperiod},
+           given={Alejandro\bibnamedelima I.},
+           giveni={A\bibinitperiod\bibinitdelim I\bibinitperiod}}}%
+      }
+      \list{institution}{2}{%
+        {National Aeronautics}%
+        {Space Administration}%
+      }
+      \list{publisher}{1}{%
+        {NASA Earth Science Division}%
+      }
+      \strng{namehash}{fc5113816c510da762650d3219d02c7f}
+      \strng{fullhash}{fc5113816c510da762650d3219d02c7f}
+      \strng{fullhashraw}{fc5113816c510da762650d3219d02c7f}
+      \strng{bibnamehash}{fc5113816c510da762650d3219d02c7f}
+      \strng{editorbibnamehash}{fc5113816c510da762650d3219d02c7f}
+      \strng{editornamehash}{fc5113816c510da762650d3219d02c7f}
+      \strng{editorfullhash}{fc5113816c510da762650d3219d02c7f}
+      \strng{editorfullhashraw}{fc5113816c510da762650d3219d02c7f}
+      \field{sortinit}{6}
+      \field{sortinithash}{b33bc299efb3c36abec520a4c896a66d}
+      \field{labelnamesource}{editor}
+      \field{labeltitlesource}{title}
+      \field{title}{Synthetic Aperture Radar ({SAR}) Handbook}
+      \field{urlday}{11}
+      \field{urlmonth}{9}
+      \field{urlyear}{2025}
+      \field{year}{2019}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb https://earthdata.nasa.gov/learn/backgrounders/sar-handbook
+      \endverb
+      \verb{url}
+      \verb https://earthdata.nasa.gov/learn/backgrounders/sar-handbook
+      \endverb
+    \endentry
+    \entry{Gens2008}{article}{}{}
+      \name{author}{1}{}{%
+        {{hash=13a2305da3d0e39a97d59d2b37cc6a1c}{%
+           family={Gens},
+           familyi={G\bibinitperiod},
+           given={Ralf},
+           giveni={R\bibinitperiod}}}%
+      }
+      \strng{namehash}{13a2305da3d0e39a97d59d2b37cc6a1c}
+      \strng{fullhash}{13a2305da3d0e39a97d59d2b37cc6a1c}
+      \strng{fullhashraw}{13a2305da3d0e39a97d59d2b37cc6a1c}
+      \strng{bibnamehash}{13a2305da3d0e39a97d59d2b37cc6a1c}
+      \strng{authorbibnamehash}{13a2305da3d0e39a97d59d2b37cc6a1c}
+      \strng{authornamehash}{13a2305da3d0e39a97d59d2b37cc6a1c}
+      \strng{authorfullhash}{13a2305da3d0e39a97d59d2b37cc6a1c}
+      \strng{authorfullhashraw}{13a2305da3d0e39a97d59d2b37cc6a1c}
+      \field{sortinit}{6}
+      \field{sortinithash}{b33bc299efb3c36abec520a4c896a66d}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{GIScience \& Remote Sensing}
+      \field{month}{7}
+      \field{number}{3}
+      \field{title}{Oceanographic Applications of {SAR} Remote Sensing}
+      \field{volume}{45}
+      \field{year}{2008}
+      \field{pages}{275\bibrangedash 305}
+      \range{pages}{31}
+      \verb{doi}
+      \verb 10.2747/1548-1603.45.3.275
+      \endverb
+    \endentry
+    \entry{Fatoyinbo2021}{article}{}{}
+      \true{moreauthor}
+      \true{morelabelname}
+      \name{author}{1}{}{%
+        {{hash=0857fa2a16c7b29ce3da1977aa7fe1bb}{%
+           family={Fatoyinbo},
+           familyi={F\bibinitperiod},
+           given={Temilola},
+           giveni={T\bibinitperiod}}}%
+      }
+      \strng{namehash}{1b07ec2f67fa87ce1958ce945e726b08}
+      \strng{fullhash}{1b07ec2f67fa87ce1958ce945e726b08}
+      \strng{fullhashraw}{1b07ec2f67fa87ce1958ce945e726b08}
+      \strng{bibnamehash}{1b07ec2f67fa87ce1958ce945e726b08}
+      \strng{authorbibnamehash}{1b07ec2f67fa87ce1958ce945e726b08}
+      \strng{authornamehash}{1b07ec2f67fa87ce1958ce945e726b08}
+      \strng{authorfullhash}{1b07ec2f67fa87ce1958ce945e726b08}
+      \strng{authorfullhashraw}{1b07ec2f67fa87ce1958ce945e726b08}
+      \field{sortinit}{6}
+      \field{sortinithash}{b33bc299efb3c36abec520a4c896a66d}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Remote Sensing of Environment}
+      \field{month}{10}
+      \field{title}{The {NASA} {AfriSAR} campaign: Airborne {SAR} and lidar measurements of tropical forest structure and biomass in support of current and future space missions}
+      \field{volume}{264}
+      \field{year}{2021}
+      \field{pages}{112533}
+      \range{pages}{1}
+      \verb{doi}
+      \verb 10.1016/j.rse.2021.112533
+      \endverb
+    \endentry
+    \entry{CMEMSSatellitesInstruments}{online}{}{}
+      \list{organization}{1}{%
+        {Copernicus Marine Environment Monitoring Service}%
+      }
+      \field{sortinit}{6}
+      \field{sortinithash}{b33bc299efb3c36abec520a4c896a66d}
+      \field{labeltitlesource}{title}
+      \field{title}{Satellites and their Instruments}
+      \field{urlday}{11}
+      \field{urlmonth}{9}
+      \field{urlyear}{2025}
+      \field{year}{2025}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb https://marine.copernicus.eu/explainers/operational-oceanography/monitoring-forecasting/satellites/instruments
+      \endverb
+      \verb{url}
+      \verb https://marine.copernicus.eu/explainers/operational-oceanography/monitoring-forecasting/satellites/instruments
+      \endverb
+    \endentry
+    \entry{UAVSARJPL}{online}{}{}
+      \list{organization}{1}{%
+        {Jet Propulsion Laboratory, NASA}%
+      }
+      \field{sortinit}{6}
+      \field{sortinithash}{b33bc299efb3c36abec520a4c896a66d}
+      \field{labeltitlesource}{title}
+      \field{title}{{UAVSAR} | Airborne}
+      \field{urlday}{11}
+      \field{urlmonth}{9}
+      \field{urlyear}{2025}
+      \field{year}{2025}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb https://earth.jpl.nasa.gov/estd-missions/airborne/uavsar
+      \endverb
+      \verb{url}
+      \verb https://earth.jpl.nasa.gov/estd-missions/airborne/uavsar
+      \endverb
+    \endentry
+    \entry{Rice1951}{article}{}{}
+      \name{author}{1}{}{%
+        {{hash=1fbb1628601f5d7af38ff86fca990168}{%
+           family={Rice},
+           familyi={R\bibinitperiod},
+           given={S.\bibnamedelimi O.},
+           giveni={S\bibinitperiod\bibinitdelim O\bibinitperiod}}}%
+      }
+      \strng{namehash}{1fbb1628601f5d7af38ff86fca990168}
+      \strng{fullhash}{1fbb1628601f5d7af38ff86fca990168}
+      \strng{fullhashraw}{1fbb1628601f5d7af38ff86fca990168}
+      \strng{bibnamehash}{1fbb1628601f5d7af38ff86fca990168}
+      \strng{authorbibnamehash}{1fbb1628601f5d7af38ff86fca990168}
+      \strng{authornamehash}{1fbb1628601f5d7af38ff86fca990168}
+      \strng{authorfullhash}{1fbb1628601f5d7af38ff86fca990168}
+      \strng{authorfullhashraw}{1fbb1628601f5d7af38ff86fca990168}
+      \field{sortinit}{6}
+      \field{sortinithash}{b33bc299efb3c36abec520a4c896a66d}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Bell System Technical Journal}
+      \field{number}{1}
+      \field{title}{Reflection of Electromagnetic Waves from Slightly Rough Surfaces}
+      \field{volume}{30}
+      \field{year}{1951}
+      \field{pages}{80\bibrangedash 91}
+      \range{pages}{12}
+      \verb{doi}
+      \verb 10.1002/j.1538-7305.1951.tb01258.x
+      \endverb
+    \endentry
+    \entry{Brusch2011}{article}{}{}
+      \name{author}{5}{}{%
+        {{hash=bf4cb6b85f6c03a8b19180221bd67155}{%
+           family={Brusch},
+           familyi={B\bibinitperiod},
+           given={Stephan},
+           giveni={S\bibinitperiod}}}%
+        {{hash=f18394165cba24c005f921be44c8ce60}{%
+           family={Held},
+           familyi={H\bibinitperiod},
+           given={Philipp},
+           giveni={P\bibinitperiod}}}%
+        {{hash=96aee7e0e66ae8e7325182ce35543ae7}{%
+           family={Lehner},
+           familyi={L\bibinitperiod},
+           given={Susanne},
+           giveni={S\bibinitperiod}}}%
+        {{hash=1b49902e34ef5e564f46c722d310058a}{%
+           family={Rosenthal},
+           familyi={R\bibinitperiod},
+           given={Wolfgang},
+           giveni={W\bibinitperiod}}}%
+        {{hash=951baedc684ce91168f332326c3d62a0}{%
+           family={Pleskachevsky},
+           familyi={P\bibinitperiod},
+           given={Andrey},
+           giveni={A\bibinitperiod}}}%
+      }
+      \strng{namehash}{58f811429696eb59a507580983e75149}
+      \strng{fullhash}{0aa04b1b64544621f3f864d7319f28bb}
+      \strng{fullhashraw}{0aa04b1b64544621f3f864d7319f28bb}
+      \strng{bibnamehash}{0aa04b1b64544621f3f864d7319f28bb}
+      \strng{authorbibnamehash}{0aa04b1b64544621f3f864d7319f28bb}
+      \strng{authornamehash}{58f811429696eb59a507580983e75149}
+      \strng{authorfullhash}{0aa04b1b64544621f3f864d7319f28bb}
+      \strng{authorfullhashraw}{0aa04b1b64544621f3f864d7319f28bb}
+      \field{sortinit}{6}
+      \field{sortinithash}{b33bc299efb3c36abec520a4c896a66d}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{International Journal of Remote Sensing}
+      \field{number}{16}
+      \field{title}{Underwater Bottom Topography in Coastal Areas from TerraSAR-X Data}
+      \field{volume}{32}
+      \field{year}{2011}
+      \field{pages}{4527\bibrangedash 4543}
+      \range{pages}{17}
+      \verb{doi}
+      \verb 10.1080/01431161.2010.489063
+      \endverb
+    \endentry
+    \entry{Hasselmann2013}{incollection}{}{}
+      \name{author}{12}{}{%
+        {{hash=66eed78b28cea52385d490c87426b8dc}{%
+           family={Hasselmann},
+           familyi={H\bibinitperiod},
+           given={Klaus},
+           giveni={K\bibinitperiod}}}%
+        {{hash=19f087decf7c97cd3ebf28b2ca95531d}{%
+           family={Hasselmann},
+           familyi={H\bibinitperiod},
+           given={Susanne},
+           giveni={S\bibinitperiod}}}%
+        {{hash=83d4ec50fedb2602bbca090c315e89da}{%
+           family={Komen},
+           familyi={K\bibinitperiod},
+           given={Gerard\bibnamedelima J.},
+           giveni={G\bibinitperiod\bibinitdelim J\bibinitperiod}}}%
+        {{hash=a00dc11a7c616b8bcb4f3d4b3a34a9e8}{%
+           family={Janssen},
+           familyi={J\bibinitperiod},
+           given={Peter\bibnamedelimb A.\bibnamedelimi E.\bibnamedelimi M.},
+           giveni={P\bibinitperiod\bibinitdelim A\bibinitperiod\bibinitdelim E\bibinitperiod\bibinitdelim M\bibinitperiod}}}%
+        {{hash=d0b47214170cd33c6e4c819d08cdf09d}{%
+           family={Monbaliu},
+           familyi={M\bibinitperiod},
+           given={Jacques},
+           giveni={J\bibinitperiod}}}%
+        {{hash=f63ce3a67831177e0f695ce9075f1445}{%
+           family={Ackermann},
+           familyi={A\bibinitperiod},
+           given={Holger},
+           giveni={H\bibinitperiod}}}%
+        {{hash=e4610b163d4d1e32aae5c0555cc3c99b}{%
+           family={Bidlot},
+           familyi={B\bibinitperiod},
+           given={Jean-Raymond},
+           giveni={J\bibinithyphendelim R\bibinitperiod}}}%
+        {{hash=0b8df1665f56159455c5e01fede3e17a}{%
+           family={Beal},
+           familyi={B\bibinitperiod},
+           given={Richard},
+           giveni={R\bibinitperiod}}}%
+        {{hash=2638ec258335ed1353ae8830f666c01a}{%
+           family={Chapron},
+           familyi={C\bibinitperiod},
+           given={Bertrand},
+           giveni={B\bibinitperiod}}}%
+        {{hash=dcd015ab5e921c67bc438bb0ba16717b}{%
+           family={Elfouhaily},
+           familyi={E\bibinitperiod},
+           given={Tarek},
+           giveni={T\bibinitperiod}}}%
+        {{hash=78fd3a446365268bbbbd83fbf68b76f0}{%
+           family={Vachon},
+           familyi={V\bibinitperiod},
+           given={Paris},
+           giveni={P\bibinitperiod}}}%
+        {{hash=10c89369fc1e56b2dc7265af9f12eba2}{%
+           family={Campbell},
+           familyi={C\bibinitperiod},
+           given={William},
+           giveni={W\bibinitperiod}}}%
+      }
+      \name{editor}{2}{}{%
+        {{hash=28a8bddef6a03a7dce38debdef8a5573}{%
+           family={Jackson},
+           familyi={J\bibinitperiod},
+           given={Charles\bibnamedelima R.},
+           giveni={C\bibinitperiod\bibinitdelim R\bibinitperiod}}}%
+        {{hash=af58745c2e637b3e94c8dad134aeb965}{%
+           family={Apel},
+           familyi={A\bibinitperiod},
+           given={John\bibnamedelima R.},
+           giveni={J\bibinitperiod\bibinitdelim R\bibinitperiod}}}%
+      }
+      \list{location}{1}{%
+        {Noordwijk, The Netherlands}%
+      }
+      \list{publisher}{1}{%
+        {European Space Agency}%
+      }
+      \strng{namehash}{75fbc8d7911533e9b49fd5958e116c76}
+      \strng{fullhash}{ae4c497f69440984af22ca5e6f95382e}
+      \strng{fullhashraw}{ae4c497f69440984af22ca5e6f95382e}
+      \strng{bibnamehash}{75fbc8d7911533e9b49fd5958e116c76}
+      \strng{authorbibnamehash}{75fbc8d7911533e9b49fd5958e116c76}
+      \strng{authornamehash}{75fbc8d7911533e9b49fd5958e116c76}
+      \strng{authorfullhash}{ae4c497f69440984af22ca5e6f95382e}
+      \strng{authorfullhashraw}{ae4c497f69440984af22ca5e6f95382e}
+      \strng{editorbibnamehash}{f07085559239ac48f3a8907d7ad4ead5}
+      \strng{editornamehash}{f07085559239ac48f3a8907d7ad4ead5}
+      \strng{editorfullhash}{f07085559239ac48f3a8907d7ad4ead5}
+      \strng{editorfullhashraw}{f07085559239ac48f3a8907d7ad4ead5}
+      \field{sortinit}{7}
+      \field{sortinithash}{108d0be1b1bee9773a1173443802c0a3}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{Synthetic Aperture Radar Marine User's Manual}
+      \field{isbn}{978-92-9221-286-5}
+      \field{title}{The {ERS} {SAR} Wave Mode: A Breakthrough in Global Ocean Wave Observations}
+      \field{year}{2013}
+      \field{pages}{165\bibrangedash 198}
+      \range{pages}{34}
+    \endentry
+    \entry{USGSRemoteSensingCompendium2020}{report}{}{}
+      \true{moreauthor}
+      \true{morelabelname}
+      \name{author}{1}{}{%
+        {{hash=bfef8e5fbd180d8e06dda8b044a8762f}{%
+           family={Chandra},
+           familyi={C\bibinitperiod},
+           given={S.\bibnamedelimi N.\bibnamedelimi R.},
+           giveni={S\bibinitperiod\bibinitdelim N\bibinitperiod\bibinitdelim R\bibinitperiod}}}%
+      }
+      \list{institution}{1}{%
+        {U.S. Geological Survey}%
+      }
+      \strng{namehash}{e6624026c12efb20e411b4b8a02e792b}
+      \strng{fullhash}{e6624026c12efb20e411b4b8a02e792b}
+      \strng{fullhashraw}{e6624026c12efb20e411b4b8a02e792b}
+      \strng{bibnamehash}{e6624026c12efb20e411b4b8a02e792b}
+      \strng{authorbibnamehash}{e6624026c12efb20e411b4b8a02e792b}
+      \strng{authornamehash}{e6624026c12efb20e411b4b8a02e792b}
+      \strng{authorfullhash}{e6624026c12efb20e411b4b8a02e792b}
+      \strng{authorfullhashraw}{e6624026c12efb20e411b4b8a02e792b}
+      \field{sortinit}{7}
+      \field{sortinithash}{108d0be1b1bee9773a1173443802c0a3}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Remote Sensing Satellite Compendium}
+      \field{urlday}{31}
+      \field{urlmonth}{12}
+      \field{urlyear}{2025}
+      \field{year}{2020}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb https://pubs.usgs.gov/circ/1468/cir1468.pdf
+      \endverb
+      \verb{url}
+      \verb https://pubs.usgs.gov/circ/1468/cir1468.pdf
+      \endverb
+    \endentry
+    \entry{DaniloMelgani2016}{article}{}{}
+      \name{author}{2}{}{%
+        {{hash=552ae4d47f20078ac446252d30cdc60f}{%
+           family={Danilo},
+           familyi={D\bibinitperiod},
+           given={C'eline},
+           giveni={C\bibinitperiod}}}%
+        {{hash=6270da8b8971ff7b148a0387c7cf644d}{%
+           family={Melgani},
+           familyi={M\bibinitperiod},
+           given={Farid},
+           giveni={F\bibinitperiod}}}%
+      }
+      \strng{namehash}{f6e5c394d59cdf9f15a21dc272c03bcd}
+      \strng{fullhash}{f6e5c394d59cdf9f15a21dc272c03bcd}
+      \strng{fullhashraw}{f6e5c394d59cdf9f15a21dc272c03bcd}
+      \strng{bibnamehash}{f6e5c394d59cdf9f15a21dc272c03bcd}
+      \strng{authorbibnamehash}{f6e5c394d59cdf9f15a21dc272c03bcd}
+      \strng{authornamehash}{f6e5c394d59cdf9f15a21dc272c03bcd}
+      \strng{authorfullhash}{f6e5c394d59cdf9f15a21dc272c03bcd}
+      \strng{authorfullhashraw}{f6e5c394d59cdf9f15a21dc272c03bcd}
+      \field{sortinit}{8}
+      \field{sortinithash}{a231b008ebf0ecbe0b4d96dcc159445f}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{IEEE Transactions on Geoscience and Remote Sensing}
+      \field{number}{11}
+      \field{title}{Wave Period and Coastal Bathymetry Using Wave Propagation on Optical Images}
+      \field{volume}{54}
+      \field{year}{2016}
+      \field{pages}{6307\bibrangedash 6319}
+      \range{pages}{13}
+      \verb{doi}
+      \verb 10.1109/TGRS.2016.2579266
+      \endverb
+    \endentry
+    \entry{Rogers2018}{report}{}{}
+      \name{author}{1}{}{%
+        {{hash=41eb4365a43e984d458853d68f263f20}{%
+           family={Rogers},
+           familyi={R\bibinitperiod},
+           given={W.\bibnamedelimi E.},
+           giveni={W\bibinitperiod\bibinitdelim E\bibinitperiod}}}%
+      }
+      \list{institution}{1}{%
+        {Naval Research Laboratory}%
+      }
+      \strng{namehash}{41eb4365a43e984d458853d68f263f20}
+      \strng{fullhash}{41eb4365a43e984d458853d68f263f20}
+      \strng{fullhashraw}{41eb4365a43e984d458853d68f263f20}
+      \strng{bibnamehash}{41eb4365a43e984d458853d68f263f20}
+      \strng{authorbibnamehash}{41eb4365a43e984d458853d68f263f20}
+      \strng{authornamehash}{41eb4365a43e984d458853d68f263f20}
+      \strng{authorfullhash}{41eb4365a43e984d458853d68f263f20}
+      \strng{authorfullhashraw}{41eb4365a43e984d458853d68f263f20}
+      \field{sortinit}{8}
+      \field{sortinithash}{a231b008ebf0ecbe0b4d96dcc159445f}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Phase-Averaged Wave Models}
+      \field{urlday}{1}
+      \field{urlmonth}{1}
+      \field{urlyear}{2025}
+      \field{year}{2018}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb https://www7320.nrlssc.navy.mil/pubs/2018/rogers3-2018.pdf
+      \endverb
+      \verb{url}
+      \verb https://www7320.nrlssc.navy.mil/pubs/2018/rogers3-2018.pdf
+      \endverb
+    \endentry
+    \entry{SWANTechnicalDocumentation}{manual}{}{}
+      \name{author}{3}{}{%
+        {{hash=8de374bde7031273ade48a067402b3aa}{%
+           family={Booij},
+           familyi={B\bibinitperiod},
+           given={N.},
+           giveni={N\bibinitperiod}}}%
+        {{hash=3139b8e160b2b6b17e8cfb4e005354c1}{%
+           family={Ris},
+           familyi={R\bibinitperiod},
+           given={R.\bibnamedelimi C.},
+           giveni={R\bibinitperiod\bibinitdelim C\bibinitperiod}}}%
+        {{hash=ac7a2677f720d3a2c8cbfcba2ba980f6}{%
+           family={Holthuijsen},
+           familyi={H\bibinitperiod},
+           given={L.\bibnamedelimi H.},
+           giveni={L\bibinitperiod\bibinitdelim H\bibinitperiod}}}%
+      }
+      \list{organization}{1}{%
+        {Delft University of Technology}%
+      }
+      \strng{namehash}{af7fc9f5d246a54d0a7b38b6e2cb9083}
+      \strng{fullhash}{b2e6038612081c050e01dd0d2027bbb3}
+      \strng{fullhashraw}{b2e6038612081c050e01dd0d2027bbb3}
+      \strng{bibnamehash}{b2e6038612081c050e01dd0d2027bbb3}
+      \strng{authorbibnamehash}{b2e6038612081c050e01dd0d2027bbb3}
+      \strng{authornamehash}{af7fc9f5d246a54d0a7b38b6e2cb9083}
+      \strng{authorfullhash}{b2e6038612081c050e01dd0d2027bbb3}
+      \strng{authorfullhashraw}{b2e6038612081c050e01dd0d2027bbb3}
+      \field{sortinit}{8}
+      \field{sortinithash}{a231b008ebf0ecbe0b4d96dcc159445f}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{{SWAN} Scientific and Technical Documentation}
+      \field{urlday}{1}
+      \field{urlmonth}{1}
+      \field{urlyear}{2025}
+      \field{year}{2009}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb https://swanmodel.sourceforge.io/download/zip/swantech.pdf
+      \endverb
+      \verb{url}
+      \verb https://swanmodel.sourceforge.io/download/zip/swantech.pdf
+      \endverb
+    \endentry
+    \entry{Tolman2008}{article}{}{}
+      \name{author}{1}{}{%
+        {{hash=6c145207e42010694eb0d53fe8d88e8e}{%
+           family={Tolman},
+           familyi={T\bibinitperiod},
+           given={H.\bibnamedelimi L.},
+           giveni={H\bibinitperiod\bibinitdelim L\bibinitperiod}}}%
+      }
+      \strng{namehash}{6c145207e42010694eb0d53fe8d88e8e}
+      \strng{fullhash}{6c145207e42010694eb0d53fe8d88e8e}
+      \strng{fullhashraw}{6c145207e42010694eb0d53fe8d88e8e}
+      \strng{bibnamehash}{6c145207e42010694eb0d53fe8d88e8e}
+      \strng{authorbibnamehash}{6c145207e42010694eb0d53fe8d88e8e}
+      \strng{authornamehash}{6c145207e42010694eb0d53fe8d88e8e}
+      \strng{authorfullhash}{6c145207e42010694eb0d53fe8d88e8e}
+      \strng{authorfullhashraw}{6c145207e42010694eb0d53fe8d88e8e}
+      \field{sortinit}{8}
+      \field{sortinithash}{a231b008ebf0ecbe0b4d96dcc159445f}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{Proceedings of the 10th International Workshop on Wave Hindcasting and Forecasting}
+      \field{title}{Practical Wind Wave Modeling}
+      \field{urlday}{1}
+      \field{urlmonth}{1}
+      \field{urlyear}{2025}
+      \field{year}{2008}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb https://polar.ncep.noaa.gov/mmab/papers/tn270/Howard_08.pdf
+      \endverb
+      \verb{url}
+      \verb https://polar.ncep.noaa.gov/mmab/papers/tn270/Howard_08.pdf
+      \endverb
+    \endentry
+    \entry{PadillaHernandez2007}{article}{}{}
+      \name{author}{3}{}{%
+        {{hash=e190c4e5b8442bd345f73a1a29f8e79f}{%
+           family={Padilla-Hernández},
+           familyi={P\bibinithyphendelim H\bibinitperiod},
+           given={R.},
+           giveni={R\bibinitperiod}}}%
+        {{hash=24ab7654c61e57e1cd0c4210d2ad7692}{%
+           family={Monbaliu},
+           familyi={M\bibinitperiod},
+           given={J.},
+           giveni={J\bibinitperiod}}}%
+        {{hash=9ea1606fea55484b51a9bb4d8afb0f43}{%
+           family={Cavaleri},
+           familyi={C\bibinitperiod},
+           given={L.},
+           giveni={L\bibinitperiod}}}%
+      }
+      \strng{namehash}{03f93854a3d15a58243d7e084755d6c8}
+      \strng{fullhash}{9816deadab30d4cacfea7ee3360af772}
+      \strng{fullhashraw}{9816deadab30d4cacfea7ee3360af772}
+      \strng{bibnamehash}{9816deadab30d4cacfea7ee3360af772}
+      \strng{authorbibnamehash}{9816deadab30d4cacfea7ee3360af772}
+      \strng{authornamehash}{03f93854a3d15a58243d7e084755d6c8}
+      \strng{authorfullhash}{9816deadab30d4cacfea7ee3360af772}
+      \strng{authorfullhashraw}{9816deadab30d4cacfea7ee3360af772}
+      \field{sortinit}{8}
+      \field{sortinithash}{a231b008ebf0ecbe0b4d96dcc159445f}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Coastal Engineering}
+      \field{number}{6--7}
+      \field{title}{Intercomparison of Third-Generation Wave Models in Shallow Water}
+      \field{volume}{54}
+      \field{year}{2007}
+      \field{pages}{523\bibrangedash 542}
+      \range{pages}{20}
+      \verb{doi}
+      \verb 10.1016/j.coastaleng.2007.01.002
+      \endverb
+    \endentry
+    \entry{Ferdaus2025}{article}{}{}
+      \true{moreauthor}
+      \true{morelabelname}
+      \name{author}{1}{}{%
+        {{hash=335c4d5b2793f07185463d19c963c408}{%
+           family={Ferdaus},
+           familyi={F\bibinitperiod},
+           given={M.},
+           giveni={M\bibinitperiod}}}%
+      }
+      \strng{namehash}{4eaff2f3a6c3450f1fd2791d61022608}
+      \strng{fullhash}{4eaff2f3a6c3450f1fd2791d61022608}
+      \strng{fullhashraw}{4eaff2f3a6c3450f1fd2791d61022608}
+      \strng{bibnamehash}{4eaff2f3a6c3450f1fd2791d61022608}
+      \strng{authorbibnamehash}{4eaff2f3a6c3450f1fd2791d61022608}
+      \strng{authornamehash}{4eaff2f3a6c3450f1fd2791d61022608}
+      \strng{authorfullhash}{4eaff2f3a6c3450f1fd2791d61022608}
+      \strng{authorfullhashraw}{4eaff2f3a6c3450f1fd2791d61022608}
+      \field{sortinit}{8}
+      \field{sortinithash}{a231b008ebf0ecbe0b4d96dcc159445f}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Ocean Modelling}
+      \field{note}{in press}
+      \field{title}{Review of Phase-Averaged and Phase-Resolving Wave Models for Coastal Applications}
+      \field{urlday}{1}
+      \field{urlmonth}{1}
+      \field{urlyear}{2025}
+      \field{year}{2025}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb https://arxiv.org/abs/2511.21856
+      \endverb
+      \verb{url}
+      \verb https://arxiv.org/abs/2511.21856
+      \endverb
+    \endentry
+    \entry{NOAACRMUserGuide2023}{manual}{}{}
+      \name{author}{1}{}{%
+        {{hash=224ef7e17e2f51a29d715d4d5bdd2e93}{%
+           family={{NOAA National Centers for Environmental Information}},
+           familyi={N\bibinitperiod}}}%
+      }
+      \list{organization}{2}{%
+        {National Oceanic}%
+        {Atmospheric Administration}%
+      }
+      \strng{namehash}{224ef7e17e2f51a29d715d4d5bdd2e93}
+      \strng{fullhash}{224ef7e17e2f51a29d715d4d5bdd2e93}
+      \strng{fullhashraw}{224ef7e17e2f51a29d715d4d5bdd2e93}
+      \strng{bibnamehash}{224ef7e17e2f51a29d715d4d5bdd2e93}
+      \strng{authorbibnamehash}{224ef7e17e2f51a29d715d4d5bdd2e93}
+      \strng{authornamehash}{224ef7e17e2f51a29d715d4d5bdd2e93}
+      \strng{authorfullhash}{224ef7e17e2f51a29d715d4d5bdd2e93}
+      \strng{authorfullhashraw}{224ef7e17e2f51a29d715d4d5bdd2e93}
+      \field{sortinit}{8}
+      \field{sortinithash}{a231b008ebf0ecbe0b4d96dcc159445f}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{note}{Accessed: 2025-01-01}
+      \field{title}{Coastal Relief Models (CRMs) 2023 Release User Guide}
+      \field{year}{2023}
+      \verb{urlraw}
+      \verb https://www.ngdc.noaa.gov/mgg/global/relief/CRM/docs/1.0_CRM_2023_User_Guide.pdf
+      \endverb
+      \verb{url}
+      \verb https://www.ngdc.noaa.gov/mgg/global/relief/CRM/docs/1.0_CRM_2023_User_Guide.pdf
+      \endverb
+    \endentry
+    \entry{Singh2024}{article}{}{}
+      \name{author}{1}{}{%
+        {{hash=70ee04bf1b2733a972b63c7cdd889c7a}{%
+           family={Singh},
+           familyi={S\bibinitperiod},
+           given={Harpal},
+           giveni={H\bibinitperiod}}}%
+      }
+      \list{organization}{1}{%
+        {Baeldung}%
+      }
+      \strng{namehash}{70ee04bf1b2733a972b63c7cdd889c7a}
+      \strng{fullhash}{70ee04bf1b2733a972b63c7cdd889c7a}
+      \strng{fullhashraw}{70ee04bf1b2733a972b63c7cdd889c7a}
+      \strng{bibnamehash}{70ee04bf1b2733a972b63c7cdd889c7a}
+      \strng{authorbibnamehash}{70ee04bf1b2733a972b63c7cdd889c7a}
+      \strng{authornamehash}{70ee04bf1b2733a972b63c7cdd889c7a}
+      \strng{authorfullhash}{70ee04bf1b2733a972b63c7cdd889c7a}
+      \strng{authorfullhashraw}{70ee04bf1b2733a972b63c7cdd889c7a}
+      \field{sortinit}{8}
+      \field{sortinithash}{a231b008ebf0ecbe0b4d96dcc159445f}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{day}{25}
+      \field{month}{1}
+      \field{note}{Includes the equirectangular distance approximation and other geographic distance formulas}
+      \field{title}{Calculate Distance Between Two Coordinates in Java}
+      \field{urlday}{1}
+      \field{urlmonth}{1}
+      \field{urlyear}{2026}
+      \field{year}{2024}
+      \field{dateera}{ce}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb https://www.baeldung.com/java-find-distance-between-points
+      \endverb
+      \verb{url}
+      \verb https://www.baeldung.com/java-find-distance-between-points
       \endverb
     \endentry
   \enddatalist

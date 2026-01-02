@@ -24,7 +24,7 @@
   linkcolor=blue,
   citecolor=blue,
   urlcolor=blue,
-  pdftitle={WK-Bathy: A Modular Development Environment for Advancing Wave-Kinematics-Based Bathymetric Inversion from Satellite Imagery Using Multimedia Processing Techniques},
+  pdftitle={WK-Bathy: A Modular Development Environment for Advancing Satellite-Image-Based Wave Kinematics Bathymetric Inversion},
   pdfauthor={Marcel Rodriguez-Riccelli}
 }
 
@@ -35,14 +35,14 @@
 \renewcommand{\footrulewidth}{0pt}
 
 % ---------- Title Metadata ----------
-\newcommand{\papertitle}{WK-Bathy: A Modular Development Environment for Advancing Wave-Kinematics-Based Bathymetric Inversion from Satellite Imagery Using Multimedia Processing Techniques}
+\newcommand{\papertitle}{WK-Bathy: A Modular Development Environment for Advancing Satellite-Image-Based Wave Kinematics Bathymetric Inversion}
 \newcommand{\papersubtitle}{Applied Media Arts in support of Coastal Science}
 \newcommand{\papercourse}{A project submitted in partial satisfaction of the requirements for the degree Master of Science in Media Arts and Technology}
 \newcommand{\paperauthor}{Marcel Rodriguez-Riccelli}
 \newcommand{\paperdate}{\today}
 
 % ---------- Title Block ----------
-\newcommand{\makepapertitle}{%
+\newcommand{\makepapertitle}{
   \begin{center}
     {\Large\bfseries \papertitle\par}
     \vspace{0.35cm}
@@ -70,6 +70,14 @@
 \thispagestyle{empty}
 {\Large\bfseries Abstract}
 
+Accurate bathymetric information is fundamental to the modeling and prediction of nearshore coastal processes, yet remains one of the most temporally sparse and spatially limited geophysical datasets. Wave-kinematics-based bathymetric inversion offers a promising approach for extending bathymetric coverage by exploiting the relationship between surface wave dispersion and water depth in the nearshore observable in satellite imagery. However, the effectiveness of dispersion-based inversion is highly sensitive to environmental conditions, image quality, and algorithmic assumptions, limiting its applicability across diverse coastal settings.
+
+This work presents \textit{WK-Bathy}, a modular, open-source Python development environment designed to support systematic experimentation with wave-kinematics bathymetric inversion workflows using both optical and synthetic aperture radar (SAR) satellite imagery. The framework integrates satellite data products, in-situ wave buoy observations, numerical wave models, and coastal relief models to evaluate algorithm performance across a range of environmental conditions. Four coastal sites exhibiting distinct bathymetric complexity and hydrodynamic regimes--—Wassabo Beach, Florida; the Golden Gate region, California; Rincón, Puerto Rico; and the North Shore of O'ahu, Hawaii—--are analyzed to identify failure modes and performance constraints.
+
+Results demonstrate that SAR-derived imagery yields physically plausible depth estimates under favorable conditions, particularly at sites with wide nearshore shelves, whereas optical imagery fails to do so without additional preprocessing due to spectral ambiguity and elevated noise levels. Performance further degrades in regions characterized by strong currents, complex morphology, or narrow shelves, where the assumptions underlying linear wave dispersion are violated. Notably, regions exhibiting complex nearshore geometry and exposure to energetic hydrodynamic processes are also those most lacking in accurate bathymetric data and most vulnerable to the damaging effects of episodic extreme coastal events, underscoring the need for informed methodological solutions to overcome these limitations. Building on these findings, this paper outlines targeted image- and data-processing strategies—including directionally informed analysis, Radon-based feature enhancement, transect-based wavelength estimation, and theoretical depth-derived peak-period correction—to mitigate the identified constraints.
+
+Beyond its technical contributions, this work positions \textit{WK-Bathy} as a case study illustrating how Media Arts-derived computational and image-processing techniques can be meaningfully applied to interdisciplinary scientific problems, highlighting the value of cross-disciplinary perspectives.
+
 % ---------- Table of Contents ----------
 \newpage
 \thispagestyle{empty}
@@ -80,26 +88,29 @@
 \tableofcontents
 \newpage
 
-% ---------- SECTION 1: Introduction ----------
+% ---------- Heading ----------
 \setcounter{page}{1}
-\fancyfoot[C]{\thepage}
+\fancyhead[R]{\footnotesize\itshape\thepage}
+\fancyhead[L]{\footnotesize\itshape WK-Bathy: A Modular Development Environment for Wave-Kinematics Bathymetry}
+\renewcommand{\headrulewidth}{0.4pt}
+\setlength{\headheight}{14pt}
+
+% ---------- SECTION 1: Introduction ----------
 \section{Introduction}
 
-% ---------- 1.1 General Background ----------
-\subsection{Background}
 Since the earliest record of coastal human settlement on the African coast over 100,000 years ago, the coastal zone has been a cradle for human development, to the extent that adaptations to coastal environments are theorized to have influenced human evolutionary traits.~\cite{Will2016} Coasts provide for civilization in several ways---as an abundant source of food and energy resources and as a gateway for travel, commerce, exploration, and recreation---and our understanding of coastal processes has been intrinsically linked to our development as a civilization and species. That token extends into the modern era, as today, the coastal zone is inhabited by approximately 40\% of the global population, and is host to much of our most critical infrastructure.~\cite{Reithmeier2025}
 
 Most mega-cities are located in the Low Elevation Coastal Zone (LECZ), that represents 2\% of the worlds total land area inhabited by 11\% of the global population.~\cite{Neumann2015} The number of people living in the LECZ has increased by 200 million from 1990 to 2015, and is projected to reach 1 billion people by 2050.~\cite{Neumann2015} The majority of natural disasters occur either as a direct cause of marine processes, by meteorological events that occur over the ocean, or by geological events that happen at plate boundaries located at continental edges and mid-ocean ridges.~\cite{Kron2013} Cities in the LECZ are especially vulnerable to the damaging effects of coastal processes exacerbated by warming global climates---namely sea level rise, coastal erosion, and flooding---and so there is a growing need for informed solutions that can mitigate their impact.~\cite{Neumann2015, Day2023} Physical models of coastal processes that enable accurate forecasting and analysis are at the crux of coastal science; they are used to inform and support a wide variety of applications, including---weather and flood prediction, infrastructure planning and management, aquaculture and fishing, maritime safety and efficiency, naval operation, and biogeophysical parameter estimation.~\cite{DeMeyFreemaux2009, Vitousek2023, VanDongeren2008}
 
-% ---------- 1.2 Challenges with measuring coastal phenomena ----------
+% ---------- 1.1 Challenges with measuring coastal phenomena ----------
 \subsection{Challenges with measuring coastal phenomena}
-Coastal environments are exceptionally dynamic---there are several transformative marine and land phenomena continuously occurring on a range of spatial-temporal scales, simultaneously influencing hydro- and morphological dynamics to various extents across discrete coastal areas.~\cite{Hunt2023} Coastal science is often referred to as being data-poor, as turbulent marine processes and unstable morphology make sampling environmental parameters difficult.~\cite{Vitousek2023, Holman2013} Traditionally, the network of coastal monitoring systems had been limited to only a few specific sites that are highly-instrumented with in-situ point sensors. While highly accurate, these in-situ point sensors are limited in the several ways:
+Coastal environments are exceptionally dynamic---there are several transformative marine and land phenomena continuously occurring on a range of spatial-temporal scales, simultaneously influencing hydro- and morphological dynamics to various extents across discrete coastal areas.~\cite{Hunt2023} Coastal science is often referred to as being data-poor, as turbulent marine processes and unstable morphology make sampling environmental parameters difficult.~\cite{Vitousek2023, Holman2013} Traditionally, the network of coastal monitoring systems had been limited to only a few specific sites highly-instrumented with in-situ point sensors. While highly accurate, these in-situ point sensors are limited in several ways:
 
  {\small
  \begin{itemize}
     \item High cost associated with equipment, maintenance, and deployment
     \item Highly localized, small area of coverage
-    \item Nearshore phenomena are highly inhomogeneous in the along-shore direction, requiring a large sensor array to achieve adequate spatial resolution
+    \item Nearshore phenomena are highly inhomogeneous in the along-shore direction, requiring a large sensor array to achieve adequate spatial resolution and range
     \item Rapid erosion and accretion in the nearshore can dislodge or bury moored instruments
     \item Large tidal sea-level changes can move in‐situ sensors out of range for meaningful data collection
 \end{itemize}
@@ -108,7 +119,7 @@ Coastal environments are exceptionally dynamic---there are several transformativ
 
 Coastal environments are highly inhomogeneous in the along-shore direction, and so the effective range of measurements taken from one area for modeling phenomena in another are highly limited based on a variety of environmental parameters.~\cite{Holman2013}. The limitations of the current network of coastal sensing systems prohibits accurate predictive modeling of coastal phenomena on a global scale, and so solutions are needed to expand the amount of available measurement data on coastal phenomena.
 
-% ---------- 1.3 Satellite-based remote sensing as a solution ----------
+% ---------- 1.2 Satellite-based remote sensing as a solution ----------
 \subsection{Satellite-based remote sensing as a solution}
 To address the lack of coverage granted by the network of coastal monitoring systems, many coastal researchers have directed their efforts toward using data products born of the current array of Earth-observing satellites to measure coastal phenomena.~\cite{Vitousek2023, Holman2013} Satellite-based remote sensing offers a promising alternative to traditional methods for monitoring in-situ point sensors for overcoming the challenges with measuring coastal phenomena:
 
@@ -124,22 +135,20 @@ To address the lack of coverage granted by the network of coastal monitoring sys
 
 Internationally, governmental space agencies conduct satellite missions that generate rigorously calibrated and well-documented data products. These products are made openly available as a public good in support of independent scientific research and applied uses. The purposes of these missions vary, and accordingly each satellite operates under a distinct set of mission parameters, including---the suite of Earth-observing sensors and supporting instruments onboard, the type of orbit about Earth, and the altitude from which observations are made. Together, these factors yield resulting data products that are vastly different from one another. Historically, satellite imagery had limited utility for coastal science due to inadequate spatial and temporal resolution, and the lack of sensitivity of early sensors to the weak reflectance signals from aquatic surfaces that transmit and absorb much of incident radiation into the water column. However, modern developments in sensor technology have increased sensitivity across electromagnetic spectral bands for which water exhibits strong reflective properties; advances in data assimilation techniques combine disparate data sources to improve the quality and accuracy of derived products; innovations in satellite technology have led to an unprecedented number of satellites deployed in Earth orbit; and advances in computational methods now allow physical properties of surface phenomena to be inferred from measurements of incident electromagnetic radiation. Collectively, these advancements have made the use of Earth-observing satellite data products a promising prospect for expanding the amount of available data for numerical modeling of coastal processes.
 
-
-
-% ---------- 1.4 Bathymetry ----------
+% ---------- 1.3 Bathymetry ----------
 \subsection{Bathymetry}
-Bathymetry is the variable that currently limits numerical modeling of nearshore processes.~\cite{Holman2013, VanDongeren2008} Currently, less than ~15\% of the ocean floor, representing ~70\% of the area of Earth’s crust, has been mapped at a spatial resolution of under 5 kilometers.~\cite{Baumann2019} Hydro-dynamic processes in the nearshore such as currents and wave dissipation are highly subject to even small changes in bathymetric morphology, and so models predicting nearshore dynamics improve markedly when detailed bathymetric data is provided.~\cite{Ruessink2001}~\cite{VanDongeren2008} Under certain conditions, bathymetry can be highly variable, so up-to-date information is also crucial to accurate modeling.~\cite{VanDongeren2008}
+Bathymetry is the variable that currently limits numerical modeling of nearshore processes.~\cite{Holman2013, VanDongeren2008} Currently, less than approximately 15\% of the ocean floor, representing approximately 70\% of the area of Earth's crust, has been mapped at a spatial resolution of under 5 kilometers.~\cite{Baumann2019} Hydrodynamic processes in the nearshore such as currents and wave dissipation are highly subject to even small changes in bathymetric morphology, and so models predicting nearshore dynamics improve markedly when detailed bathymetric data is provided.~\cite{Ruessink2001}~\cite{VanDongeren2008} Under certain conditions, bathymetry can be highly variable, so up-to-date information is also crucial to accurate modeling.~\cite{VanDongeren2008}
 
-While both active and passive satellite remote sensors are unable to penetrate the surface of the ocean in all but the shallowest and least turbid areas, characteristics of the seafloor can be derived from images of surface phenomena by retrieval algorithms.~\cite{Holman2013, Reithmeier2025} \textit{Wave-kinematics bathymetric inversion} is a method by which spatial variance in wave celerity across an image and the relationship between wave celerity and depth given by linear or non-linear dispersion equations are used to derive depth. The ability of wave-kinematics bathymetric inversion algorithms to derive physical bathymetric measurements from data gathered remotely by sensors operating outside of the reach of volatile nearshore processes has made it the focus of recent efforts, for its promise toward extending the extents of bathymetric maps and the frequency at which they are updated.~\cite{ODea2025}. 
+While both active and passive satellite remote sensors are unable to penetrate the surface of the ocean in all but the shallowest and least turbid areas, characteristics of the seafloor can be derived from images of surface phenomena by a series of retrieval algorithms.~\cite{Holman2013, Reithmeier2025} \textit{Wave-kinematics bathymetric inversion} is a method by which spatial variance in wave celerity across an image and the relationship between wave celerity and depth given by linear or non-linear dispersion equations are used to derive depth. The ability of wave-kinematics bathymetric inversion algorithms to derive physical bathymetric measurements from data gathered remotely by sensors operating outside of the reach of volatile nearshore processes has made it the focus of recent efforts, for its promise toward extending the extents of bathymetric maps and the frequency at which they are updated.~\cite{ODea2025}. 
 
-% ---------- 1.5 The role of Media Arts ----------
+% ---------- 1.4 The role of Media Arts ----------
 \subsection{The role of Media Arts}
-Wave-kinematic bathymetric inversion relies on image and spatial information processing techniques to extract the dominant wave frequency at several points across an image, the effectiveness of which is highly dependent on environmental and observational conditions.~\cite{VanDongeren2008} The requirement that these factors align favorably significantly limits the availability of suitable satellite imagery for wave-kinematic inversion. However, advances in image and spatial information processing methods can extend the utility of imagery acquired under sub-optimal conditions, increasing the overall applicability of the technique. To that end, insights from the field of Media Arts—--for which multimedia systems engineering, computational modeling, and image processing are core subjects---are particularly valuable for expanding the range of imagery suitable for accurate wave-kinematic bathymetric inversion, thereby increasing the spatial extent of up-to-date bathymetric data.
+Wave-kinematic bathymetric inversion relies on image and spatial information processing techniques to extract the dominant wave frequency at several points across an image, the effectiveness of which is highly dependent on environmental and observational conditions associated with sea conditions and image quality.~\cite{VanDongeren2008, Mudiyanselage2024} The requirement that these factors align favorably significantly limits the availability of suitable satellite imagery for wave-kinematic inversion. However, advances in image and spatial information processing methods can extend the utility of imagery acquired under sub-optimal conditions, increasing the overall applicability of the technique. To that end, insights from the field of Media Arts—--for which multimedia systems engineering, computational modeling, and image processing are core subjects---are particularly valuable for expanding the range of imagery suitable for accurate wave-kinematic bathymetric inversion, thereby increasing the spatial extent of up-to-date bathymetric data.
 
-% ---------- 1.6 Objectives ----------
+% ---------- 1.5 Objectives ----------
 \subsection{Objectives}
 
-The specificity of wave-kinematic bathymetric inversion requires that improvements to the algorithms implementing this technique be informed by an understanding of both the governing physical processes and the remote sensing systems used to acquire the imagery. The objectives of this paper are to synthesize existing knowledge of the hydro- and morphodynamic phenomena relevant to wave-kinematic bathymetric inversion; to review applicable satellite platforms and sensing techniques from which suitable imagery may be obtained; to present a modular Python development environment for experimentation with wave kinematic inversion pipelines across different areas of interest and processing strategies; and to evaluate the effectiveness of these techniques under varying environmental conditions, in support of efforts to expand the availability and spatial coverage of detailed, up-to-date bathymetric data. Additionally, this paper is intended to serve as a framework through which practitioners in the field of Media Arts may apply their skills to interdisciplinary scientific problem solving.
+The specificity of wave-kinematic bathymetric inversion requires that improvements to the algorithms implementing this technique be informed by an understanding of both the governing physical processes and the remote sensing systems used to acquire the imagery. The objectives of this paper are to synthesize existing knowledge of the hydro- and morpho-dynamic phenomena relevant to wave-kinematic bathymetric inversion; to review applicable satellite platforms and sensing techniques from which suitable imagery may be obtained; to present a modular Python development environment for experimentation with wave kinematics-based inversion pipelines across different areas of interest and processing strategies; and to evaluate the effectiveness of these techniques under varying environmental conditions, in support of efforts to expand the availability and spatial coverage of detailed, up-to-date bathymetric data. Additionally, this paper is intended to serve as a framework through which practitioners in the field of Media Arts may apply their skills to interdisciplinary scientific problem solving.
 
 % ---------- Stommel diagram of coastal processes ----------
 \begin{figure}
@@ -149,23 +158,34 @@ The specificity of wave-kinematic bathymetric inversion requires that improvemen
     \label{figure1}
 \end{figure}
 
-% ---------- SECTION 2: PERTINENT COASTAL PHENOMENA  ----------
-\section{Pertinent coastal phenomena}
+% ---------- SECTION 2: Conceptual background ----------
+\section{Conceptual background}
 
-% ---------- 2.1 Defining the coast ----------
-\subsection{Defining the coast}
-Broadly, a coast is the zone extending both landward and seaward from the shoreline, defined as the boundary where the ocean meets the land. Discrepancies exist among organizations regarding how the coastal zone is defined and how its spatial extent is understood. For example, some sources define the coastal zone according to a fixed distance from the shoreline~\cite{NOAACoastalWatersGlossary}, while others define coasts by the spatial reach of processes that arise from the interaction between land and sea~\cite{LibreTexts}. Within these general differences lie more specific ones. In the former case, regulatory bodies in different countries may delineate the shoreline using different tidal reference lines~\cite{PellachAlterman2021}; in the latter, studies from different disciplines may include or exclude particular processes depending on the timescale of interest~\cite{LibreTexts}.
+Broadly, wave-kinematic inversion from satellite imagery is highly sensitive to two factors: environmental processes that modify wave kinematics or introduce ambiguity in retrieving the dominant wavelength—such as simultaneous exposure to multiple swell systems, the presence of surface currents, and complex subaqueous morphological features in the nearshore—and image-quality factors that affect the ability to accurately measure physical wave parameters, including sub-optimal satellite geometry and the presence of atmospheric constituents that attenuate or scatter electromagnetic radiation. The same environmental factors that complicate dispersion-based inversion in certain areas also contribute to the intensity of damaging coastal processes at those sites. Consequently, efforts to improve dispersion-based inversion techniques should focus on overcoming these limitations in order to expand the spatial coverage of detailed bathymetric data for modeling coastal processes in the most sensitive and vulnerable regions.
 
-The nebulousness of definitions for the coast are a cause of the numerous factors that contribute to its morphology, and the sensitivity of which factors are considered to the success of an applied use-case. Hydro-dynamic processes occurring at different timescales work simultaneously to continuously transform coasts: from short-term transport of sediment caused by turbulance in the nearshore, to long term eustatic sea level changes which redefine global shorelines and ocean basins from processes such as glaciation, volcanic outgassing, and plate tectonics.~\ref{figure1} Carefully defining the spatiotemporal extent of relevant coastal processes with respect to the intended application is integral to effective modeling of coastal processes. For example, models that explicitly incorporate equilibrium concepts have proven more successful in predicting short- to medium-term coastal behavior than processes operating on longer, multi-decadal timescales~\cite{Hunt2023}.
+% ---------- 2.1 Coastal Science ----------
+\subsection{Coastal science}
 
-% ---------- 2.2 Wind generated ocean waves ----------
-\subsection{Wind generated ocean waves}
+The coastal zone extends both landward and seaward from the shoreline—the boundary where the ocean meets the land. Discrepancies exist among organizations regarding how the coastal zone is defined and how its spatial extent is understood. For example, some sources define the coastal zone according to a fixed distance from the shoreline~\cite{NOAACoastalWatersGlossary}, while others define coasts by the spatial extent of processes arising from the interaction between land and sea~\cite{LibreTexts}. Within these general differences lie more specific distinctions. In the former case, regulatory bodies in different countries may delineate the shoreline using different tidal reference lines~\cite{PellachAlterman2021}; in the latter, studies from different disciplines may include or exclude particular processes depending on the timescale of interest~\cite{LibreTexts}.
 
-Wind-generated surface waves originate from aerodynamic pressure fluctuations and shear stresses exerted by wind at the air–sea interface. At very small scales, surface tension acts as the dominant restoring force, giving rise to capillary waves characterized by low energy and high frequency. These capillary waves increase surface roughness, enhancing momentum transfer from the atmosphere to the ocean and facilitating the growth of longer waves. Once wavelengths exceed approximately 1.7 cm, gravity becomes the dominant restoring force, and the waves transition to gravity waves. In this regime, displaced water parcels oscillate about their equilibrium positions in approximately orbital motions as gravitational forces act to restore the surface wave and momentum causes the wave to overshoot.~\cite{Garrison2012, Masselink2014, Kinsman1984}
+The nebulousness of coastal definitions arises from the multitude of factors that contribute to coastal morphology and from the sensitivity of applied use cases to which factors are considered. Hydrodynamic processes operating across a wide range of timescales act simultaneously to continuously transform coasts, from short-term sediment transport driven by nearshore turbulence to long-term eustatic sea-level changes that redefine global shorelines and ocean basins through processes such as glaciation, volcanic outgassing, and plate tectonics. (Fig.~\ref{figure1}) Carefully defining the spatiotemporal extent of relevant coastal processes with respect to the intended application is therefore integral to effective coastal modeling. For example, models that explicitly incorporate equilibrium concepts have proven more successful in predicting short- to medium-term coastal behavior than processes operating on longer, multi-decade timescales~\cite{Hunt2023}.
 
-Over time, high-frequency wave components dissipate and nonlinear interactions redistribute energy toward lower frequencies. The surface of deep water is said to be a free surface, as the orbital path of water molecules are governed only by gravity, intertia, and pressure forces, free of mechanical constraints imposed by a solid boundary. Water with a free surface is a dispersive medium, meaning waves of different wavelengths propagating on the water's surface travel at different phase speeds. By the process of dispersion, waves are sorted into packets of uniform wavelength as they travel away from the area of generation, producing a swell. The virtually frictionless orbital motion of swell waves allows them to propagate over long distances across the ocean, until they meet an obstacle or enter the nearshore zone.~\cite{Garrison2012, Masselink2014, Kinsman1984, PiersonMoskowitz1964}
+% ---------- 2.1.1 Ocean waves ----------
+\subsubsection{Ocean waves}
 
-As swell waves enter the nearshore, decreasing water depth relative to wavelength induces shoaling, increasing wave height and slowing orbital velocities until depth-limited breaking occurs.~\cite{HartMiskin1945} The relationship between depth and wave speed can be expressed by the theoretical linear dispersion equation for surface gravity waves:
+The most commonly observable surface waves originate from aerodynamic pressure fluctuations and shear stresses exerted by wind at the air-sea interface. At very small scales, surface tension acts as the dominant restoring force, giving rise to capillary waves characterized by low energy and high frequency. These capillary waves increase surface roughness, enhancing momentum transfer from the atmosphere to the ocean and facilitating the growth of longer waves. Once wavelengths exceed approximately 1.7 cm, gravity becomes the dominant restoring force, and the waves transition to gravity waves. In this regime, displaced water parcels oscillate about their equilibrium positions in approximately orbital motions as gravitational forces act to restore the surface wave and momentum causes the wave to overshoot.~\cite{Garrison2012, Masselink2014, Kinsman1984}
+
+Over time, high-frequency wave components dissipate and nonlinear interactions redistribute energy toward lower frequencies. The surface of deep water is said to be a free surface, as the orbital path of water molecules are governed only by gravity, inertia, and pressure forces, free of mechanical constraints imposed by a solid boundary. Water with a free surface is a dispersive medium, meaning waves of different wavelengths propagating on the water's surface travel at different phase speeds. By the process of dispersion, waves are sorted into packets of uniform wavelength as they travel away from the area of generation, producing a swell. The virtually frictionless orbital motion of swell waves allows them to propagate over long distances across the ocean, until they meet an obstacle or enter the nearshore zone.~\cite{Garrison2012, Masselink2014, Kinsman1984, PiersonMoskowitz1964}
+
+% ---------- Shoaling Diagram ----------
+\begin{figure}
+    \centering
+    \includegraphics[width=0.6\linewidth]{/Users/marcel/Desktop/wk-bathy/docs/mat-thesis/images/shoaling.jpg}
+    \caption{(A) Schematic of the deep-, intermediate- and shallow-water regions showing the change in the shape of the waves as they propagate into shallow water (figure drafted by Kathirine Sentas). (B) Change in the ratio of local to deep-water wave parameters as waves propagate into shallower water for wavelength ($L/Lo$), wave speed ($C/Co$), wave angle ($sin\alpha/sin\alpha o$), wave group speed ($Cg/Co$), and wave height ($H/Ho$)~\cite{ShoalingWaveSD}}
+    \label{figure2}
+\end{figure}
+
+As swell waves enter the nearshore, decreasing water depth relative to wavelength induces shoaling, increasing wave height and slowing orbital velocity, while period and frequency remain constant, until depth-limited breaking occurs.~(Fig.~\ref{figure2})~\cite{HartMiskin1945} A linearized version of the relationship between depth and wave speed can be expressed by the theoretical linear dispersion equation for surface gravity waves:
 
 \begin{equation}
 \label{dispersion}
@@ -174,42 +194,392 @@ As swell waves enter the nearshore, decreasing water depth relative to wavelengt
 ~\cite{Holland2001, HartMiskin1945}
 
 where:
-
 {\small
 \begin{itemize}
-    \item $\sigma$ is radial frequency is defined as $2π/T$, where T is the wave period
-    \item $k$ is the wavenumber ($k = 2π∕L$, where $L$ is the wavelength)
+    \item $\sigma$ is radial frequency is defined as $2π/T$, where $T$ is the wave period
+    \item $k$ is the wavenumber ($k = 2π∕\lambda$, where $\lambda$ is the wavelength)
     \item $h$ is the water depth
     \item and $g$ is the gravitational constant $\approx 9.81\,\mathrm{m\,s^{-2}}$
 \end{itemize}
 }
-
 ~\cite{Holland2001, HartMiskin1945}
 
-Wave-kinematic bathymetric inversion algorithms that employ satellite imagery typically partition the image into \textit{N × N} pixel subsets and apply a two-dimensional Fourier transform to each subset. From these spectra, the wavelength 
-$L$ of the dominant sea waves is estimated at the centroid of each subset across the full image extent. The wave period $T$ is obtained from an external source, such as a nearby wave buoy or a historical wave model. An algebraic rearrangement of the linear dispersion relation is then used to solve for the local water depth $h$ at each subset centroid:
+Wave kinematics-based bathymetric inversion algorithms that employ satellite imagery partition the image into \textit{N x N} pixel subsets and apply a two-dimensional Fourier transform to each subset. From these spectra, the wavenumber 
+$k$ of the dominant swell is estimated at the centroid of each subset across the full image extent. Spectral content may be band-pass filtered using the typical swell wave period range ($\sim9 - 20 s$),~\cite{NWSMarineDefinitions} which can be converted to a corresponding range of wavenumber values via the linear dispersion relation.~(Eq.~\ref{dispersion}) Simultaneous swells from multiple directions can produce multiple peaks in the spectrum and increase uncertainty in the retrieval of $k$. This allows the spectra to be constrained to exclude high-frequency noise and low-frequency components outside the range of interest. The peak period $T_p$, or the period associated with the most energetic waves in the spectrum for a given point, is usually obtained from an external source, such as a nearby wave buoy or a historical wave model, or estimated obtaining $h$ from a coarser depth map generated from ground-truth measurement or a coastal relief model and solving for $T_p$. An algebraic rearrangement of the linear dispersion relation is then used to solve for the local water depth $h$ at each subset centroid:
 
 \begin{equation}
 h(\lambda, T_p) = \frac{\lambda}{2\pi} \,
 \operatorname{atanh}\!\left( \frac{2\pi \lambda}{g T_p^2} \right)
 \label{depth_inversion}
 \end{equation}
-~\cite{Mudiyanselage2024, Bergsma2019} 
+~\cite{Mudiyanselage2024, Bergsma2019}
 
-Most wave energy is dissipated within a relatively narrow coastal band, often on the order of 100 meters in width, where energy dissipation rates of approximately 10 – 100 watts per square meter, making the surf zone one of the most energetic regions of the ocean.~\cite{Holman2013} The surf zone defines the practical limit of wave-kinematic bathymetric inversion in the across-shore direction, as wave breaking and rapid energy loss degrade the assumptions required for dispersion-based depth estimation. The exact across-shore extent of this limitation is site-specific and varies with wave climate and beach morphology, but typically coincides with the region shoreward of persistent wave breaking. The dissipation of wave energy in the nearshore drives circulation, sediment transport, and morphological change. Comprehensive characterization of coastal phenomena therefore requires an understanding of the combined and interacting effects of ocean wave propagation with other hydrodynamic processes operating in the nearshore.
+Most wave energy is dissipated within a relatively narrow coastal band where depth-limited breaking occurs referred to as the surf zone, often on the order of 100 meters in width, and where energy dissipation rates of approximately 10 - 100 watts per square meter makes it one of the most energetic regions of the ocean.~\cite{Holman2013} The surf zone defines the practical limit of wave-kinematic bathymetric inversion in the across-shore direction, as wave breaking and rapid energy loss degrade the assumptions required for dispersion-based depth estimation.~\cite{Mudiyanselage2024} The exact across-shore extent of this limitation is site-specific and varies with wave climate and beach morphology, but typically coincides with the region shoreward of persistent wave breaking. Only coastal sites with a swell wave regime---meaning the dissipation of swell wave energy in the nearshore is the primary driver of circulation, sediment transport, and morphological change---are suitable for wave kinematics bathymetric inversion.
 
-\subsection{Currents}
-\subsection{Bathymetric Complexity}
+% ---------- 2.1.2 Currents  ----------
+\subsubsection{Currents}
 
-\section{Sensing systems}
-\subsection{Optical}
-\subsection{Synthetic Aperture Radar}
-\subsection{Complementary}
+Currents are mass flows of water generated by a combination of physical processes arising from wind stress, tides, wave forcing, and density variations.~\cite{Prandle1984} In coastal environments, surface waves and ambient currents often occur simultaneously, and interactions between them modify wave kinematics by imposing variation on wavelength and height.~\cite{Zhang2022} Wave kinematics are most strongly affected by coherent mean currents---such as tidal, inlet jet, and wind-driven currents---while small-scale turbulence and wave-driven longshore currents typical of the surf-zone have a lesser effect.
+
+Studies in measuring wave-current interactions in controlled laboratory environments have shown that a wave superimposed on an opposing current results in increased wave height and decreased wavelength, while a following current results in the opposite.~(Fig.~\ref{figure3})~\cite{Zhang2022} To a fixed observer, this interaction manifests as a Doppler shift between the intrinsic wave frequency and the encounter frequency, with the magnitude of the shift determined by the component of the current aligned with the direction of wave propagation.~\cite{Grimshaw2009} The relationship between the intrinsic wave frequency and encounter frequency is given by the equation:
+
+\begin{equation}
+\omega = Uk + \omega^{*}
+\end{equation}
+~\cite{Grimshaw2009}
+
+where:
+{\small
+\begin{itemize}
+    \item $\omega$ is the encounter frequency
+    \item $Uk$ is the Doppler shift, where $U$ is the surface current velocity vector and $k$ is the wavenumber
+    \item and $\omega^{*}$ is the intrinsic frequency
+\end{itemize}
+}
+~\cite{Grimshaw2009}
+
+\begin{figure}
+    \centering
+    \includegraphics[width=0.65\linewidth]{/Users/marcel/Desktop/wk-bathy/docs/mat-thesis/images/current-doppler-shift.png}
+    \caption{Effect of current on the horizontal particle velocity recorded by velocity sensors at (a) $z = -0.33$, (b) $z = -0.66$, and (c) $z = -1$. $H = 0.036$, $\lambda = 1.429$, $UF = ±0.004$, and $ZC = -0.5$~\cite{KumarHayatdavoodi2023}}
+    \label{figure3}
+\end{figure}
+
+When applying the linear dispersion relation~(Eq.~\ref{dispersion}) to imagery, it is implicitly assumed that the encounter frequency $\omega$ measured from the imagery is equal to the intrinsic radial frequency $\sigma$, thereby neglecting potential current-induced Doppler shifts. Surface currents are not directly observable in optical imagery, and the relative complexity for measuring coupled with the inhomogeneity of surface current velocity across a large area of interest limits availability of ground-truth data for Doppler shift-based error correction. Ignoring currents can introduce depth errors on the order of meters and may manifest as systematic bias rather than random noise, and may resist averaging and other filtering methods. Therefore, for physically accurate estimation using wave-kinematic bathymetry, contextual information should be used either to establish that current effects are negligible or to exclude subsets likely to be affected by currents.~\cite{Mudiyanselage2024} Estuarine areas and those near inlets dominated by tidal or fluvial hydrodynamic regimes, as well as those with narrow nearshore shelves where the limited cross-shelf area exacerbates the effects of current drivers and expose the area to significant influence from deep-ocean circulation, are especially challenging for wave kinematics bathymetric inversion.~\cite{Todd2019} Improvements to the performance of wave-kinematic bathymetric inversion in these areas are particularly important, as they are especially vulnerable to the damaging effects of coastal processes on ecosystems, local infrastructure, and maritime operations. Moreover, these processes are highly sensitive to small-scale variations in bathymetry, such that effective modeling benefits from detailed and up-to-date depth maps.~\cite{Honegger2018}
+
+% ---------- 2.1.3 Morphology  ----------
+\subsubsection{Morphology}
+
+Complex morphology can violate the assumptions used in dispersion-based inversion, as varying lateral geometry and bottom morphology cause wave field transformations owing to shoaling, refraction, diffraction and depth-induced wave breaking processes.~\cite{Honegger2018} These effects commonly increase inversion uncertainty and motivate more aggressive quality control in settings such as tidal inlets, river-mouths, estuaries, and headland-constrained beaches.~\cite{Honegger2018} Morphological complexity in these settings arises largely from spatially and temporally variable sediment transport driven by waves, tides, and fluvial discharge, acting within geometric and geological constraints that promote strong depth gradients and rapid morphological change.~\cite{Honegger2018} 
+
+Morphological features in the nearshore, such as reefs, submerged ridges, and rocky headlands, further complicate dispersion-based inversion methods through localized breaking, refraction, and diffraction. The resulting multipath wave propagation and broadened wavenumber spectra complicate the retrieval of wavenumber, producing multiple spectral peaks and smeared energy distributions that ultimately introduce bias and noise into depth estimation. Additionally, coral reefs—and especially hardened, steep bars and ridges—strongly promote the generation and amplification of long-period ($\sim30 – 300 s$) infra-gravity waves. These waves arise from nonlinear energy transfer associated with short-period wave breaking at reef crests, efficient reflection, and geometric confinement of long-period motions, often resulting in partially or fully standing infra-gravity modes over reef flats and lagoons. Beyond increasing ambiguity in wavenumber estimates, low-frequency waves in the nearshore can produce resonant responses that drive wave run-up and contribute to extreme coastal inundation under storm-surge conditions, further underscoring the need for effective approaches to enable accurate depth estimation in these environments.~\cite{Cheriton2016, Storlazzi2003, Vetter2010, HolmanGuza1984, Elgar1994}
+
+% ---------- 2.2 Remote sensing ----------
+\subsection{Remote sensing}
+
+Remote sensors acquire information about a target at a distance by detecting changes imposed by the target on incident fields. Imaging sensors produce single or multi-layered two-dimensional arrays—--i.e., images—--of measurements collected from a grid of detectors, enabling simultaneous sampling across a spatial extent and thereby encoding spatial information. The ability of remote sensors to collect data away from harsh marine environments while providing spatially extensive measurements makes them an effective alternative to in situ instruments for observing environmental parameters in the nearshore zone.~\cite{Vitousek2023, Holman2013}
+
+Satellite missions managed by international space organizations, such as---the National Aeronautics and Space Administration (NASA), the United States Geological Survey (USGS), the National Oceanic and Atmospheric Administration (NOAA), the European Space Agency (ESA), and the Indian Space Research Organization (ISRO)---have been continuously collecting data from the Earth’s surface for more than half a century, offering extensive and open data products to the scientific community and other users. Today, the increased ease of satellite deployment has enabled a suite of complementary international satellite missions to operate in concert, enhancing the quality and accuracy of data products through cross-calibration, correction, and data assimilation.~(Fig.~\ref{figure4})
+
+Satellite-based remote sensors generally detect electromagnetic radiation either passively (by measuring naturally emitted or reflected radiation) or actively (by transmitting energy and measuring the returned signal). When electromagnetic radiation is incident on a surface, it may be absorbed, reflected, or transmitted, and many remote-sensing applications rely on measuring the reflected and/or emitted components. Water—--especially deep ocean water---typically has low reflectance in much of the visible and near-infrared spectrum and exhibits strong absorption in the near-infrared and shortwave infrared, which limits the depth to which optical signals can penetrate. As a result, many electromagnetic remote sensors are primarily sensitive to processes occurring on land and at the ocean surface, with only limited capability to infer subsurface properties under favorable conditions and within restricted spectral windows. Accurate representation of geophysical phenomena requires that raw image data be transformed through transfer functions that convert observed variables into physical measurements.~\cite{Holman2013} Because these transformations rely on underlying assumptions, the resulting products are inherently estimations rather than direct measurements.~\cite{Holman2013} The core of wave-kinematic bathymetric inversion algorithms lies in both the Fast Fourier Transform-based wavelength retrieval and the dispersion-based depth estimation transfer function, with the objective of identifying and developing effective methods for improving the accuracy of these estimations.
+
+% ---------- NASA Satellites ----------
+\begin{figure}
+    \centering
+    \includegraphics[width=1.0\linewidth]{/Users/marcel/Desktop/wk-bathy/docs/mat-thesis/images/nasa-satellites.jpg}
+    \caption{NASA's Earth-observing satellite missions as of 2023.~\cite{PODAACMissions}}
+    \label{figure4}
+\end{figure}
+
+% ---------- 2.2.1 Remote sensing ----------
+\subsubsection{Optical}
+
+In satellite-based remote sensing, optical sensors are passive imaging systems that measure reflected electromagnetic radiation in the visible portion of the spectrum, primarily originating from solar illumination of Earth's surface. These sensors may be monochromatic, consisting of a single detector array that integrates radiance across a broad optical band, or true-color systems, which employ spectral filters to partition incoming radiation into red, green, and blue bands, each recorded by a dedicated detector array. Multi- and hyperspectral sensors extend this same filter-based sampling approach by subdividing the electromagnetic spectrum into a greater number of narrower spectral bands, often including wavelengths beyond the visible range. Despite this expanded spectral sampling, true-color imagery can still be derived from multi- and hyperspectral instruments by selecting or combining visible bands, while non-visible bands may be discarded or leveraged for radiometric correction and image enhancement. A fundamental trade-off of spectral partitioning, however, is that dividing incoming radiation among multiple bands reduces the photon flux received by each detector, increasing susceptibility to noise and generally constraining achievable spatial and radiometric resolution relative to broadband imaging systems.
+
+Sun-glint (or glitter) modulation is the dominant mechanism by which surface wave kinematics imprint measurable structure into optical satellite imagery~\cite{Bergsma2019}. This modulation arises from slope-dependent specular reflection, which encodes wave geometry and propagation characteristics such as wave height, period, and direction~\cite{Bergsma2019}. The observability of sun-glint is governed by the relative geometry among the sensor viewing direction, wave-induced surface slopes, and the solar azimuth and elevation angles~\cite{Bergsma2019, Kudryavtsev2017}. Consequently, wave visibility in optical imagery depends on a combination of solar and satellite geometry, atmospheric conditions, and intrinsic wave kinematic properties~\cite{Bergsma2019}. Image-processing techniques may be applied to enhance linear wave patterns in optical imagery, thereby improving the performance of linear-dispersion-based bathymetric inversion methods~\cite{Bergsma2019}. There are several Earth-observation satellites that provide high-resolution optical imagery suitable for coastal research, ranging from commercial constellations such as Maxar's WorldView series and Airbus Pléiades (sub-meter resolution) to medium-resolution programs such as ESA's Sentinel-2 (10 m) and the joint NASA/USGS Landsat missions (30 m).
+
+% ---------- SAR Diagram ----------
+\begin{figure}
+    \centering
+    \includegraphics[width=0.75\linewidth]{/Users/marcel/Desktop/wk-bathy/docs/mat-thesis/images/sar.jpg}
+    \caption{Geometry of observations from a left-looking system used to form a synthetic aperture for target $P$ in the along-track position $x = 0$, where $R$ is the slant range, and $\beta$ is the incidence angle.~\cite{NASASARHandbook2019}}
+    \label{figure5}
+\end{figure}
+
+% ---------- 2.2.2 Synthetic Aperture Radar ----------
+\subsubsection{Synthetic Aperture Radar}
+
+Synthetic Aperture Radar (SAR) is an active remote sensing system based on radar principles that transmits electromagnetic pulses toward the Earth's surface and records the amplitude and phase of backscattered returns as the sensor moves along its flight path. By exploiting the phase coherence of overlapping backscatter returns acquired from successive positions along the platform's flight path, SAR systems coherently synthesize a much larger effective antenna aperture, enabling the generation of high-resolution imagery.~(Fig.~\ref{figure5}) After radiometric calibration, each pixel in the resulting SAR image represents a backscatter coefficient expressed in decibels (dB), corresponding to the normalized radar cross section per unit area on the Earth's surface. The active nature of SAR enables imaging of the Earth's surface independent of solar illumination, while its relatively long operating wavelengths generally from a single wavelength in the microwave portion of the electromagnetic spectrum are largely unaffected by atmospheric conditions. Since its debut in 1978 as a space-borne sensor aboard the Seasat Earth-observing satellite, SAR has played a pivotal role in oceanographic and meteorological research, enabling a wide range of applications including the retrieval of ocean wave spectra and the estimation of near-surface wind speed from variations in sea-surface roughness.~\cite{Bergsma2019, Gens2008, Fatoyinbo2021, CMEMSSatellitesInstruments, UAVSARJPL}
+
+An SAR image of the ocean is not a true representation of the sea surface, as the mechanisms by which SAR images the surface of the ocean are non-linear. However, under circumstances barring the presence of extreme currents, winds, or sea-states, and imaged waves can be assumed to represent actual wavelength in the wave shoaling zone.~\cite{Bergsma2019} The presence of capillary waves of a certain height relative to SAR wavelength, referred to as Bragg waves, provide the roughness necessary for the backscattering of actively transmitted packets by a mechanism known as Bragg scattering.~\cite{Bergsma2019, Rice1951, Brusch2011} The sea surface wavelength required for Bragg scattering with respect to SAR wavelength is given by the formula:
+
+An SAR image of the ocean does not constitute a direct representation of the sea surface, as the physical mechanisms governing SAR imaging are inherently nonlinear. Nevertheless, under conditions that exclude extreme currents, wind forcing, or highly energetic sea states, imaged surface waves may be reasonably assumed to correspond to their true wavelengths within the wave-shoaling zone~\cite{Bergsma2019}. The presence of short-scale capillary and gravity waves of sufficient amplitude relative to the radar wavelength--—commonly referred to as Bragg waves--—provides the surface roughness necessary for the backscattering of actively transmitted electromagnetic radar pulses through a mechanism known as Bragg scattering~\cite{Bergsma2019, Rice1951, Brusch2011}. The sea-surface wavelength required for Bragg resonance with respect to the radar wavelength is given by:
+
+\begin{equation}
+\label{bragg}
+\lambda_B = \frac{1}{2}\,\lambda_r \sin\theta_i
+\end{equation}
+~\cite{Bergsma2019}
+
+where:
+{\small
+\begin{itemize}
+    \item $\lambda_B$ is the sea surface wavelength
+    \item $\lambda_r$ is the radar wavelength
+    \item and $\theta$ is the angle of incidence
+\end{itemize}
+}
+~\cite{Bergsma2019}
+
+The three principal modulation mechanisms governing SAR imaging of ocean waves are velocity bunching, tilt modulation, and hydrodynamic modulation.~\cite{Bergsma2019, Hasselmann2013} Among these, velocity bunching arises from the orbital motion of water particles induces large phase-coherent Doppler shifts at wave crests and troughs that is compounded with doppler shifts that arise from satellite motion.~\cite{Bergsma2019, Hasselmann2013} Under appropriate conditions--—specifically when the azimuthal component of wave steepness is small—--this mechanism can be represented by a linear transfer function and simply added to the contributions from tilt and hydrodynamic modulation.~\cite{Hasselmann2013} However, when the orbital motion is parallel to the satellite flight direction and wave steepness increases, velocity bunching becomes strongly nonlinear, leading to distortion of certain aspects the imaged wave geometry.~\cite{Hasselmann2013} At the same time, this nonlinear behavior enhances the visual prominence of wave crests and troughs in SAR imagery, and for SAR to detect azimuth traveling waves at all, they must satisfy a minimum wavelength requirement given by the formula:
+
+\begin{equation}
+\label{Lmin}
+L_{\min} = R\sqrt{{H}/{V}}
+\end{equation}
+~\cite{Bergsma2019}
+
+where:
+{\small
+\begin{itemize}
+    \item $L_{\min}$ is the minimum cutoff wavelength
+    \item $R$ is the slant range of the observed wave
+    \item $H$ is the significant wave height
+    \item and $V$ is the platform velocity
+\end{itemize}
+}
+~\cite{Bergsma2019}
+
+Numerous space-borne missions are equipped with synthetic aperture radar instruments, including Sentinel-1, RADARSAT-2 and RCM, TerraSAR-X/TanDEM-X, COSMO-SkyMed, ALOS-2, and several emerging commercial constellations.~\cite{USGSRemoteSensingCompendium2020}.
+
+% ---------- 2.3 Complementary data sources ----------
+\subsection{Complementary data sources}
+
+Dispersion-based bathymetric inversion requires an estimate of the peak wave period, which must be obtained from external information, such as measurements from a nearby wave buoy, outputs from historical or operational wave models, or prior depth knowledge derived from coarse bathymetric datasets or theoretical coastal relief models.~\cite{DaniloMelgani2016} Bathymetric inversion is particularly sensitive to this parameter, as the peak wave period appears as the only squared term in the linear dispersion relation,~(Eq.~\ref{dispersion}) causing even small discrepancies in peak period to result in nonphysical depth estimates. External data sources may also be incorporated into data-processing workflows to support tasks such as masking terrestrial features that would otherwise introduce irrelevant frequency content into image spectra; digitizing the surf-zone boundary to exclude those areas shoreward of the breakers where linear-dispersion assumptions break; defining analysis transects aligned with the dominant swell direction to reduce sources of bias and noise; and enabling error estimation and correction through the filtering of nonphysical bathymetric solutions.
+
+% ---------- 2.3.1 Buoys ----------
+\subsubsection{Buoys}
+
+In-situ wave buoys--—when available—--provide the most accurate estimates of peak wave period, along with a variety of other wave, meterological, and biogeochemical parameters that can support dispersion-based bathymetric inversion. However, accuracy requires more than proximity to a buoy alone: the buoy must be exposed to the same swell conditions as the spatial subset over which bathymetry is being derived, which may not hold true for all points across an area of interest depending on the geometry of local morphology. Wave buoy data are made available through open-access products managed by international governmental organizations, including the National Data Buoy Center, the Copernicus Marine Service, and the Institut Français de Recherche pour l'Exploitation de la Mer. However, buoy infrastructure remains sparse along coastlines of many less-developed regions, where large coastal populations often rely on marine-based subsistence livelihoods, and the absence of protective infrastructure leaves population centers particularly vulnerable to the impacts of extreme coastal events.
+
+% ---------- 2.3.2 Numerical wave models ----------
+\subsubsection{Numerical wave models}
+Numerical wave models have evolved significantly over the past several decades, from early operational wind-wave forecasts to the now-standard third-generation spectral models such as WAM, WAVEWATCH III (WW3), and SWAN. These models incorporate physics of generation, propagation, dissipation, and nonlinear interactions, and they have been widely adopted for both global and coastal forecasting purposes~\cite{Rogers2018, SWANTechnicalDocumentation, Tolman2008}. Across numerous validation studies, these models have been shown to exhibit relatively low bias in estimates of peak wave period compared to other parameters, such as significant wave height or wave direction.~\cite{PadillaHernandez2007} Nevertheless, their performance degrades in nearshore environments, where complex bathymetry and coastal processes dominate; both comparative studies and model user documentation indicate that accurate coastal application often requires careful calibration, tuning, and nesting strategies~\cite{SWANTechnicalDocumentation,PadillaHernandez2007,Ferdaus2025}.
+
+% ---------- 2.3.3 Coastal relief models ----------
+\subsubsection{Coastal relief rodels}
+
+Coastal Relief Models (CRMs) are moderate-resolution digital elevation models that integrate topographic and bathymetric elevations into a single, seamless surface.~\cite{NOAACRMUserGuide2023} They are generated by merging multiple elevation datasets—including LiDAR, multi- and single-beam sonar surveys, historical nautical chart soundings, and existing digital elevation models—within a common horizontal and vertical reference frame. Interpolation and gap-filling procedures are applied to ensure spatial continuity, prioritizing physically realistic morphology over the preservation of high-frequency detail.~\cite{NOAACRMUserGuide2023} Although CRMs do not resolve fine-scale seabed features, they provide physically consistent reference bathymetry that is widely used for coastal analysis, validation, and the filtering of remotely derived depth estimates.~\cite{NOAACRMUserGuide2023} In dispersion-based applications, CRM elevation data may also be incorporated into the linear dispersion relation as an estimate of depth, to derive spatially varying peak wave periods, or to constrain and moderate a single peak period estimate obtained from a nearby wave buoy or coarse numerical wave model.~\cite{Mudiyanselage2024}
+
+% ---------- 2.3.4 Coastal relief models ----------
+\subsubsection{Land Vector Layers}
+
+The inclusion of land pixels in 2D Fast Fourier Transform-based analysis of coastal imagery can introduce high-frequency noise arising from man-made structures, abrupt topographic relief, and other irregular terrestrial spatial patterns, thereby severely degrading the automated retrieval of swell parameters such as wavenumber and propagation direction. Accurate wavenumber estimation in dispersion-based bathymetric inversion therefore requires robust land masking and careful selection of analysis windows confined to open-water regions beyond the breaker line. Several public-domain global vector basemaps delineating land and water boundaries are available and can be used to effectively mask terrestrial areas in satellite imagery of coastal environments.
+
 \section{Algorithm}
-\section{Findings}
+\textit{WK-Bathy} is a modular Python development environment designed to support the development, experimentation, and evaluation of algorithmic pipelines for linear dispersion-based bathymetric inversion, integrating multimedia processing techniques for spatial, image-derived, and environmental data sources. The first objective was to use \textit{WK-Bathy} to identify limitations imposed on dispersion-based depth estimation by environmental conditions and image-quality constraints, and to leverage these insights to guide the development of multimedia processing methods that reduce sensitivity to such factors, thereby expanding the range of coastal environments for which bathymetry can be reliably derived. The secondary objective, yet to be accomplished, is to develop solutions able to surpass the previously identified limitations.
+
+\textit{WK-Bathy} incorporates distinct processing pipelines for imagery acquired from both optical and SAR sensors, enabling systematic comparison of their respective strengths and limitations and the identification of methods better suited to each sensing modality. The framework closely follows methodologies presented in related works—--including \textit{cBathy: A Robust Algorithm for Estimating Nearshore Bathymetry} by Holman et al. (2013), \textit{Automated High-Resolution Bathymetry from Sentinel-1 SAR Images in Deeper Nearshore Coastal Waters in Eastern Florida} by Mudiyanselage et al. (2024), and \textit{Radon-Augmented Sentinel-2 Satellite Imagery to Derive Wave Patterns and Regional Bathymetry} by Bergsma et al. (2019)--—with the explicit aim of extending and building upon these well-established and validated approaches. \textit{WK-Bathy} is open source and available at \href{https://github.com/marcelrodriguezricc/wk-bathy}{https://github.com/marcelrodriguezricc/wk-bathy}.
+
+\subsection{Area of interest selection}
+The first step in using \textit{WK-Bathy} is to define World Geodetic System 1984 (WGS84) latitude and longitude coordinates for the central point of an area of interest, along with bounding-box extents specified in arcseconds. The framework allows users to define an arbitrary number of areas of interest, enabling multiple sites to be processed simultaneously within a single pipeline execution. For this evaluation, we selected four areas of interest representing a broad range of environmental conditions, including variations in latitude, water turbidity, exposure to distinct energetic hydrodynamic processes, bathymetric complexity, and nearshore shelf width.
+
+To ensure meaningful evaluation and to satisfy the minimum requirements for dispersion-based bathymetric inversion, all selected areas were required to meet the following criteria:
+
+{\small
+\begin{itemize}
+    \item Availability of a publicly accessible coastal relief model (CRM)
+    \item Proximity to an in situ wave buoy
+    \item Predominantly swell-dominated hydrodynamic regime
+    \item An extended nearshore region with depths shallower than 100~m
+\end{itemize}
+}
+
+The following areas of interest were selected to represent a broad range of coastal environments and wave-bathymetry interactions:
+
+{\small
+\begin{itemize}
+
+    \item \textbf{North Shore of O'ahu, Hawaii, USA} (21°41' N, 158°06' W)
+    \begin{itemize}
+        \item Highly complex volcanic bathymetry characterized by flat reef platforms, lava spires, and abrupt depth transitions
+        \item Very narrow nearshore shelf with rapid depth gradients
+        \item Strong wave-induced and episodic surface currents during large swell events
+        \item Exposure to multiple intersecting swell systems from the North Pacific
+        \item Energetic, long-period ground swells during winter
+        \item Low turbidity and high optical water clarity
+        \item Strong wave refraction and breaking controlled by reef geometry
+    \end{itemize}
+
+    \item \textbf{Golden Gate Region, California, USA} (37°43' N, 122°44' W)
+    \begin{itemize}
+        \item Bay-mouth morphology formed by tectonic subsidence and fluvial incision
+        \item Complex bathymetry associated with dredged shipping channels and sand waves
+        \item Relatively wide continental shelf offshore
+        \item Exposure to highly energetic, multi-directional swell systems from the North Pacific
+        \item Strong tidal currents associated with exchange between San Francisco Bay and the open ocean
+        \item High turbidity due to suspended sediment and riverine input
+        \item Frequent wind-wave contamination superimposed on swell signals
+    \end{itemize}
+
+    \item \textbf{Wassabo Beach, Florida, USA} (27°42' N, 80°22' W)
+    \begin{itemize}
+        \item Broad, gently sloping nearshore shelf characteristic of the Florida Atlantic coast
+        \item Predominantly uni-modal swell climate, with dominant easterly and southeasterly wave propagation
+        \item Energetic wave conditions during winter cold fronts and episodic tropical systems
+        \item Sand-dominated seabed with active bar-trough morphology
+        \item Frequent wave setup and surf-zone dissipation
+        \item Generally low to moderate turbidity, with episodic increases during storm events
+        \item Minimal hard-bottom or reef control on wave transformation compared to volcanic or coral reef environments
+    \end{itemize}
+
+    \item \textbf{Rincón, Puerto Rico} (18°23' N, 67°17' W)
+    \begin{itemize}
+        \item Fringing reef and fore-reef bathymetric structure
+        \item Narrow nearshore shelf with rapid depth transitions
+        \item Strong wave-driven currents during energetic swell events
+        \item Regular winter swell exposure, with episodic extreme forcing from tropical cyclones in late summer
+        \item Low turbidity and high optical clarity
+        \item Strong bathymetric control on wave breaking and refraction
+    \end{itemize}
+
+\end{itemize}
+}
+
+Among these sites, Wassabo Beach, Florida, was selected based on its use in Mudiyanselage et al. (2024) as an example of an ideal location for wave-kinematics-based bathymetric inversion, serving as a benchmark site to confirm that the algorithm produces physically accurate depth estimates under favorable environmental conditions. Both Rincón, Puerto Rico, and the North Shore of O'ahu, Hawaii represent particularly challenging environments for dispersion-based bathymetric inversion, while the Golden Gate region of California presents a mixture of favorable and adverse conditions. After the coordinates and bounding box information is entered for each area of interest and the pipeline is initialized by the user, an object is instantiated for each area of interest to store pertinent metadata.
+
+% ---------- AOI CRMs ----------
+\begin{figure}
+    \centering
+    \includegraphics[width=0.75\linewidth]{/Users/marcel/Desktop/wk-bathy/docs/mat-thesis/images/crm-figure.png}
+    \caption{CRM elevation maps from the National Centers for Environmental Information (NCEI) for each area of interest. Elevation is shown using a diverging color scale with a break at mean sea level (0 m), where darker-to-lighter gradients represent increasing magnitude of negative (bathymetric) and positive (topographic) elevations, respectively.}
+    \label{figure6}
+\end{figure}
+
+% ---------- 3.2 Data retrieval and processing ----------
+\subsection{Data retrieval and processing}
+
+CRM data for each area of interest are retrieved from the corresponding NOAA National Centers for Environmental Information (NCEI) regional data products (Fig.~\ref{figure6}). The model release date is recorded and used as a reference epoch in order to minimize discrepancies arising from bathymetric change over longer temporal scales. The next step is to reference historical wave data within a user-defined temporal window centered on the reference epoch in order to identify periods with mean significant wave heights exceeding 1 m, ensuring wave conditions are suitable for imaging via sun-glint and velocity bunching mechanisms in optical and SAR data, respectively. Modules supporting this step provide options for retrieving wave data from the National Data Buoy Center and the Copernicus Marine Service Wave Analysis and Forecast model, enabling comparison of their respective effectiveness in estimating significant wave height for each area of interest.
+
+% ---------- Significant Wave Height Plot ----------
+\begin{figure}
+    \centering
+    \includegraphics[width=1.0\linewidth]{/Users/marcel/Desktop/wk-bathy/docs/mat-thesis/images/ns_swh.png}
+    \caption{Mean significant wave height over a 50-day window centered on the relevant CRM creation date for the North Shore, O'ahu, Hawaii area of interest, derived from the National Data Buoy Center historical wave dataset. Days with significant wave height exceeding 1 m are highlighted in red.}
+    \label{figure7}
+\end{figure}
+
+The area-of-interest object metadata are populated with a list of dates corresponding to days on which the mean significant wave height exceeds 1 m, along with additional daily parameters relevant to dispersion-based inversion and imagery selection. These parameters include peak wave period and swell direction, to inform image selection, aid in retrieving dominant swell wavenumber from the 2D FFT, and be applied to the dispersion relation for bathymetric inversion.
+
+At this stage, the processing pipelines for synthetic aperture radar and optical imagery diverge, with the list of days exhibiting mean significant wave heights greater than 1 m used to query the Sentinel-1 and Sentinel-2 archives, respectively. Retrieved images are further filtered to exclude disqualifying conditions, such as excessive cloud cover in optical imagery and suboptimal polarization configurations in SAR data. To reduce data transfer and processing overhead, only spatial subsets of each scene corresponding to the area-of-interest bounding box are downloaded, which is particularly important given the large file sizes associated with high-resolution satellite imagery. Key metadata relevant to image selection for dispersion-based bathymetric inversion—--including acquisition geometry and other sensor-specific parameters---are stored in the area of interest object for future reference.~(Fig.~\ref{figure8})
+
+Synthetic aperture radar imagery introduces additional complexity in the image-selection process, as certain parameters required for informed selection—--such as the mean minimum viable wavelength $L_{\min}$ across an area of interest—--depend on per-pixel slant-range information for their calculation.~(Eq.~\ref{Lmin}) This requires accessing raw sensor data in the satellite acquisition domain and using metadata-defined coordinate reference points to geolocate individual pixels, enabling filtering to retain only slant-range values for those pixels that fall within the bounding box of each area of interest.
+
+% ---------- Area of interest imagery ----------
+\begin{figure}
+    \centering
+    \includegraphics[width=1.0\linewidth]{/Users/marcel/Desktop/wk-bathy/docs/mat-thesis/images/imagery-wb.png}
+    \caption{Subsets of satellite imagery acquired over the Wassabo Beach, Florida area of interest. Left: Sentinel-2 optical imagery illustrating surface wave patterns under favorable sun-glint conditions. Right: Sentinel-1 synthetic aperture radar (SAR) imagery of the same region, showing wave signatures captured through velocity bunching mechanisms. Key metadata is listed alongside each image.}
+    \label{figure8}
+\end{figure}
+
+A directory is populated with plots of all eligible imagery, each accompanied by panels summarizing relevant metadata, allowing the user to manually review and select images as needed. For this study, a single image was selected for each area of interest that exhibited the most favorable conditions for two-dimensional FFT analysis and subsequent dispersion-based bathymetric inversion. Selected imagery is initially processed by accessing and applying land-area polygons from the Natural Earth Land Vector dataset, and augmented with a radial buffer, to mask non-ocean pixels and immediate offshore surf-zone pixels before subsequent analysis steps. The mask edges are feathered using a blur kernel that averages values within a $3 x 3$ pixel neighborhood, reducing sharp discontinuities that could otherwise introduce artifacts into the image frequency spectra. The image is then divided into $N x N$ overlapping pixel subsets, ignoring those tiles which contain a user-specified percentage of NaN values---smaller values of $N$ yield higher spatial resolution in the resulting depth map, but also increase susceptibility to noise in wavenumber retrieval from the image frequency spectra.
+
+% ---------- Masked imagery ----------
+\begin{figure}
+    \centering
+    \includegraphics[width=1.0\linewidth]{/Users/marcel/Desktop/wk-bathy/docs/mat-thesis/images/mask-figure.png}
+    \caption{Land mask generated from a Natural Earth land vector polygon, expanded by a radial buffer to exclude nearshore and terrestrial pixels, for the Rincón, Puerto Rico area of interest. Left: Original imagery with the masked region highlighted (red). Right: Resulting masked image, in which excluded pixels are assigned NaN values and omitted from subsequent analysis.}
+    \label{figure9}
+\end{figure}
+
+% ---------- 3.3 Bathymetric inversion ----------
+\subsection{Bathymetric inversion}
+
+Each $N x N$ subset is subjected to a two-dimensional Fast Fourier Transform (FFT), producing a complex-valued spectrum $F_{ij}$, where each coefficient corresponds to a discrete spatial-frequency component and encodes both magnitude and phase. To convert this spectrum into the wavenumber space where wave kinematic information can be retrieved, the mean spatial change per pixel is computed using coordinate reference system metadata for pre-georeferenced optical imagery, and using the stored array of per-pixel latitude and longitude coordinates that was previously generated during the bespoke georeferencing of raw SAR imagery for calculating mean cutoff wavelength. These spatial separations are used to calculate the pythagorean distance in meters between adjacent pixels via the equirectangular approximation:
+
+\begin{equation}
+\label{equirectangular}
+\[d=R\sqrt{\left[(\lambda_2 - \lambda_1)\cos\!\left(\frac{\phi_1 + \phi_2}{2}\right)\right]^2+(\phi_2 - \phi_1)^2}\]
+\end{equation}
+~\cite{Singh2024}
+
+where:
+{\small
+\begin{itemize}
+    \item $\lambda_1$ and $\lambda_2$ are the longitudinal coordinates of a pixel and its neighbor
+    \item $\phi_1$ and $\phi_2$ are the latitudinal coordinates of a pixel and its neighbor 
+    \item and $R$ is the radius of the Earth $\approx 6,371,000$~m
+\end{itemize}
+}
+~\cite{Singh2024}
+
+The mean spatial change in the $x$ and $y$ directions are calculated for all pixels in each subset, the DC component of the spectrum is centered, and the spectrum is converted into physical wavenumber space such that the angular position of each element relative to the spectral center encodes wave-propagation direction, the radial distance from the center encodes spatial frequency, and the magnitude of each element represents spectral amplitude.~(Fig.~\ref{figure10})
+
+% ---------- Subset FFT ----------
+\begin{figure}
+    \centering
+    \includegraphics[width=1.0\linewidth]{/Users/marcel/Desktop/wk-bathy/docs/mat-thesis/images/ns_sar_wfft.png}
+    \caption{Two-dimensional FFT spectra for subset 32 of the North Shore, O'ahu, Hawaii area of interest derived from SAR imagery and mapped to physical wavenumber space. Left: The magnitude of the wavenumber spectrum following FFT and centering of the DC component. Right: The same spectrum with detected high-energy spectral blobs overlaid; the two dominant features correspond to the complex conjugate pair associated with the primary swell system.}
+    \label{figure10}
+\end{figure}
+
+The peak wave period $T_p$ is retrieved from the associated metadata, and the linear wave dispersion relation (Eq.~\ref{dispersion}) is algebraically rearranged to compute the corresponding wavelength $\lambda$. This wavelength is used to define the center of a band-pass filter applied in wavenumber space, which masks spectral energy at both higher and lower spatial frequencies that fall outside the physically plausible range of swell-wave wavelengths. Following band-pass filtering, the spectrum is logarithmically compressed to reduce dynamic range and smoothed using a Gaussian kernel to attenuate pixel-scale noise. The spectrum is then thresholded such that all but the brightest 30\% of spectral amplitudes are masked. A blob-detection algorithm is subsequently applied to the remaining spectral energy to identify contiguous groupings of user-defined $N$ or more pixels, from which a centroid location is determined. For each detected centroid, the associated spectral power and radial wavenumber are extracted. The resulting set of detected blobs is compiled and ranked in descending order of spectral power, with the two highest-power detections expected to correspond to the conjugate symmetric pair of the dominant swell system.~(Fig.~\ref{figure10}) Finally, the extracted wavenumber $k$ of the dominant blob and peak wave period $T_p$ are plugged into the algebraically rearranged linear dispersion relation to solve for depth $h$ at the center of each subset, and stored in an array long with latitude and longitude coordinates for the subset centroid for map generation and evaluation.
+
+Depth estimates at each subset centroid are compared against co-located values from the corresponding coastal relief model for each area of interest. A post-processing filter is then applied to exclude depth estimates whose absolute deviation from the reference model exceeds a user-defined threshold (in meters), which may be adjusted to reflect the user's criteria for physically implausible depth retrievals. Depth estimates are superimposed on the original imagery to facilitate analysis of the relationship between imaged surface phenomena and depth-estimation error.~(Fig.~\ref{figure11})
+
+
+% ---------- Depth Maps ----------
+\begin{figure}
+    \centering
+    \includegraphics[width=1.0\linewidth]{/Users/marcel/Desktop/wk-bathy/docs/mat-thesis/images/depth-maps.png}
+    \caption{SAR-derived depth estimates for each area of interest. Top left: Wassabo Beach, Florida, exhibits the highest density of physically plausible depth estimates and overall strongest algorithm performance. Top right: The Golden Gate region, California, retains more than half of the depth estimates after filtering, though performance degrades near the bay mouth, where increased error and bias are observed. Bottom left: The Rincón, Puerto Rico site yields no physically plausible depth estimates. Bottom right: The North Shore of O'ahu, Hawaii site produces a single plausible depth estimate.}
+    \label{figure11}
+\end{figure}
+
+% ---------- SECTION 4: CONCLUSION ----------
 \section{Conclusion}
+
+Without further image preprocessing, the SAR-pipeline portion of the algorithm performed in accordance with expectations given the highly conditional and site-specific nature of dispersion-based depth estimation. In particular, the Wassabo Beach, Florida area of interest—characterized by near-ideal environmental conditions—yielded a substantially higher proportion of physically plausible depth estimates.~(Fig.~\ref{figure11}) However, examination of the failure modes in the filtered depth maps for the remaining areas of interest reveals that contextual cues visible in the imagery can be used to qualitatively assess the extent to which various environmental parameters contribute to depth-estimation error. With minimal preprocessing applied to the SAR imagery, both sites characterized by wide nearshore shelves--—Wassabo Beach, Florida, and the Golden Gate region, California--—produced physically plausible depth estimates for more than half of the total subset centroids. In contrast, sites with narrow nearshore shelves and steep bathymetric gradients--—Rincón, Puerto Rico, and the North Shore of O'ahu, Hawaii--—yielded few to no physically plausible depth estimates. 
+
+For both Wassabo Beach and the Golden Gate region, depth retrievals began to fail at depths of approaching 100 m, consistent with the effective depth limitations of dispersion-based inversion reported in the existing literature. Estimation performance degraded most notably in the bay-mouth region of the Golden Gate area of interest, where strong tidal currents and highly complex bathymetry associated with dredged shipping channels introduce conditions that violate the assumptions underlying linear wave dispersion. At the Wassabo Beach, Florida site, depth retrieval fails in regions where a boat is present in the imagery, indicating sensitivity to surface-obscuring objects that violate the assumptions underlying dispersion-based inversion. This suggests a need for additional object masking or more selective image acquisition, although such mitigation may be impractical in highly trafficked areas with limited available imagery.
+
+Without additional preprocessing, the optical-imagery pipeline failed to return any physically plausible depth estimates for any of the areas of interest. Inspection of the corresponding optical FFT spectra reveals substantially higher noise levels and greater spectral ambiguity, which hinder reliable identification of the dominant swell signal via blob detection when compared to spectra derived from SAR imagery. Within the specified 50-day window centered on the coastal relief model epoch, substantially fewer optical images were available than SAR acquisitions, at an approximate ratio of 1:7; for some areas of interest, only a single image satisfied the cloud-coverage filter criteria imposed on the optical image query from the Sentinel-2 database, necessitating the use of imagery acquired under suboptimal satellite and solar geometry as well as unfavorable swell conditions. Image-processing techniques are particularly needed for optical imagery to enhance the dominant swell signal and suppress high-frequency noise.
+
+Experiments that relied on the Copernicus Marine Service Wave Analysis and Forecasting model as a theoretical source for significant wave height, peak wave period, and swell direction failed to return any physically plausible depth estimates. In contrast, experiments using ground-truth observations from the National Data Buoy Center yielded a comparatively smaller set of physically plausible depth estimates, albeit at low spatial density. This outcome is conceptually consistent with both the strong dependence of dispersion-based inversion on favorable wave conditions at the time of image acquisition and the sensitivity of the linear dispersion relation to accurate specification of the peak wave period, which causes error across the entire area of interest. For sites lacking nearby buoy observations, alternative approaches are required to mitigate inaccuracies associated with reliance on numerical wave models.
+
+% ---------- 4.1 Possible solutions ----------
+\subsection{Possible solutions}
+
+Having outlined the conceptual underpinnings of the relevant coastal processes and pertinent remote-sensing-based data acquisition techniques, and having leveraged the \textit{WK-Bathy} development environment to identify the primary limitations and failure modes of the dispersion-based depth-estimation workflow, targeted image- and data-processing strategies can now be developed and applied in a principled manner. Two dominant issues emerged from the experiments: first, optical imagery was unable to yield physically plausible depth estimates without additional preprocessing due to elevated noise levels and pronounced spectral ambiguity in the wavenumber domain; and second, the assumptions underlying linear wave dispersion were violated in areas of interest characterized by particularly complex or energetic environmental conditions, resulting in systematic estimation failure.
+
+Difficulties in reliably retrieving the dominant swell system via FFT-based spectral analysis and subsequent blob detection are a likely source of error in both optically derived imagery and dynamically complex or energetic environments. In energetic settings, multiple interacting hydrodynamic processes obscure the primary swell signal, while optical imagery is particularly susceptible to spatially incoherent noise that degrades spectral clarity. Directionally informed image-processing approaches therefore offer a promising means of mitigating both limitations, including the use of digitized or automatically generated transects and the application of directionally constrained image-analysis techniques such as the Radon transform.~\cite{Bergsma2019}
+
+The Radon transform accentuates linear features in an image by integrating image intensity along lines parameterized by orientation and offset:
+
+\begin{equation}
+R(\rho, \theta)=\int_{-\infty}^{\infty}\int_{-\infty}^{\infty}f(x, y)\,\delta\!\left(x \cos \theta + y \sin \theta -\rho\right)\, dx \, dy
+\end{equation}
+~\cite{Bergsma2019}
+
+where:
+{\small
+\begin{itemize}
+    \item $f(x,y)$ is the image intensity function 
+    \item $\theta$ is the projection angle defining line orientation
+    \item $\rho$ is the perpendicular distance from the origin to the integration line
+    \item and \( \delta(\cdot) \) denotes the Dirac delta function that forces the integral to only include points $(x, y)$ lying exactly on that line
+\end{itemize}
+}
+~\cite{Bergsma2019}
+
+The resulting Radon transform sinogram encodes the variation of line-integrated image intensity as a function of orientation and offset, such that directionally coherent linear structures produce pronounced peaks in $\theta$. A discrete Fourier transform applied along the $\rho$ dimension of the sinogram enables estimation of dominant spatial periodicity associated with each orientation $\theta$, yielding a directionally resolved spectral representation that may be used to inform subsequent wavenumber analysis and blob-detection procedures.~\cite{Bergsma2019}
+
+Using digitized or automatically generated transects extending from the coastline and run through the entire nearshore region in the direction of the primary swell, and restricting analysis to points sampled along these transects, can also mitigate the influence of directionally incoherent spectral content in the imagery. The direction of the primary swell can be readily obtained from external sources such as numerical wave models or in situ wave-buoy observations, and may also be inferred directly from the imagery, albeit with lower confidence. This approach reduces directionally incoherent noise, suppresses spectral energy unrelated to dominant swell propagation, and constrains wavelength estimation to a single spatial dimension, all of which are conducive to the assumptions underlying Fourier-based wavenumber retrieval.
+
+A final glaring limitation arises from high spatial variability in the peak wave period $T_p$ at sites characterized by complex bathymetry and exposure to interacting hydrodynamic processes, which can induce localized deviations from a single, spatially uniform peak period across an area of interest. One potential mitigation strategy is to temper externally acquired $T_p$ values by estimating a spatial gradient in peak wave period across the domain. This gradient is obtained by algebraically rearranging the linear dispersion relation to solve for $T_p$ at individual subset centroids using corresponding depths from a theoretical coastal relief model, thereby enabling the nominal $T_p$ derived from numerical wave models or in situ buoy observations to be locally adjusted prior to dispersion-based inversion.~\cite{Mudiyanselage2024}
+
+% ---------- 4.2 A framework for applied Media Arts ----------
 \subsection{A framework for applied Media Arts}
+
+In addition to supporting the development and improvement of wave-kinematics-based bathymetric inversion algorithms, this paper is intended to serve as a case study demonstrating how Media Arts-derived techniques can be applied across disciplinary boundaries. Contemporary online resources have increasingly enabled researchers and practitioners to engage with concepts beyond their primary fields of expertise more readily than ever before. Doing so first requires a careful and deliberate approach to identifying and articulating the necessary foundational concepts, and to becoming familiar with them to a sufficient--—but not exhaustive—--depth, such that an informed solution is achievable while maintaining focus on contributing one's existing skills toward solving the problem at hand.
+
+Across disciplines, high-level computational solutions that incorporate one or more techniques central to a Media Arts education are not only emerging, but are increasingly becoming the default mode of research. Practitioners of Media Arts are often deeply engaged with the techniques themselves and may overlook the broader importance of the ends to which those techniques can be applied. Stepping outside of a purely process-based mode of understanding and instead adopting a results-oriented perspective can be extremely challenging, yet ultimately valuable, for Media Arts students to learn.
+
+The field of Media Arts is often overlooked; however, the range of use cases to which the skills cultivated through a Media Arts education can be applied is extensive, making its practitioners a highly valuable resource in both research and applied settings. The non-traditional trajectories, artistic sensibilities, and distinctive approaches to work common among Media Arts practitioners enable them to contribute unique insights and creative problem-solving strategies; such diversity of thought within problem-solving environments is widely associated with more effective and innovative outcomes.
+
+% ---------- 4.3 Summary ----------
 \subsection{Summary}
+
+This study employed the \textit{WK-Bathy} development environment to evaluate the performance and limitations of wave-kinematics-based bathymetric inversion across coastal environments exhibiting diverse hydrodynamic regimes and bathymetric complexity. Results confirm that dispersion-based depth estimation is highly conditional, with algorithm performance strongly dependent on both environmental suitability and the quality of remotely sensed imagery. Under near-ideal conditions—--exemplified by the broad, gently sloping nearshore shelf at Wassabo Beach, Florida--—SAR imagery produced a high density of physically plausible depth estimates, consistent with expectations and prior literature.
+
+In contrast, sites characterized by narrow shelves, steep bathymetric gradients, strong currents, or complex morphology—--such as Rincón, Puerto Rico, and the North Shore of O'ahu, Hawaii--—yielded few to no plausible depth estimates. These failures are attributable to violations of the assumptions underlying linear wave dispersion, including Doppler shifts induced by currents, multipath wave propagation, and localized wave breaking. Performance degradation at the Golden Gate region, California, particularly near the bay mouth, further underscores the sensitivity of dispersion-based inversion to tidal currents and complex bathymetry.
+
+Optical imagery, while proven to be capable of supporting wave-kinematics inversion under favorable sun-glint conditions, was unsuitable for our inversion algorithm without additional preprocessing. Elevated noise levels, spectral ambiguity, and limited image availability within constrained temporal windows prevented reliable retrieval of dominant swell parameters via FFT-based analysis alone. These findings emphasize the need for advanced image-processing techniques to enhance directionally coherent wave signatures and suppress spatially incoherent noise.
+
+To address these limitations, the paper proposes several targeted mitigation strategies, including directionally informed image analysis using Radon transforms, transect-based wavelength estimation aligned with primary swell direction, and spatially adaptive correction of peak wave period derived from external data sources. Collectively, these approaches aim to improve the robustness of wavenumber retrieval and extend the applicability of dispersion-based bathymetric inversion to more complex coastal settings.
+
+More broadly, this work demonstrates the utility of a modular, experimental development framework for diagnosing algorithmic failure modes and guiding principled methodological improvements. By framing wave-kinematics bathymetry as both a scientific and computational challenge, this work illustrates how Media Arts-derived skills such as image analysis, signal processing, and systems-level thinking can contribute meaningfully to interdisciplinary research. As computational solutions increasingly define modern scientific practice, the integration of diverse disciplinary perspectives represents not only a creative opportunity, but a practical necessity for addressing complex environmental problems.
 
 % ---------- Bibliography ----------
 \printbibliography

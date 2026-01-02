@@ -80,6 +80,7 @@ cython_debug/
 data/
 data/**
 images/
+docs/
 # output/
 # outputs/
 # downloads/

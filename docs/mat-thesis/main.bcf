@@ -2403,6 +2403,7 @@
     <bcf:citekey order="19" intorder="2">Reithmeier2025</bcf:citekey>
     <bcf:citekey order="20" intorder="1">ODea2025</bcf:citekey>
     <bcf:citekey order="21" intorder="1">VanDongeren2008</bcf:citekey>
+    <bcf:citekey order="21" intorder="2">Mudiyanselage2024</bcf:citekey>
     <bcf:citekey order="22" intorder="1">Hunt2023</bcf:citekey>
     <bcf:citekey order="23" intorder="1">Hunt2023</bcf:citekey>
     <bcf:citekey order="24" intorder="1">NOAACoastalWatersGlossary</bcf:citekey>
@@ -2417,14 +2418,93 @@
     <bcf:citekey order="30" intorder="2">Masselink2014</bcf:citekey>
     <bcf:citekey order="30" intorder="3">Kinsman1984</bcf:citekey>
     <bcf:citekey order="30" intorder="4">PiersonMoskowitz1964</bcf:citekey>
-    <bcf:citekey order="31" intorder="1">HartMiskin1945</bcf:citekey>
-    <bcf:citekey order="32" intorder="1">Holland2001</bcf:citekey>
-    <bcf:citekey order="32" intorder="2">HartMiskin1945</bcf:citekey>
-    <bcf:citekey order="33" intorder="1">Holland2001</bcf:citekey>
-    <bcf:citekey order="33" intorder="2">HartMiskin1945</bcf:citekey>
-    <bcf:citekey order="34" intorder="1">Mudiyanselage2024</bcf:citekey>
-    <bcf:citekey order="34" intorder="2">Bergsma2019</bcf:citekey>
-    <bcf:citekey order="35" intorder="1">Holman2013</bcf:citekey>
+    <bcf:citekey order="31" intorder="1">ShoalingWaveSD</bcf:citekey>
+    <bcf:citekey order="32" intorder="1">ShoalingWaveSD</bcf:citekey>
+    <bcf:citekey order="33" intorder="1">HartMiskin1945</bcf:citekey>
+    <bcf:citekey order="34" intorder="1">Holland2001</bcf:citekey>
+    <bcf:citekey order="34" intorder="2">HartMiskin1945</bcf:citekey>
+    <bcf:citekey order="35" intorder="1">Holland2001</bcf:citekey>
+    <bcf:citekey order="35" intorder="2">HartMiskin1945</bcf:citekey>
+    <bcf:citekey order="36" intorder="1">NWSMarineDefinitions</bcf:citekey>
+    <bcf:citekey order="37" intorder="1">Mudiyanselage2024</bcf:citekey>
+    <bcf:citekey order="37" intorder="2">Bergsma2019</bcf:citekey>
+    <bcf:citekey order="38" intorder="1">Holman2013</bcf:citekey>
+    <bcf:citekey order="39" intorder="1">Mudiyanselage2024</bcf:citekey>
+    <bcf:citekey order="40" intorder="1">Prandle1984</bcf:citekey>
+    <bcf:citekey order="41" intorder="1">Zhang2022</bcf:citekey>
+    <bcf:citekey order="42" intorder="1">Zhang2022</bcf:citekey>
+    <bcf:citekey order="43" intorder="1">Grimshaw2009</bcf:citekey>
+    <bcf:citekey order="44" intorder="1">Grimshaw2009</bcf:citekey>
+    <bcf:citekey order="45" intorder="1">Grimshaw2009</bcf:citekey>
+    <bcf:citekey order="46" intorder="1">KumarHayatdavoodi2023</bcf:citekey>
+    <bcf:citekey order="47" intorder="1">KumarHayatdavoodi2023</bcf:citekey>
+    <bcf:citekey order="48" intorder="1">Mudiyanselage2024</bcf:citekey>
+    <bcf:citekey order="49" intorder="1">Todd2019</bcf:citekey>
+    <bcf:citekey order="50" intorder="1">Honegger2018</bcf:citekey>
+    <bcf:citekey order="51" intorder="1">Honegger2018</bcf:citekey>
+    <bcf:citekey order="52" intorder="1">Honegger2018</bcf:citekey>
+    <bcf:citekey order="53" intorder="1">Honegger2018</bcf:citekey>
+    <bcf:citekey order="54" intorder="1">Cheriton2016</bcf:citekey>
+    <bcf:citekey order="54" intorder="2">Storlazzi2003</bcf:citekey>
+    <bcf:citekey order="54" intorder="3">Vetter2010</bcf:citekey>
+    <bcf:citekey order="54" intorder="4">HolmanGuza1984</bcf:citekey>
+    <bcf:citekey order="54" intorder="5">Elgar1994</bcf:citekey>
+    <bcf:citekey order="55" intorder="1">Vitousek2023</bcf:citekey>
+    <bcf:citekey order="55" intorder="2">Holman2013</bcf:citekey>
+    <bcf:citekey order="56" intorder="1">Holman2013</bcf:citekey>
+    <bcf:citekey order="57" intorder="1">Holman2013</bcf:citekey>
+    <bcf:citekey order="58" intorder="1">PODAACMissions</bcf:citekey>
+    <bcf:citekey order="59" intorder="1">Bergsma2019</bcf:citekey>
+    <bcf:citekey order="60" intorder="1">Bergsma2019</bcf:citekey>
+    <bcf:citekey order="61" intorder="1">Bergsma2019</bcf:citekey>
+    <bcf:citekey order="61" intorder="2">Kudryavtsev2017</bcf:citekey>
+    <bcf:citekey order="62" intorder="1">Bergsma2019</bcf:citekey>
+    <bcf:citekey order="63" intorder="1">Bergsma2019</bcf:citekey>
+    <bcf:citekey order="64" intorder="1">NASASARHandbook2019</bcf:citekey>
+    <bcf:citekey order="65" intorder="1">NASASARHandbook2019</bcf:citekey>
+    <bcf:citekey order="66" intorder="1">Bergsma2019</bcf:citekey>
+    <bcf:citekey order="66" intorder="2">Gens2008</bcf:citekey>
+    <bcf:citekey order="66" intorder="3">Fatoyinbo2021</bcf:citekey>
+    <bcf:citekey order="66" intorder="4">CMEMSSatellitesInstruments</bcf:citekey>
+    <bcf:citekey order="66" intorder="5">UAVSARJPL</bcf:citekey>
+    <bcf:citekey order="67" intorder="1">Bergsma2019</bcf:citekey>
+    <bcf:citekey order="68" intorder="1">Bergsma2019</bcf:citekey>
+    <bcf:citekey order="68" intorder="2">Rice1951</bcf:citekey>
+    <bcf:citekey order="68" intorder="3">Brusch2011</bcf:citekey>
+    <bcf:citekey order="69" intorder="1">Bergsma2019</bcf:citekey>
+    <bcf:citekey order="70" intorder="1">Bergsma2019</bcf:citekey>
+    <bcf:citekey order="70" intorder="2">Rice1951</bcf:citekey>
+    <bcf:citekey order="70" intorder="3">Brusch2011</bcf:citekey>
+    <bcf:citekey order="71" intorder="1">Bergsma2019</bcf:citekey>
+    <bcf:citekey order="72" intorder="1">Bergsma2019</bcf:citekey>
+    <bcf:citekey order="73" intorder="1">Bergsma2019</bcf:citekey>
+    <bcf:citekey order="73" intorder="2">Hasselmann2013</bcf:citekey>
+    <bcf:citekey order="74" intorder="1">Bergsma2019</bcf:citekey>
+    <bcf:citekey order="74" intorder="2">Hasselmann2013</bcf:citekey>
+    <bcf:citekey order="75" intorder="1">Hasselmann2013</bcf:citekey>
+    <bcf:citekey order="76" intorder="1">Hasselmann2013</bcf:citekey>
+    <bcf:citekey order="77" intorder="1">Bergsma2019</bcf:citekey>
+    <bcf:citekey order="78" intorder="1">Bergsma2019</bcf:citekey>
+    <bcf:citekey order="79" intorder="1">USGSRemoteSensingCompendium2020</bcf:citekey>
+    <bcf:citekey order="80" intorder="1">DaniloMelgani2016</bcf:citekey>
+    <bcf:citekey order="81" intorder="1">Rogers2018</bcf:citekey>
+    <bcf:citekey order="81" intorder="2">SWANTechnicalDocumentation</bcf:citekey>
+    <bcf:citekey order="81" intorder="3">Tolman2008</bcf:citekey>
+    <bcf:citekey order="82" intorder="1">PadillaHernandez2007</bcf:citekey>
+    <bcf:citekey order="83" intorder="1">SWANTechnicalDocumentation</bcf:citekey>
+    <bcf:citekey order="83" intorder="2">PadillaHernandez2007</bcf:citekey>
+    <bcf:citekey order="83" intorder="3">Ferdaus2025</bcf:citekey>
+    <bcf:citekey order="84" intorder="1">NOAACRMUserGuide2023</bcf:citekey>
+    <bcf:citekey order="85" intorder="1">NOAACRMUserGuide2023</bcf:citekey>
+    <bcf:citekey order="86" intorder="1">NOAACRMUserGuide2023</bcf:citekey>
+    <bcf:citekey order="87" intorder="1">Mudiyanselage2024</bcf:citekey>
+    <bcf:citekey order="88" intorder="1">Singh2024</bcf:citekey>
+    <bcf:citekey order="89" intorder="1">Singh2024</bcf:citekey>
+    <bcf:citekey order="90" intorder="1">Bergsma2019</bcf:citekey>
+    <bcf:citekey order="91" intorder="1">Bergsma2019</bcf:citekey>
+    <bcf:citekey order="92" intorder="1">Bergsma2019</bcf:citekey>
+    <bcf:citekey order="93" intorder="1">Bergsma2019</bcf:citekey>
+    <bcf:citekey order="94" intorder="1">Mudiyanselage2024</bcf:citekey>
   </bcf:section>
   <!-- SORTING TEMPLATES -->
   <bcf:sortingtemplate name="none">
