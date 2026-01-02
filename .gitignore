@@ -81,6 +81,7 @@ data/
 data/**
 images/
 docs/
+docs/*
 # output/
 # outputs/
 # downloads/
